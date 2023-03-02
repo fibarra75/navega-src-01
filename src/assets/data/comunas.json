@@ -1,0 +1,1732 @@
+[
+    {
+        "idComuna": 1101,
+        "idRegion": 1,
+        "nombre": "Iquique"
+    },
+    {
+        "idComuna": 1107,
+        "idRegion": 1,
+        "nombre": "Alto Hospicio"
+    },
+    {
+        "idComuna": 1401,
+        "idRegion": 1,
+        "nombre": "Pozo Almonte"
+    },
+    {
+        "idComuna": 1402,
+        "idRegion": 1,
+        "nombre": "Camiña"
+    },
+    {
+        "idComuna": 1403,
+        "idRegion": 1,
+        "nombre": "Colchane"
+    },
+    {
+        "idComuna": 1404,
+        "idRegion": 1,
+        "nombre": "Huara"
+    },
+    {
+        "idComuna": 1405,
+        "idRegion": 1,
+        "nombre": "Pica"
+    },
+    {
+        "idComuna": 2101,
+        "idRegion": 2,
+        "nombre": "Antofagasta"
+    },
+    {
+        "idComuna": 2102,
+        "idRegion": 2,
+        "nombre": "Mejillones"
+    },
+    {
+        "idComuna": 2103,
+        "idRegion": 2,
+        "nombre": "Sierra Gorda"
+    },
+    {
+        "idComuna": 2104,
+        "idRegion": 2,
+        "nombre": "Taltal"
+    },
+    {
+        "idComuna": 2201,
+        "idRegion": 2,
+        "nombre": "Calama"
+    },
+    {
+        "idComuna": 2202,
+        "idRegion": 2,
+        "nombre": "Ollagüe"
+    },
+    {
+        "idComuna": 2203,
+        "idRegion": 2,
+        "nombre": "San Pedro de Atacama"
+    },
+    {
+        "idComuna": 2301,
+        "idRegion": 2,
+        "nombre": "Tocopilla"
+    },
+    {
+        "idComuna": 2302,
+        "idRegion": 2,
+        "nombre": "María Elena"
+    },
+    {
+        "idComuna": 3101,
+        "idRegion": 3,
+        "nombre": "Copiapó"
+    },
+    {
+        "idComuna": 3102,
+        "idRegion": 3,
+        "nombre": "Caldera"
+    },
+    {
+        "idComuna": 3103,
+        "idRegion": 3,
+        "nombre": "Tierra Amarilla"
+    },
+    {
+        "idComuna": 3201,
+        "idRegion": 3,
+        "nombre": "Chañaral"
+    },
+    {
+        "idComuna": 3202,
+        "idRegion": 3,
+        "nombre": "Diego de Almagro"
+    },
+    {
+        "idComuna": 3301,
+        "idRegion": 3,
+        "nombre": "Vallenar"
+    },
+    {
+        "idComuna": 3302,
+        "idRegion": 3,
+        "nombre": "Alto del Carmen"
+    },
+    {
+        "idComuna": 3303,
+        "idRegion": 3,
+        "nombre": "Freirina"
+    },
+    {
+        "idComuna": 3304,
+        "idRegion": 3,
+        "nombre": "Huasco"
+    },
+    {
+        "idComuna": 4101,
+        "idRegion": 4,
+        "nombre": "La Serena"
+    },
+    {
+        "idComuna": 4102,
+        "idRegion": 4,
+        "nombre": "Coquimbo"
+    },
+    {
+        "idComuna": 4103,
+        "idRegion": 4,
+        "nombre": "Andacollo"
+    },
+    {
+        "idComuna": 4104,
+        "idRegion": 4,
+        "nombre": "La Higuera"
+    },
+    {
+        "idComuna": 4105,
+        "idRegion": 4,
+        "nombre": "Paiguano"
+    },
+    {
+        "idComuna": 4106,
+        "idRegion": 4,
+        "nombre": "Vicuña"
+    },
+    {
+        "idComuna": 4201,
+        "idRegion": 4,
+        "nombre": "Illapel"
+    },
+    {
+        "idComuna": 4202,
+        "idRegion": 4,
+        "nombre": "Canela"
+    },
+    {
+        "idComuna": 4203,
+        "idRegion": 4,
+        "nombre": "Los Vilos"
+    },
+    {
+        "idComuna": 4204,
+        "idRegion": 4,
+        "nombre": "Salamanca"
+    },
+    {
+        "idComuna": 4301,
+        "idRegion": 4,
+        "nombre": "Ovalle"
+    },
+    {
+        "idComuna": 4302,
+        "idRegion": 4,
+        "nombre": "Combarbalá"
+    },
+    {
+        "idComuna": 4303,
+        "idRegion": 4,
+        "nombre": "Monte Patria"
+    },
+    {
+        "idComuna": 4304,
+        "idRegion": 4,
+        "nombre": "Punitaqui"
+    },
+    {
+        "idComuna": 4305,
+        "idRegion": 4,
+        "nombre": "Río Hurtado"
+    },
+    {
+        "idComuna": 5101,
+        "idRegion": 5,
+        "nombre": "Valparaíso"
+    },
+    {
+        "idComuna": 5102,
+        "idRegion": 5,
+        "nombre": "Casablanca"
+    },
+    {
+        "idComuna": 5103,
+        "idRegion": 5,
+        "nombre": "Concón"
+    },
+    {
+        "idComuna": 5104,
+        "idRegion": 5,
+        "nombre": "Juan Fernández"
+    },
+    {
+        "idComuna": 5105,
+        "idRegion": 5,
+        "nombre": "Puchuncaví"
+    },
+    {
+        "idComuna": 5107,
+        "idRegion": 5,
+        "nombre": "Quintero"
+    },
+    {
+        "idComuna": 5109,
+        "idRegion": 5,
+        "nombre": "Viña del Mar"
+    },
+    {
+        "idComuna": 5201,
+        "idRegion": 5,
+        "nombre": "Isla  de Pascua"
+    },
+    {
+        "idComuna": 5301,
+        "idRegion": 5,
+        "nombre": "Los Andes"
+    },
+    {
+        "idComuna": 5302,
+        "idRegion": 5,
+        "nombre": "Calle Larga"
+    },
+    {
+        "idComuna": 5303,
+        "idRegion": 5,
+        "nombre": "Rinconada"
+    },
+    {
+        "idComuna": 5304,
+        "idRegion": 5,
+        "nombre": "San Esteban"
+    },
+    {
+        "idComuna": 5401,
+        "idRegion": 5,
+        "nombre": "La Ligua"
+    },
+    {
+        "idComuna": 5402,
+        "idRegion": 5,
+        "nombre": "Cabildo"
+    },
+    {
+        "idComuna": 5403,
+        "idRegion": 5,
+        "nombre": "Papudo"
+    },
+    {
+        "idComuna": 5404,
+        "idRegion": 5,
+        "nombre": "Petorca"
+    },
+    {
+        "idComuna": 5405,
+        "idRegion": 5,
+        "nombre": "Zapallar"
+    },
+    {
+        "idComuna": 5501,
+        "idRegion": 5,
+        "nombre": "Quillota"
+    },
+    {
+        "idComuna": 5502,
+        "idRegion": 5,
+        "nombre": "Calera"
+    },
+    {
+        "idComuna": 5503,
+        "idRegion": 5,
+        "nombre": "Hijuelas"
+    },
+    {
+        "idComuna": 5504,
+        "idRegion": 5,
+        "nombre": "La Cruz"
+    },
+    {
+        "idComuna": 5506,
+        "idRegion": 5,
+        "nombre": "Nogales"
+    },
+    {
+        "idComuna": 5601,
+        "idRegion": 5,
+        "nombre": "San Antonio"
+    },
+    {
+        "idComuna": 5602,
+        "idRegion": 5,
+        "nombre": "Algarrobo"
+    },
+    {
+        "idComuna": 5603,
+        "idRegion": 5,
+        "nombre": "Cartagena"
+    },
+    {
+        "idComuna": 5604,
+        "idRegion": 5,
+        "nombre": "El Quisco"
+    },
+    {
+        "idComuna": 5605,
+        "idRegion": 5,
+        "nombre": "El Tabo"
+    },
+    {
+        "idComuna": 5606,
+        "idRegion": 5,
+        "nombre": "Santo Domingo"
+    },
+    {
+        "idComuna": 5701,
+        "idRegion": 5,
+        "nombre": "San Felipe"
+    },
+    {
+        "idComuna": 5702,
+        "idRegion": 5,
+        "nombre": "Catemu"
+    },
+    {
+        "idComuna": 5703,
+        "idRegion": 5,
+        "nombre": "Llaillay"
+    },
+    {
+        "idComuna": 5704,
+        "idRegion": 5,
+        "nombre": "Panquehue"
+    },
+    {
+        "idComuna": 5705,
+        "idRegion": 5,
+        "nombre": "Putaendo"
+    },
+    {
+        "idComuna": 5706,
+        "idRegion": 5,
+        "nombre": "Santa María"
+    },
+    {
+        "idComuna": 5801,
+        "idRegion": 5,
+        "nombre": "Quilpué"
+    },
+    {
+        "idComuna": 5802,
+        "idRegion": 5,
+        "nombre": "Limache"
+    },
+    {
+        "idComuna": 5803,
+        "idRegion": 5,
+        "nombre": "Olmué"
+    },
+    {
+        "idComuna": 5804,
+        "idRegion": 5,
+        "nombre": "Villa Alemana"
+    },
+    {
+        "idComuna": 6101,
+        "idRegion": 6,
+        "nombre": "Rancagua"
+    },
+    {
+        "idComuna": 6102,
+        "idRegion": 6,
+        "nombre": "Codegua"
+    },
+    {
+        "idComuna": 6103,
+        "idRegion": 6,
+        "nombre": "Coinco"
+    },
+    {
+        "idComuna": 6104,
+        "idRegion": 6,
+        "nombre": "Coltauco"
+    },
+    {
+        "idComuna": 6105,
+        "idRegion": 6,
+        "nombre": "Doñihue"
+    },
+    {
+        "idComuna": 6106,
+        "idRegion": 6,
+        "nombre": "Graneros"
+    },
+    {
+        "idComuna": 6107,
+        "idRegion": 6,
+        "nombre": "Las Cabras"
+    },
+    {
+        "idComuna": 6108,
+        "idRegion": 6,
+        "nombre": "Machalí"
+    },
+    {
+        "idComuna": 6109,
+        "idRegion": 6,
+        "nombre": "Malloa"
+    },
+    {
+        "idComuna": 6110,
+        "idRegion": 6,
+        "nombre": "Mostazal"
+    },
+    {
+        "idComuna": 6111,
+        "idRegion": 6,
+        "nombre": "Olivar"
+    },
+    {
+        "idComuna": 6112,
+        "idRegion": 6,
+        "nombre": "Peumo"
+    },
+    {
+        "idComuna": 6113,
+        "idRegion": 6,
+        "nombre": "Pichidegua"
+    },
+    {
+        "idComuna": 6114,
+        "idRegion": 6,
+        "nombre": "Quinta de Tilcoco"
+    },
+    {
+        "idComuna": 6115,
+        "idRegion": 6,
+        "nombre": "Rengo"
+    },
+    {
+        "idComuna": 6116,
+        "idRegion": 6,
+        "nombre": "Requínoa"
+    },
+    {
+        "idComuna": 6117,
+        "idRegion": 6,
+        "nombre": "San Vicente"
+    },
+    {
+        "idComuna": 6201,
+        "idRegion": 6,
+        "nombre": "Pichilemu"
+    },
+    {
+        "idComuna": 6202,
+        "idRegion": 6,
+        "nombre": "La Estrella"
+    },
+    {
+        "idComuna": 6203,
+        "idRegion": 6,
+        "nombre": "Litueche"
+    },
+    {
+        "idComuna": 6204,
+        "idRegion": 6,
+        "nombre": "Marchihue"
+    },
+    {
+        "idComuna": 6205,
+        "idRegion": 6,
+        "nombre": "Navidad"
+    },
+    {
+        "idComuna": 6206,
+        "idRegion": 6,
+        "nombre": "Paredones"
+    },
+    {
+        "idComuna": 6301,
+        "idRegion": 6,
+        "nombre": "San Fernando"
+    },
+    {
+        "idComuna": 6302,
+        "idRegion": 6,
+        "nombre": "Chépica"
+    },
+    {
+        "idComuna": 6303,
+        "idRegion": 6,
+        "nombre": "Chimbarongo"
+    },
+    {
+        "idComuna": 6304,
+        "idRegion": 6,
+        "nombre": "Lolol"
+    },
+    {
+        "idComuna": 6305,
+        "idRegion": 6,
+        "nombre": "Nancagua"
+    },
+    {
+        "idComuna": 6306,
+        "idRegion": 6,
+        "nombre": "Palmilla"
+    },
+    {
+        "idComuna": 6307,
+        "idRegion": 6,
+        "nombre": "Peralillo"
+    },
+    {
+        "idComuna": 6308,
+        "idRegion": 6,
+        "nombre": "Placilla"
+    },
+    {
+        "idComuna": 6309,
+        "idRegion": 6,
+        "nombre": "Pumanque"
+    },
+    {
+        "idComuna": 6310,
+        "idRegion": 6,
+        "nombre": "Santa Cruz"
+    },
+    {
+        "idComuna": 7101,
+        "idRegion": 7,
+        "nombre": "Talca"
+    },
+    {
+        "idComuna": 7102,
+        "idRegion": 7,
+        "nombre": "Constitución"
+    },
+    {
+        "idComuna": 7103,
+        "idRegion": 7,
+        "nombre": "Curepto"
+    },
+    {
+        "idComuna": 7104,
+        "idRegion": 7,
+        "nombre": "Empedrado"
+    },
+    {
+        "idComuna": 7105,
+        "idRegion": 7,
+        "nombre": "Maule"
+    },
+    {
+        "idComuna": 7106,
+        "idRegion": 7,
+        "nombre": "Pelarco"
+    },
+    {
+        "idComuna": 7107,
+        "idRegion": 7,
+        "nombre": "Pencahue"
+    },
+    {
+        "idComuna": 7108,
+        "idRegion": 7,
+        "nombre": "Río Claro"
+    },
+    {
+        "idComuna": 7109,
+        "idRegion": 7,
+        "nombre": "San Clemente"
+    },
+    {
+        "idComuna": 7110,
+        "idRegion": 7,
+        "nombre": "San Rafael"
+    },
+    {
+        "idComuna": 7201,
+        "idRegion": 7,
+        "nombre": "Cauquenes"
+    },
+    {
+        "idComuna": 7202,
+        "idRegion": 7,
+        "nombre": "Chanco"
+    },
+    {
+        "idComuna": 7203,
+        "idRegion": 7,
+        "nombre": "Pelluhue"
+    },
+    {
+        "idComuna": 7301,
+        "idRegion": 7,
+        "nombre": "Curicó"
+    },
+    {
+        "idComuna": 7302,
+        "idRegion": 7,
+        "nombre": "Hualañé"
+    },
+    {
+        "idComuna": 7303,
+        "idRegion": 7,
+        "nombre": "Licantén"
+    },
+    {
+        "idComuna": 7304,
+        "idRegion": 7,
+        "nombre": "Molina"
+    },
+    {
+        "idComuna": 7305,
+        "idRegion": 7,
+        "nombre": "Rauco"
+    },
+    {
+        "idComuna": 7306,
+        "idRegion": 7,
+        "nombre": "Romeral"
+    },
+    {
+        "idComuna": 7307,
+        "idRegion": 7,
+        "nombre": "Sagrada Familia"
+    },
+    {
+        "idComuna": 7308,
+        "idRegion": 7,
+        "nombre": "Teno"
+    },
+    {
+        "idComuna": 7309,
+        "idRegion": 7,
+        "nombre": "Vichuquén"
+    },
+    {
+        "idComuna": 7401,
+        "idRegion": 7,
+        "nombre": "Linares"
+    },
+    {
+        "idComuna": 7402,
+        "idRegion": 7,
+        "nombre": "Colbún"
+    },
+    {
+        "idComuna": 7403,
+        "idRegion": 7,
+        "nombre": "Longaví"
+    },
+    {
+        "idComuna": 7404,
+        "idRegion": 7,
+        "nombre": "Parral"
+    },
+    {
+        "idComuna": 7405,
+        "idRegion": 7,
+        "nombre": "Retiro"
+    },
+    {
+        "idComuna": 7406,
+        "idRegion": 7,
+        "nombre": "San Javier"
+    },
+    {
+        "idComuna": 7407,
+        "idRegion": 7,
+        "nombre": "Villa Alegre"
+    },
+    {
+        "idComuna": 7408,
+        "idRegion": 7,
+        "nombre": "Yerbas Buenas"
+    },
+    {
+        "idComuna": 8101,
+        "idRegion": 8,
+        "nombre": "Concepción"
+    },
+    {
+        "idComuna": 8102,
+        "idRegion": 8,
+        "nombre": "Coronel"
+    },
+    {
+        "idComuna": 8103,
+        "idRegion": 8,
+        "nombre": "Chiguayante"
+    },
+    {
+        "idComuna": 8104,
+        "idRegion": 8,
+        "nombre": "Florida"
+    },
+    {
+        "idComuna": 8105,
+        "idRegion": 8,
+        "nombre": "Hualqui"
+    },
+    {
+        "idComuna": 8106,
+        "idRegion": 8,
+        "nombre": "Lota"
+    },
+    {
+        "idComuna": 8107,
+        "idRegion": 8,
+        "nombre": "Penco"
+    },
+    {
+        "idComuna": 8108,
+        "idRegion": 8,
+        "nombre": "San Pedro de la Paz"
+    },
+    {
+        "idComuna": 8109,
+        "idRegion": 8,
+        "nombre": "Santa Juana"
+    },
+    {
+        "idComuna": 8110,
+        "idRegion": 8,
+        "nombre": "Talcahuano"
+    },
+    {
+        "idComuna": 8111,
+        "idRegion": 8,
+        "nombre": "Tomé"
+    },
+    {
+        "idComuna": 8112,
+        "idRegion": 8,
+        "nombre": "Hualpén"
+    },
+    {
+        "idComuna": 8201,
+        "idRegion": 8,
+        "nombre": "Lebu"
+    },
+    {
+        "idComuna": 8202,
+        "idRegion": 8,
+        "nombre": "Arauco"
+    },
+    {
+        "idComuna": 8203,
+        "idRegion": 8,
+        "nombre": "Cañete"
+    },
+    {
+        "idComuna": 8204,
+        "idRegion": 8,
+        "nombre": "Contulmo"
+    },
+    {
+        "idComuna": 8205,
+        "idRegion": 8,
+        "nombre": "Curanilahue"
+    },
+    {
+        "idComuna": 8206,
+        "idRegion": 8,
+        "nombre": "Los Álamos"
+    },
+    {
+        "idComuna": 8207,
+        "idRegion": 8,
+        "nombre": "Tirúa"
+    },
+    {
+        "idComuna": 8301,
+        "idRegion": 8,
+        "nombre": "Los Ángeles"
+    },
+    {
+        "idComuna": 8302,
+        "idRegion": 8,
+        "nombre": "Antuco"
+    },
+    {
+        "idComuna": 8303,
+        "idRegion": 8,
+        "nombre": "Cabrero"
+    },
+    {
+        "idComuna": 8304,
+        "idRegion": 8,
+        "nombre": "Laja"
+    },
+    {
+        "idComuna": 8305,
+        "idRegion": 8,
+        "nombre": "Mulchén"
+    },
+    {
+        "idComuna": 8306,
+        "idRegion": 8,
+        "nombre": "Nacimiento"
+    },
+    {
+        "idComuna": 8307,
+        "idRegion": 8,
+        "nombre": "Negrete"
+    },
+    {
+        "idComuna": 8308,
+        "idRegion": 8,
+        "nombre": "Quilaco"
+    },
+    {
+        "idComuna": 8309,
+        "idRegion": 8,
+        "nombre": "Quilleco"
+    },
+    {
+        "idComuna": 8310,
+        "idRegion": 8,
+        "nombre": "San Rosendo"
+    },
+    {
+        "idComuna": 8311,
+        "idRegion": 8,
+        "nombre": "Santa Bárbara"
+    },
+    {
+        "idComuna": 8312,
+        "idRegion": 8,
+        "nombre": "Tucapel"
+    },
+    {
+        "idComuna": 8313,
+        "idRegion": 8,
+        "nombre": "Yumbel"
+    },
+    {
+        "idComuna": 8314,
+        "idRegion": 8,
+        "nombre": "Alto Biobío"
+    },
+    {
+        "idComuna": 9101,
+        "idRegion": 9,
+        "nombre": "Temuco"
+    },
+    {
+        "idComuna": 9102,
+        "idRegion": 9,
+        "nombre": "Carahue"
+    },
+    {
+        "idComuna": 9103,
+        "idRegion": 9,
+        "nombre": "Cunco"
+    },
+    {
+        "idComuna": 9104,
+        "idRegion": 9,
+        "nombre": "Curarrehue"
+    },
+    {
+        "idComuna": 9105,
+        "idRegion": 9,
+        "nombre": "Freire"
+    },
+    {
+        "idComuna": 9106,
+        "idRegion": 9,
+        "nombre": "Galvarino"
+    },
+    {
+        "idComuna": 9107,
+        "idRegion": 9,
+        "nombre": "Gorbea"
+    },
+    {
+        "idComuna": 9108,
+        "idRegion": 9,
+        "nombre": "Lautaro"
+    },
+    {
+        "idComuna": 9109,
+        "idRegion": 9,
+        "nombre": "Loncoche"
+    },
+    {
+        "idComuna": 9110,
+        "idRegion": 9,
+        "nombre": "Melipeuco"
+    },
+    {
+        "idComuna": 9111,
+        "idRegion": 9,
+        "nombre": "Nueva Imperial"
+    },
+    {
+        "idComuna": 9112,
+        "idRegion": 9,
+        "nombre": "Padre Las Casas"
+    },
+    {
+        "idComuna": 9113,
+        "idRegion": 9,
+        "nombre": "Perquenco"
+    },
+    {
+        "idComuna": 9114,
+        "idRegion": 9,
+        "nombre": "Pitrufquén"
+    },
+    {
+        "idComuna": 9115,
+        "idRegion": 9,
+        "nombre": "Pucón"
+    },
+    {
+        "idComuna": 9116,
+        "idRegion": 9,
+        "nombre": "Saavedra"
+    },
+    {
+        "idComuna": 9117,
+        "idRegion": 9,
+        "nombre": "Teodoro Schmidt"
+    },
+    {
+        "idComuna": 9118,
+        "idRegion": 9,
+        "nombre": "Toltén"
+    },
+    {
+        "idComuna": 9119,
+        "idRegion": 9,
+        "nombre": "Vilcún"
+    },
+    {
+        "idComuna": 9120,
+        "idRegion": 9,
+        "nombre": "Villarrica"
+    },
+    {
+        "idComuna": 9121,
+        "idRegion": 9,
+        "nombre": "Cholchol"
+    },
+    {
+        "idComuna": 9201,
+        "idRegion": 9,
+        "nombre": "Angol"
+    },
+    {
+        "idComuna": 9202,
+        "idRegion": 9,
+        "nombre": "Collipulli"
+    },
+    {
+        "idComuna": 9203,
+        "idRegion": 9,
+        "nombre": "Curacautín"
+    },
+    {
+        "idComuna": 9204,
+        "idRegion": 9,
+        "nombre": "Ercilla"
+    },
+    {
+        "idComuna": 9205,
+        "idRegion": 9,
+        "nombre": "Lonquimay"
+    },
+    {
+        "idComuna": 9206,
+        "idRegion": 9,
+        "nombre": "Los Sauces"
+    },
+    {
+        "idComuna": 9207,
+        "idRegion": 9,
+        "nombre": "Lumaco"
+    },
+    {
+        "idComuna": 9208,
+        "idRegion": 9,
+        "nombre": "Purén"
+    },
+    {
+        "idComuna": 9209,
+        "idRegion": 9,
+        "nombre": "Renaico"
+    },
+    {
+        "idComuna": 9210,
+        "idRegion": 9,
+        "nombre": "Traiguén"
+    },
+    {
+        "idComuna": 9211,
+        "idRegion": 9,
+        "nombre": "Victoria"
+    },
+    {
+        "idComuna": 10101,
+        "idRegion": 10,
+        "nombre": "Puerto Montt"
+    },
+    {
+        "idComuna": 10102,
+        "idRegion": 10,
+        "nombre": "Calbuco"
+    },
+    {
+        "idComuna": 10103,
+        "idRegion": 10,
+        "nombre": "Cochamó"
+    },
+    {
+        "idComuna": 10104,
+        "idRegion": 10,
+        "nombre": "Fresia"
+    },
+    {
+        "idComuna": 10105,
+        "idRegion": 10,
+        "nombre": "Frutillar"
+    },
+    {
+        "idComuna": 10106,
+        "idRegion": 10,
+        "nombre": "Los Muermos"
+    },
+    {
+        "idComuna": 10107,
+        "idRegion": 10,
+        "nombre": "Llanquihue"
+    },
+    {
+        "idComuna": 10108,
+        "idRegion": 10,
+        "nombre": "Maullín"
+    },
+    {
+        "idComuna": 10109,
+        "idRegion": 10,
+        "nombre": "Puerto Varas"
+    },
+    {
+        "idComuna": 10201,
+        "idRegion": 10,
+        "nombre": "Castro"
+    },
+    {
+        "idComuna": 10202,
+        "idRegion": 10,
+        "nombre": "Ancud"
+    },
+    {
+        "idComuna": 10203,
+        "idRegion": 10,
+        "nombre": "Chonchi"
+    },
+    {
+        "idComuna": 10204,
+        "idRegion": 10,
+        "nombre": "Curaco de Vélez"
+    },
+    {
+        "idComuna": 10205,
+        "idRegion": 10,
+        "nombre": "Dalcahue"
+    },
+    {
+        "idComuna": 10206,
+        "idRegion": 10,
+        "nombre": "Puqueldón"
+    },
+    {
+        "idComuna": 10207,
+        "idRegion": 10,
+        "nombre": "Queilén"
+    },
+    {
+        "idComuna": 10208,
+        "idRegion": 10,
+        "nombre": "Quellón"
+    },
+    {
+        "idComuna": 10209,
+        "idRegion": 10,
+        "nombre": "Quemchi"
+    },
+    {
+        "idComuna": 10210,
+        "idRegion": 10,
+        "nombre": "Quinchao"
+    },
+    {
+        "idComuna": 10301,
+        "idRegion": 10,
+        "nombre": "Osorno"
+    },
+    {
+        "idComuna": 10302,
+        "idRegion": 10,
+        "nombre": "Puerto Octay"
+    },
+    {
+        "idComuna": 10303,
+        "idRegion": 10,
+        "nombre": "Purranque"
+    },
+    {
+        "idComuna": 10304,
+        "idRegion": 10,
+        "nombre": "Puyehue"
+    },
+    {
+        "idComuna": 10305,
+        "idRegion": 10,
+        "nombre": "Río Negro"
+    },
+    {
+        "idComuna": 10306,
+        "idRegion": 10,
+        "nombre": "San Juan de la Costa"
+    },
+    {
+        "idComuna": 10307,
+        "idRegion": 10,
+        "nombre": "San Pablo"
+    },
+    {
+        "idComuna": 10401,
+        "idRegion": 10,
+        "nombre": "Chaitén"
+    },
+    {
+        "idComuna": 10402,
+        "idRegion": 10,
+        "nombre": "Futaleufú"
+    },
+    {
+        "idComuna": 10403,
+        "idRegion": 10,
+        "nombre": "Hualaihué"
+    },
+    {
+        "idComuna": 10404,
+        "idRegion": 10,
+        "nombre": "Palena"
+    },
+    {
+        "idComuna": 11101,
+        "idRegion": 11,
+        "nombre": "Coihaique"
+    },
+    {
+        "idComuna": 11102,
+        "idRegion": 11,
+        "nombre": "Lago Verde"
+    },
+    {
+        "idComuna": 11201,
+        "idRegion": 11,
+        "nombre": "Aisén"
+    },
+    {
+        "idComuna": 11202,
+        "idRegion": 11,
+        "nombre": "Cisnes"
+    },
+    {
+        "idComuna": 11203,
+        "idRegion": 11,
+        "nombre": "Guaitecas"
+    },
+    {
+        "idComuna": 11301,
+        "idRegion": 11,
+        "nombre": "Cochrane"
+    },
+    {
+        "idComuna": 11302,
+        "idRegion": 11,
+        "nombre": "O'Higgins"
+    },
+    {
+        "idComuna": 11303,
+        "idRegion": 11,
+        "nombre": "Tortel"
+    },
+    {
+        "idComuna": 11401,
+        "idRegion": 11,
+        "nombre": "Chile Chico"
+    },
+    {
+        "idComuna": 11402,
+        "idRegion": 11,
+        "nombre": "Río Ibáñez"
+    },
+    {
+        "idComuna": 12101,
+        "idRegion": 12,
+        "nombre": "Punta Arenas"
+    },
+    {
+        "idComuna": 12102,
+        "idRegion": 12,
+        "nombre": "Laguna Blanca"
+    },
+    {
+        "idComuna": 12103,
+        "idRegion": 12,
+        "nombre": "Río Verde"
+    },
+    {
+        "idComuna": 12104,
+        "idRegion": 12,
+        "nombre": "San Gregorio"
+    },
+    {
+        "idComuna": 12201,
+        "idRegion": 12,
+        "nombre": "Cabo de Hornos"
+    },
+    {
+        "idComuna": 12202,
+        "idRegion": 12,
+        "nombre": "Antártica"
+    },
+    {
+        "idComuna": 12301,
+        "idRegion": 12,
+        "nombre": "Porvenir"
+    },
+    {
+        "idComuna": 12302,
+        "idRegion": 12,
+        "nombre": "Primavera"
+    },
+    {
+        "idComuna": 12303,
+        "idRegion": 12,
+        "nombre": "Timaukel"
+    },
+    {
+        "idComuna": 12401,
+        "idRegion": 12,
+        "nombre": "Natales"
+    },
+    {
+        "idComuna": 12402,
+        "idRegion": 12,
+        "nombre": "Torres del Paine"
+    },
+    {
+        "idComuna": 13101,
+        "idRegion": 13,
+        "nombre": "Santiago"
+    },
+    {
+        "idComuna": 13102,
+        "idRegion": 13,
+        "nombre": "Cerrillos"
+    },
+    {
+        "idComuna": 13103,
+        "idRegion": 13,
+        "nombre": "Cerro Navia"
+    },
+    {
+        "idComuna": 13104,
+        "idRegion": 13,
+        "nombre": "Conchalí"
+    },
+    {
+        "idComuna": 13105,
+        "idRegion": 13,
+        "nombre": "El Bosque"
+    },
+    {
+        "idComuna": 13106,
+        "idRegion": 13,
+        "nombre": "Estación Central"
+    },
+    {
+        "idComuna": 13107,
+        "idRegion": 13,
+        "nombre": "Huechuraba"
+    },
+    {
+        "idComuna": 13108,
+        "idRegion": 13,
+        "nombre": "Independencia"
+    },
+    {
+        "idComuna": 13109,
+        "idRegion": 13,
+        "nombre": "La Cisterna"
+    },
+    {
+        "idComuna": 13110,
+        "idRegion": 13,
+        "nombre": "La Florida"
+    },
+    {
+        "idComuna": 13111,
+        "idRegion": 13,
+        "nombre": "La Granja"
+    },
+    {
+        "idComuna": 13112,
+        "idRegion": 13,
+        "nombre": "La Pintana"
+    },
+    {
+        "idComuna": 13113,
+        "idRegion": 13,
+        "nombre": "La Reina"
+    },
+    {
+        "idComuna": 13114,
+        "idRegion": 13,
+        "nombre": "Las Condes"
+    },
+    {
+        "idComuna": 13115,
+        "idRegion": 13,
+        "nombre": "Lo Barnechea"
+    },
+    {
+        "idComuna": 13116,
+        "idRegion": 13,
+        "nombre": "Lo Espejo"
+    },
+    {
+        "idComuna": 13117,
+        "idRegion": 13,
+        "nombre": "Lo Prado"
+    },
+    {
+        "idComuna": 13118,
+        "idRegion": 13,
+        "nombre": "Macul"
+    },
+    {
+        "idComuna": 13119,
+        "idRegion": 13,
+        "nombre": "Maipú"
+    },
+    {
+        "idComuna": 13120,
+        "idRegion": 13,
+        "nombre": "Ñuñoa"
+    },
+    {
+        "idComuna": 13121,
+        "idRegion": 13,
+        "nombre": "Pedro Aguirre Cerda"
+    },
+    {
+        "idComuna": 13122,
+        "idRegion": 13,
+        "nombre": "Peñalolén"
+    },
+    {
+        "idComuna": 13123,
+        "idRegion": 13,
+        "nombre": "Providencia"
+    },
+    {
+        "idComuna": 13124,
+        "idRegion": 13,
+        "nombre": "Pudahuel"
+    },
+    {
+        "idComuna": 13125,
+        "idRegion": 13,
+        "nombre": "Quilicura"
+    },
+    {
+        "idComuna": 13126,
+        "idRegion": 13,
+        "nombre": "Quinta Normal"
+    },
+    {
+        "idComuna": 13127,
+        "idRegion": 13,
+        "nombre": "Recoleta"
+    },
+    {
+        "idComuna": 13128,
+        "idRegion": 13,
+        "nombre": "Renca"
+    },
+    {
+        "idComuna": 13129,
+        "idRegion": 13,
+        "nombre": "San Joaquín"
+    },
+    {
+        "idComuna": 13130,
+        "idRegion": 13,
+        "nombre": "San Miguel"
+    },
+    {
+        "idComuna": 13131,
+        "idRegion": 13,
+        "nombre": "San Ramón"
+    },
+    {
+        "idComuna": 13132,
+        "idRegion": 13,
+        "nombre": "Vitacura"
+    },
+    {
+        "idComuna": 13201,
+        "idRegion": 13,
+        "nombre": "Puente Alto"
+    },
+    {
+        "idComuna": 13202,
+        "idRegion": 13,
+        "nombre": "Pirque"
+    },
+    {
+        "idComuna": 13203,
+        "idRegion": 13,
+        "nombre": "San José de Maipo"
+    },
+    {
+        "idComuna": 13301,
+        "idRegion": 13,
+        "nombre": "Colina"
+    },
+    {
+        "idComuna": 13302,
+        "idRegion": 13,
+        "nombre": "Lampa"
+    },
+    {
+        "idComuna": 13303,
+        "idRegion": 13,
+        "nombre": "Tiltil"
+    },
+    {
+        "idComuna": 13401,
+        "idRegion": 13,
+        "nombre": "San Bernardo"
+    },
+    {
+        "idComuna": 13402,
+        "idRegion": 13,
+        "nombre": "Buin"
+    },
+    {
+        "idComuna": 13403,
+        "idRegion": 13,
+        "nombre": "Calera de Tango"
+    },
+    {
+        "idComuna": 13404,
+        "idRegion": 13,
+        "nombre": "Paine"
+    },
+    {
+        "idComuna": 13501,
+        "idRegion": 13,
+        "nombre": "Melipilla"
+    },
+    {
+        "idComuna": 13502,
+        "idRegion": 13,
+        "nombre": "Alhué"
+    },
+    {
+        "idComuna": 13503,
+        "idRegion": 13,
+        "nombre": "Curacaví"
+    },
+    {
+        "idComuna": 13504,
+        "idRegion": 13,
+        "nombre": "María Pinto"
+    },
+    {
+        "idComuna": 13505,
+        "idRegion": 13,
+        "nombre": "San Pedro"
+    },
+    {
+        "idComuna": 13601,
+        "idRegion": 13,
+        "nombre": "Talagante"
+    },
+    {
+        "idComuna": 13602,
+        "idRegion": 13,
+        "nombre": "El Monte"
+    },
+    {
+        "idComuna": 13603,
+        "idRegion": 13,
+        "nombre": "Isla de Maipo"
+    },
+    {
+        "idComuna": 13604,
+        "idRegion": 13,
+        "nombre": "Padre Hurtado"
+    },
+    {
+        "idComuna": 13605,
+        "idRegion": 13,
+        "nombre": "Peñaflor"
+    },
+    {
+        "idComuna": 14101,
+        "idRegion": 14,
+        "nombre": "Valdivia"
+    },
+    {
+        "idComuna": 14102,
+        "idRegion": 14,
+        "nombre": "Corral"
+    },
+    {
+        "idComuna": 14103,
+        "idRegion": 14,
+        "nombre": "Lanco"
+    },
+    {
+        "idComuna": 14104,
+        "idRegion": 14,
+        "nombre": "Los Lagos"
+    },
+    {
+        "idComuna": 14105,
+        "idRegion": 14,
+        "nombre": "Máfil"
+    },
+    {
+        "idComuna": 14106,
+        "idRegion": 14,
+        "nombre": "Mariquina"
+    },
+    {
+        "idComuna": 14107,
+        "idRegion": 14,
+        "nombre": "Paillaco"
+    },
+    {
+        "idComuna": 14108,
+        "idRegion": 14,
+        "nombre": "Panguipulli"
+    },
+    {
+        "idComuna": 14201,
+        "idRegion": 14,
+        "nombre": "La Unión"
+    },
+    {
+        "idComuna": 14202,
+        "idRegion": 14,
+        "nombre": "Futrono"
+    },
+    {
+        "idComuna": 14203,
+        "idRegion": 14,
+        "nombre": "Lago Ranco"
+    },
+    {
+        "idComuna": 14204,
+        "idRegion": 14,
+        "nombre": "Río Bueno"
+    },
+    {
+        "idComuna": 15101,
+        "idRegion": 15,
+        "nombre": "Arica"
+    },
+    {
+        "idComuna": 15102,
+        "idRegion": 15,
+        "nombre": "Camarones"
+    },
+    {
+        "idComuna": 15201,
+        "idRegion": 15,
+        "nombre": "Putre"
+    },
+    {
+        "idComuna": 15202,
+        "idRegion": 15,
+        "nombre": "General Lagos"
+    },
+    {
+        "idComuna": 16101,
+        "idRegion": 16,
+        "nombre": "Chillán"
+    },
+    {
+        "idComuna": 16102,
+        "idRegion": 16,
+        "nombre": "Bulnes"
+    },
+    {
+        "idComuna": 16103,
+        "idRegion": 16,
+        "nombre": "Chillán Viejo"
+    },
+    {
+        "idComuna": 16104,
+        "idRegion": 16,
+        "nombre": "El Carmen"
+    },
+    {
+        "idComuna": 16105,
+        "idRegion": 16,
+        "nombre": "Pemuco"
+    },
+    {
+        "idComuna": 16106,
+        "idRegion": 16,
+        "nombre": "Pinto"
+    },
+    {
+        "idComuna": 16107,
+        "idRegion": 16,
+        "nombre": "Quillón"
+    },
+    {
+        "idComuna": 16108,
+        "idRegion": 16,
+        "nombre": "San Ignacio"
+    },
+    {
+        "idComuna": 16109,
+        "idRegion": 16,
+        "nombre": "Yungay"
+    },
+    {
+        "idComuna": 16201,
+        "idRegion": 16,
+        "nombre": "Quirihue"
+    },
+    {
+        "idComuna": 16202,
+        "idRegion": 16,
+        "nombre": "Cobquecura"
+    },
+    {
+        "idComuna": 16203,
+        "idRegion": 16,
+        "nombre": "Coelemu"
+    },
+    {
+        "idComuna": 16204,
+        "idRegion": 16,
+        "nombre": "Ninhue"
+    },
+    {
+        "idComuna": 16205,
+        "idRegion": 16,
+        "nombre": "Portezuelo"
+    },
+    {
+        "idComuna": 16206,
+        "idRegion": 16,
+        "nombre": "Ránquil"
+    },
+    {
+        "idComuna": 16207,
+        "idRegion": 16,
+        "nombre": "Treguaco"
+    },
+    {
+        "idComuna": 16301,
+        "idRegion": 16,
+        "nombre": "San Carlos"
+    },
+    {
+        "idComuna": 16302,
+        "idRegion": 16,
+        "nombre": "Coihueco"
+    },
+    {
+        "idComuna": 16303,
+        "idRegion": 16,
+        "nombre": "Ñiquén"
+    },
+    {
+        "idComuna": 16304,
+        "idRegion": 16,
+        "nombre": "San Fabián"
+    },
+    {
+        "idComuna": 16305,
+        "idRegion": 16,
+        "nombre": "San Nicolás"
+    }
+]

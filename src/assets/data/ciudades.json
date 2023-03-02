@@ -1,0 +1,414 @@
+[
+    {
+        "idCiudad": 1,
+        "nombre": "Santiago"
+    },
+    {
+        "idCiudad": 2,
+        "nombre": "Concepción"
+    },
+    {
+        "idCiudad": 3,
+        "nombre": "Puente Alto"
+    },
+    {
+        "idCiudad": 4,
+        "nombre": "Maipú"
+    },
+    {
+        "idCiudad": 5,
+        "nombre": "La Florida"
+    },
+    {
+        "idCiudad": 6,
+        "nombre": "Antofagasta"
+    },
+    {
+        "idCiudad": 7,
+        "nombre": "Viña del Mar"
+    },
+    {
+        "idCiudad": 8,
+        "nombre": "San Bernardo"
+    },
+    {
+        "idCiudad": 9,
+        "nombre": "Valparaíso"
+    },
+    {
+        "idCiudad": 10,
+        "nombre": "Temuco"
+    },
+    {
+        "idCiudad": 11,
+        "nombre": "Las Condes"
+    },
+    {
+        "idCiudad": 12,
+        "nombre": "Rancagua"
+    },
+    {
+        "idCiudad": 13,
+        "nombre": "Talca"
+    },
+    {
+        "idCiudad": 14,
+        "nombre": "Coquimbo"
+    },
+    {
+        "idCiudad": 15,
+        "nombre": "Arica"
+    },
+    {
+        "idCiudad": 16,
+        "nombre": "La Serena"
+    },
+    {
+        "idCiudad": 17,
+        "nombre": "Iquique"
+    },
+    {
+        "idCiudad": 18,
+        "nombre": "Puerto Montt"
+    },
+    {
+        "idCiudad": 19,
+        "nombre": "Chillán"
+    },
+    {
+        "idCiudad": 20,
+        "nombre": "Calama"
+    },
+    {
+        "idCiudad": 21,
+        "nombre": "Osorno"
+    },
+    {
+        "idCiudad": 22,
+        "nombre": "Copiapó"
+    },
+    {
+        "idCiudad": 23,
+        "nombre": "Valdivia"
+    },
+    {
+        "idCiudad": 24,
+        "nombre": "Quilpué"
+    },
+    {
+        "idCiudad": 25,
+        "nombre": "Talcahuano"
+    },
+    {
+        "idCiudad": 26,
+        "nombre": "Colina"
+    },
+    {
+        "idCiudad": 27,
+        "nombre": "Los Ángeles"
+    },
+    {
+        "idCiudad": 28,
+        "nombre": "Villa Alemana"
+    },
+    {
+        "idCiudad": 29,
+        "nombre": "Punta Arenas"
+    },
+    {
+        "idCiudad": 30,
+        "nombre": "La Granja"
+    },
+    {
+        "idCiudad": 31,
+        "nombre": "Coronel"
+    },
+    {
+        "idCiudad": 32,
+        "nombre": "Curicó"
+    },
+    {
+        "idCiudad": 33,
+        "nombre": "Alto Hospicio"
+    },
+    {
+        "idCiudad": 34,
+        "nombre": "Lo Barnechea"
+    },
+    {
+        "idCiudad": 35,
+        "nombre": "Espejo"
+    },
+    {
+        "idCiudad": 36,
+        "nombre": "Buin"
+    },
+    {
+        "idCiudad": 37,
+        "nombre": "San Joaquín"
+    },
+    {
+        "idCiudad": 38,
+        "nombre": "La Reina"
+    },
+    {
+        "idCiudad": 39,
+        "nombre": "Peñaflor"
+    },
+    {
+        "idCiudad": 40,
+        "nombre": "San Antonio"
+    },
+    {
+        "idCiudad": 41,
+        "nombre": "Chiguayante"
+    },
+    {
+        "idCiudad": 42,
+        "nombre": "Ovalle"
+    },
+    {
+        "idCiudad": 43,
+        "nombre": "Linares"
+    },
+    {
+        "idCiudad": 44,
+        "nombre": "Quillota"
+    },
+    {
+        "idCiudad": 45,
+        "nombre": "San Felipe"
+    },
+    {
+        "idCiudad": 46,
+        "nombre": "Coyhaique"
+    },
+    {
+        "idCiudad": 47,
+        "nombre": "Los Andes"
+    },
+    {
+        "idCiudad": 48,
+        "nombre": "San Fernando"
+    },
+    {
+        "idCiudad": 49,
+        "nombre": "Talagante"
+    },
+    {
+        "idCiudad": 50,
+        "nombre": "Villarrica"
+    },
+    {
+        "idCiudad": 51,
+        "nombre": "La Calera"
+    },
+    {
+        "idCiudad": 52,
+        "nombre": "Angol"
+    },
+    {
+        "idCiudad": 53,
+        "nombre": "Penco"
+    },
+    {
+        "idCiudad": 54,
+        "nombre": "Vallenar"
+    },
+    {
+        "idCiudad": 55,
+        "nombre": "Lota"
+    },
+    {
+        "idCiudad": 56,
+        "nombre": "Tomé"
+    },
+    {
+        "idCiudad": 57,
+        "nombre": "Alerce"
+    },
+    {
+        "idCiudad": 58,
+        "nombre": "Parral"
+    },
+    {
+        "idCiudad": 59,
+        "nombre": "Placilla de Peñuelas"
+    },
+    {
+        "idCiudad": 60,
+        "nombre": "Ancud"
+    },
+    {
+        "idCiudad": 61,
+        "nombre": "Constitución"
+    },
+    {
+        "idCiudad": 62,
+        "nombre": "Lampa"
+    },
+    {
+        "idCiudad": 63,
+        "nombre": "Isla de Maipo"
+    },
+    {
+        "idCiudad": 64,
+        "nombre": "Victoria"
+    },
+    {
+        "idCiudad": 65,
+        "nombre": "Cañete"
+    },
+    {
+        "idCiudad": 66,
+        "nombre": "Castro"
+    },
+    {
+        "idCiudad": 67,
+        "nombre": "Curanilahue"
+    },
+    {
+        "idCiudad": 68,
+        "nombre": "Concón"
+    },
+    {
+        "idCiudad": 69,
+        "nombre": "Quintero"
+    },
+    {
+        "idCiudad": 70,
+        "nombre": "Nueva Imperial"
+    },
+    {
+        "idCiudad": 71,
+        "nombre": "Cauquenes"
+    },
+    {
+        "idCiudad": 72,
+        "nombre": "San Javier"
+    },
+    {
+        "idCiudad": 73,
+        "nombre": "Pucón"
+    },
+    {
+        "idCiudad": 74,
+        "nombre": "Chillán Viejo"
+    },
+    {
+        "idCiudad": 75,
+        "nombre": "La Unión"
+    },
+    {
+        "idCiudad": 76,
+        "nombre": "Puerto Varas"
+    },
+    {
+        "idCiudad": 77,
+        "nombre": "Carahue"
+    },
+    {
+        "idCiudad": 78,
+        "nombre": "Salamanca"
+    },
+    {
+        "idCiudad": 79,
+        "nombre": "Las Cabras"
+    },
+    {
+        "idCiudad": 80,
+        "nombre": "Tocopilla"
+    },
+    {
+        "idCiudad": 81,
+        "nombre": "Cartagena"
+    },
+    {
+        "idCiudad": 82,
+        "nombre": "Lebu"
+    },
+    {
+        "idCiudad": 83,
+        "nombre": "La Cruz"
+    },
+    {
+        "idCiudad": 84,
+        "nombre": "Casablanca"
+    },
+    {
+        "idCiudad": 85,
+        "nombre": "Los Vilos"
+    },
+    {
+        "idCiudad": 86,
+        "nombre": "Hualqui"
+    },
+    {
+        "idCiudad": 87,
+        "nombre": "Purranque"
+    },
+    {
+        "idCiudad": 88,
+        "nombre": "Illapel"
+    },
+    {
+        "idCiudad": 89,
+        "nombre": "Pichidegua"
+    },
+    {
+        "idCiudad": 90,
+        "nombre": "La Ligua"
+    },
+    {
+        "idCiudad": 91,
+        "nombre": "Puerto Natales"
+    },
+    {
+        "idCiudad": 92,
+        "nombre": "Puerto Aysén"
+    },
+    {
+        "idCiudad": 93,
+        "nombre": "Pichilemu"
+    },
+    {
+        "idCiudad": 94,
+        "nombre": "Pozo Almonte"
+    },
+    {
+        "idCiudad": 95,
+        "nombre": "Hanga Roa"
+    },
+    {
+        "idCiudad": 96,
+        "nombre": "Porvenir"
+    },
+    {
+        "idCiudad": 97,
+        "nombre": "Chaitén"
+    },
+    {
+        "idCiudad": 98,
+        "nombre": "Chile Chico"
+    },
+    {
+        "idCiudad": 99,
+        "nombre": "Cochrane"
+    },
+    {
+        "idCiudad": 100,
+        "nombre": "Puerto Williams"
+    },
+    {
+        "idCiudad": 101,
+        "nombre": "Melipilla"
+    },
+    {
+        "idCiudad": 102,
+        "nombre": "Chañaral"
+    },
+    {
+        "idCiudad": 103,
+        "nombre": "Putre"
+    }
+]

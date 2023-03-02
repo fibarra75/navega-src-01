@@ -1,0 +1,150 @@
+<app-header></app-header>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Buscador de Organizaciones</h2>
+          <ol>
+            <li><a href="/inicio">Inicio</a></li>
+            <li>Buscador</li>
+          </ol>
+        </div>
+        <!--
+        <button class="btn btn-primary" (click)="openModal()">Show Dialog</button>
+        -->
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 footer-links">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                    <form [formGroup]="FormData" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Tipo de Organización</mat-label>
+                                <mat-select formControlName="TipoOrganizacion" placeholder="">
+                                    <mat-option value="0">--</mat-option>
+                                    <mat-option *ngFor="let to of listaTipoOrganizacion" [value]="to.idTipoOrganizacion">
+                                        {{to.nombre}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>                                                     
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Público Objetivo</mat-label>
+                                <mat-select formControlName="PublicoObjetivo" placeholder="">
+                                    <mat-option value="0">--</mat-option>
+                                    <mat-option *ngFor="let po of listaPublicoObjetivo" [value]="po.idPublicoObjetivo">
+                                        {{po.nombre | displayNombre:30}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>                                
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Área de Trabajo</mat-label>
+                                <mat-select formControlName="AreaTrabajo" placeholder="">
+                                    <mat-option value="0">--</mat-option>
+                                    <mat-option *ngFor="let at of listaAreaTrabajo" [value]="at.idAreaTrabajo">
+                                        {{at.nombre | displayNombre:30}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>                             
+                        </div>   
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Área Especifica de Trabajo</mat-label>
+                                <mat-select formControlName="AreaTrabajoEsp" placeholder="">
+                                    <mat-option value="0">--</mat-option>
+                                    <mat-option *ngFor="let ate of listaAreaTrabajoEspecifica" [value]="ate.idAreaTrabajoEspecifica">
+                                        {{ate.nombre | displayNombre:30}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>                                  
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <mat-label>Escriba una Región</mat-label>
+                                <input type="text"
+                                    placeholder="Pick one"
+                                    aria-label="Number"
+                                    matInput
+                                    [formControl]="myRegionControl"
+                                    [matAutocomplete]="auto">
+                                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                    <mat-option *ngFor="let r of filteredOptions | async" [value]="r">
+                                        {{r}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                        </div>                        
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Seleccione una Comuna</mat-label>
+                                <mat-select formControlName="Comuna" placeholder="">
+                                    <mat-option value="0">--</mat-option>
+                                    <mat-option *ngFor="let c of listaComuna" [value]="c.idRegion">
+                                    {{c.nombre}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>                            
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Seleccione una Ciudad</mat-label>
+                                <mat-select formControlName="Ciudad" placeholder="">
+                                    <mat-option value="0">--</mat-option>
+                                    <mat-option *ngFor="let c of listaCiudad" [value]="c.idCiudad">
+                                    {{c.nombre}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>                                
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Nombre</mat-label> 
+                                <input matInput formControlName="Nombre">                              
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Limpiar</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-6 footer-links">                
+                <div class="row" *ngFor="let item of listaOrganizacionesPadre; let i = index">
+                    <ng-container *ngFor="let org of item; let j = index">
+                        <div class="col-lg-2 col-md-6 footer-links">
+                            <img src="../../assets/img/ONG.JPG">
+                        </div>
+                        <div class="col-lg-4 col-md-6 footer-links">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4><a (click)="openModalFicha(org)">{{org.nombre}}</a></h4>
+                                    <p>Target</p>
+                                    <p>{{org.descripcion}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+  </main><!-- End #main --> 
+  <app-footer></app-footer>
+  <!--
+  <div id="preloader"></div>
+  -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

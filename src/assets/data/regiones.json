@@ -1,0 +1,66 @@
+[
+    {
+        "idRegion": 1,
+        "nombre": "De Tarapacá"
+    },
+    {
+        "idRegion": 2,
+        "nombre": "De Antofagasta"
+    },
+    {
+        "idRegion": 3,
+        "nombre": "De Atacama"
+    },
+    {
+        "idRegion": 4,
+        "nombre": "De Coquimbo"
+    },
+    {
+        "idRegion": 5,
+        "nombre": "De Valparaíso"
+    },
+    {
+        "idRegion": 6,
+        "nombre": "Del Libertador B. O'Higgins"
+    },
+    {
+        "idRegion": 7,
+        "nombre": "Del Maule"
+    },
+    {
+        "idRegion": 8,
+        "nombre": "Del Bíobío"
+    },
+    {
+        "idRegion": 9,
+        "nombre": "De La Araucanía"
+    },
+    {
+        "idRegion": 10,
+        "nombre": "De Los Lagos"
+    },
+    {
+        "idRegion": 11,
+        "nombre": "De Aisén del Gral. C. Ibáñez del Campo"
+    },
+    {
+        "idRegion": 12,
+        "nombre": "De Magallanes y de La Antártica Chilena"
+    },
+    {
+        "idRegion": 13,
+        "nombre": "Metropolitana de Santiago"
+    },
+    {
+        "idRegion": 14,
+        "nombre": "De Los Ríos"
+    },
+    {
+        "idRegion": 15,
+        "nombre": "De Arica y Parinacota"
+    },
+    {
+        "idRegion": 16,
+        "nombre": "De Ñuble"
+    }
+]

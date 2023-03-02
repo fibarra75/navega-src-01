@@ -1,0 +1,40 @@
+<app-header></app-header>
+<main id="main">
+
+    <section class="inner-page">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 footer-links">
+              <br>
+              <h2>Bienvenido</h2>
+              <div class="row">
+                <div class="col-md-6 offset-md-3">
+                  <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
+                    <div class="form-group">
+                        <mat-form-field>
+                            <input matInput input="text" placeholder="Usuario" formControlName="Login">                                                          
+                        </mat-form-field>
+                    </div>              
+                    <div class="form-group">
+                        <mat-form-field>
+                            <input matInput placeholder="Password" type="password" formControlName="Password">                            
+                        </mat-form-field>
+                    </div>   
+                    <!--
+                    <button type="submit" class="btn btn-primary" [disabled]="!FormData.valid">Enviar</button>
+                    -->
+                    <button mat-raised-button type="button" [disabled]="!FormData.valid">Ingresar</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  </main><!-- End #main --> 
+  <app-footer></app-footer>
+  <!--
+  <div id="preloader"></div>
+  -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

@@ -1,0 +1,192 @@
+<app-header></app-header>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Registro de Organizaciones</h2>
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+      <div class="container">
+        <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+            {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+          </button>
+          <mat-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Información Personal</ng-template>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Nombre</mat-label>
+                            <input matInput placeholder="Nombres" formControlName="nombreCtrl" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Apellido Paterno</mat-label>
+                            <input matInput placeholder="Apellido Paterno" formControlName="aPaternoCtrl" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Apellido Materno</mat-label>
+                            <input matInput placeholder="Apellido Materno" formControlName="aMaternoCtrl" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Rut</mat-label>
+                            <input matInput placeholder="Rut" formControlName="rutCtrl" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Cargo en la organización</mat-label>
+                            <input matInput placeholder="Cargo en la organización" formControlName="cargoCtrl" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Celular</mat-label>
+                            <input matInput placeholder="Celular" formControlName="celularCtrl" required>
+                        </mat-form-field>
+                    </div>
+                </div>    
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>E-Mail institucional</mat-label>
+                            <input matInput placeholder="E-Mail institucional" formControlName="emailCtrl" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="Password" formControlName="passwdCtrl" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div>
+                  <button mat-raised-button="" color="primary" matStepperNext>Siguiente</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" label="Información de la organización">
+              <form [formGroup]="secondFormGroup">
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Nombre Organización</mat-label>
+                            <input matInput placeholder="Nombre Organización" formControlName="nombreOrgCtrl" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Tipo de Organización</mat-label>
+                            <input matInput placeholder="Tipo de Organización" formControlName="tipoOrgCtrl" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Rut Orgnización</mat-label>
+                            <input matInput placeholder="Rut Organización" formControlName="rutOrgCtrl" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Teléfono</mat-label>
+                            <input matInput placeholder="Teléfono" formControlName="telOrgCtrl" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Dirección casa matriz</mat-label>
+                            <input matInput placeholder="Dirección casa matriz" formControlName="dirOrgCtrl" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Representante Legal</mat-label>
+                            <input matInput placeholder="Representante Legal" formControlName="representanteOrgCtrl" required>
+                        </mat-form-field>
+                    </div>
+                </div>    
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Sitio Web</mat-label>
+                            <input matInput placeholder="Sitio Web" formControlName="sitioWebOrgCtrl" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">&nbsp;</div>
+                </div>
+                <div>
+                  <button mat-raised-button="" color="primary" matStepperPrevious>Anterior</button>
+                  <span>&nbsp;</span>
+                  <button mat-raised-button="" color="primary" matStepperNext>Siguiente</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Documentación</ng-template>
+              <form [formGroup]="tercerFormGroup">
+                <div class="row">
+                    <mat-label>Los archivos que sean adjuntados deben ser solo formato PDF.</mat-label>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <mat-label>Certificado Digital de vigencia de persona jurídica sin fines de lucro *</mat-label>
+                    </div>
+                    <div class="col-md-2">
+                        <button mat-raised-button="" color="primary">subir</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <mat-label>Carta de intención de ingreso a la plataforma firmada por la dirección *</mat-label>
+                    </div>
+                    <div class="col-md-2">
+                        <button mat-raised-button="" color="primary">subir</button>
+                    </div>
+                </div>                
+                <div class="row">
+                    <div class="col-md-10">
+                        <p><mat-checkbox>Yo XXXXXXXXX con Rut XXXXXXXXX Certifico que los datos contenidos en esta solicitud son correctos y válidos. Al mismo tiempo declaro conocer y estar de 
+                            <br>acuerdo con las políticas de protección de datos de navegasocial.cl</mat-checkbox></p>
+                    </div>
+                    <div class="col-md-2"><span>&nbsp;</span></div>
+                </div>
+              </form>
+              <div class="row">
+                <div class="col-md-3">
+                <button mat-raised-button="" color="primary" matStepperPrevious>Anterior</button>
+                <span>&nbsp;</span>
+                <button mat-raised-button="" color="primary" (click)="stepper.reset()">Enviar</button>
+                </div>
+                <div class="col-md-9"><span>&nbsp;</span></div>
+              </div>
+            </mat-step>
+          </mat-stepper>
+            
+      </div>
+    </section>
+
+  </main><!-- End #main --> 
+  <app-footer></app-footer>
+  <!--
+  <div id="preloader"></div>
+  -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'navega-social01';
+  constructor() {
+    console.log('ENV:',environment); // Logs false for default environment
+  }
+
+  title = 'Navega Social';
 }
