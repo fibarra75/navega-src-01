@@ -1,0 +1,37 @@
+.inner-page {
+    padding: 0px; 
+}
+
+.texto {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+}
+
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .color-fondo-pagina-inicio {
+    background-color: rgb(208, 212, 216);
+  }
+
+  .color-fondo-imagen-personas {
+    background-color: rgb(242, 243, 244);
+  }
+
+  .v-line{
+    border-left: thick solid #ff6600;
+   }
+
+   .alineacion-vertical-centrada {
+    display: flex;
+    align-items: center;
+ }
+
+ .btn-primary {
+  background-color: #ff6600;
+  border: none;
+ }

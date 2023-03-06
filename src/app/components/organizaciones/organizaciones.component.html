@@ -11,10 +11,7 @@
     </section><!-- End Breadcrumbs -->
 
     <section class="inner-page">
-      <div class="container">
-        <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-            {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-          </button>
+      <div class="container texto">
           <mat-stepper [linear]="isLinear" #stepper>
             <mat-step [stepControl]="firstFormGroup">
               <form [formGroup]="firstFormGroup">
@@ -143,40 +140,49 @@
             <mat-step>
               <ng-template matStepLabel>Documentación</ng-template>
               <form [formGroup]="tercerFormGroup">
+                <br/>
                 <div class="row">
                     <mat-label>Los archivos que sean adjuntados deben ser solo formato PDF.</mat-label>
                 </div>
-                <div class="row">
-                    <div class="col-md-10">
-                        <mat-label>Certificado Digital de vigencia de persona jurídica sin fines de lucro *</mat-label>
-                    </div>
-                    <div class="col-md-2">
-                        <button mat-raised-button="" color="primary">subir</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-10">
-                        <mat-label>Carta de intención de ingreso a la plataforma firmada por la dirección *</mat-label>
-                    </div>
-                    <div class="col-md-2">
-                        <button mat-raised-button="" color="primary">subir</button>
-                    </div>
-                </div>                
+                <br/>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th style="width: 5%"></th>
+                            <th style="width: 5%; padding-left: 75px;"><img width="50" height="50" src="assets/img/lupa3.png" alt=""></th>
+                            <td style="width: 40%; border-width: 1px;">&nbsp;&nbsp;Certificado Digital de vigencia de persona jurídica sin fines de lucro *</td>
+                            <th style="width: 5%"></th>
+                            <td style="width: 20%"><button mat-raised-button="" color="primary">subir</button></td>
+                        </tr>
+                        <br/>
+                        <tr>
+                            <th style="width: 5%"></th>
+                            <th style="width: 5%; padding-left: 75px;"><img width="50" height="50" src="assets/img/lupa3.png" alt=""></th>
+                            <td style="width: 40%; border-width: 1px">&nbsp;&nbsp;Carta de intención de ingreso a la plataforma firmada por la dirección **</td>
+                            <th style="width: 5%"></th>
+                            <td style="width: 20%"><button mat-raised-button="" color="primary">subir</button></td>
+                        </tr>
+                    </tbody>
+                </table>   
+                <br/>    
                 <div class="row">
                     <div class="col-md-10">
                         <p><mat-checkbox>Yo XXXXXXXXX con Rut XXXXXXXXX Certifico que los datos contenidos en esta solicitud son correctos y válidos. Al mismo tiempo declaro conocer y estar de 
                             <br>acuerdo con las políticas de protección de datos de navegasocial.cl</mat-checkbox></p>
+                        <p>* Campos obligatorios</p>
+                        <p>** Carta de intención de ingreso a la plataforma firmada digitalmente por el Director, Directora Ejecutiva o miembro del directorio</p>
+                        <p>*** El certificado lo puedes solicitar gratuitamente en <a href="https://www.registrocivil.cl/principal/servicios-en-linea">https://www.registrocivil.cl/principal/servicios-en-linea</a></p>
                     </div>
                     <div class="col-md-2"><span>&nbsp;</span></div>
                 </div>
+                <br/>
               </form>
               <div class="row">
-                <div class="col-md-3">
-                <button mat-raised-button="" color="primary" matStepperPrevious>Anterior</button>
-                <span>&nbsp;</span>
-                <button mat-raised-button="" color="primary" (click)="stepper.reset()">Enviar</button>
+                <div class="col-md-12 abs-center">
+                    <button mat-raised-button="" color="primary" matStepperPrevious>Anterior</button>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <button mat-raised-button="" color="primary" (click)="stepper.reset()">Enviar</button>
                 </div>
-                <div class="col-md-9"><span>&nbsp;</span></div>
               </div>
             </mat-step>
           </mat-stepper>

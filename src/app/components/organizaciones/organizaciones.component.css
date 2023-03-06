@@ -1,0 +1,10 @@
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mat-orange {
+    background-color: #ff6600;
+    color: #ffffff;
+  }
