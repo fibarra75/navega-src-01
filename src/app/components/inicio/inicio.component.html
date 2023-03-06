@@ -55,7 +55,7 @@
             <h2><b>Cómo incorporo a mi ONG a navegasocial.cl</b></h2>  
           </div>
           <br/><br/><br/>     
-          <div class="col-lg-2 col-md-6 alineacion-vertical-centrada">
+          <div class="col-lg-3 col-md-6 alineacion-vertical-centrada">
             <h2><b>Requisitos</b></h2>
           </div>
           <div class="col-lg-1 col-md-6 v-line">
@@ -163,8 +163,9 @@
             <h1><b>Contáctanos</b></h1>  
           </div>
           <br/><br/><br/>
-          <div class="col-lg-4 col-md-6 footer-links">
-            <img width="500" height="400" src="assets/img/Mapa-Navega.jpg" alt="">
+          
+          <div class="col-lg-5 col-md-6 text-center">
+            <iframe style="border:0; width: 110%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
           </div>
           <div class="col-lg-1 col-md-6">
           </div> 
@@ -173,20 +174,22 @@
          
           <div class="col-md-12">
             <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
-              <div className="row">
-                <div class="col-md-8">
-                  <input type="text" class="form-control color-fondo-imagen-personas" name="Fullname" placeholder="Nombre" formControlName="Fullname">
-                </div>   
+              <div class="row">
+                <div class="input-group col-md-8">
+                  <span class="input-group-text"><i class="bi bi-person-square Heading"></i></span>
+                  <input type="text" class="form-control" name="Fullname" placeholder="Nombre y Apellido" formControlName="Fullname">
+                </div>
               </div>   
               <br/>
               <div className="row">
-                <div class="col-md-8">
-                  <input type="email" class="form-control color-fondo-imagen-personas" name="Email" aria-describedby="emailHelp" placeholder="Correo"formControlName="Email">
+                <div class="input-group col-md-8">
+                  <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                  <input type="email" class="form-control" name="Email" aria-describedby="emailHelp" placeholder="Correo"formControlName="Email">
                 </div>
               </div>  
               <br/>             
               <div className="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                   <textarea rows="5" class="form-control color-fondo-imagen-personas" formControlName="Comment" placeholder="Escribe tu mensaje" name="Comment">
                   </textarea>
                 </div>
