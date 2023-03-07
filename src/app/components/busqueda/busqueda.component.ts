@@ -90,7 +90,13 @@ export class BusquedaComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.optionsRegion.filter(option => option.toLowerCase().includes(filterValue));
-  }  
+  } 
+  
+  truncate(str:any, length:any) {
+    if (str.length > length) {
+      return str.slice(0, length) + '...';
+    } else return str;
+  }
 
   cagarFiltros() {
     this.cargarTiposOrganizacion();

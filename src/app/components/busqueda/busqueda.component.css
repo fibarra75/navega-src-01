@@ -1,0 +1,32 @@
+.color-fondo {
+    background-color: hsl(177, 42%, 55%);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+::ng-deep .mat-form-field-label {
+    color: #ffffff !important;
+}
+
+.texto-combos {
+    font-size: 15px;
+    font-family: 'Roboto';
+}
+
+.abs-right {
+    display: flex;
+    align-items: right;
+    justify-content: right;
+  }
+
+.inner-page {
+    padding-top: 20px;
+}
+
+.card-body {
+    padding: 10px 10px 10px 10px;
+}
+
+.p {
+    margin-bottom: 0px;
+}

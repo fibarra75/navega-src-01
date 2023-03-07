@@ -20,12 +20,12 @@
 
     <section class="inner-page">
       <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 footer-links">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
+        <div class="row justify-content-md-center">
+            <div class="col-lg-2 col-md-6 footer-links color-fondo rounded">
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-12 col-md-12 ">
                     <form [formGroup]="FormData" (ngSubmit)="onSubmit()">
-                        <div class="form-group">
+                        <div style="font-size: 20px; font-family: 'Roboto'" class="form-group">
                             <mat-form-field>
                                 <mat-label>Tipo de Organización</mat-label>
                                 <mat-select formControlName="TipoOrganizacion" placeholder="">
@@ -36,7 +36,7 @@
                                 </mat-select>
                             </mat-form-field>                                                     
                         </div>
-                        <div class="form-group">
+                        <div style="font-size: 20px; font-family: 'Roboto'" class="form-group">
                             <mat-form-field>
                                 <mat-label>Público Objetivo</mat-label>
                                 <mat-select formControlName="PublicoObjetivo" placeholder="">
@@ -47,7 +47,7 @@
                                 </mat-select>
                             </mat-form-field>                                
                         </div>
-                        <div class="form-group">
+                        <div style="font-size: 20px; font-family: 'Roboto'" class="form-group">
                             <mat-form-field>
                                 <mat-label>Área de Trabajo</mat-label>
                                 <mat-select formControlName="AreaTrabajo" placeholder="">
@@ -58,7 +58,7 @@
                                 </mat-select>
                             </mat-form-field>                             
                         </div>   
-                        <div class="form-group">
+                        <div style="font-size: 18px; font-family: 'Roboto'; padding-left: 20px;" class="form-group">
                             <mat-form-field>
                                 <mat-label>Área Especifica de Trabajo</mat-label>
                                 <mat-select formControlName="AreaTrabajoEsp" placeholder="">
@@ -71,7 +71,7 @@
                         </div>
                         <div>
                             <mat-form-field>
-                                <mat-label>Escriba una Región</mat-label>
+                                <mat-label>Región</mat-label>
                                 <input type="text"
                                     placeholder="Pick one"
                                     aria-label="Number"
@@ -85,9 +85,9 @@
                                 </mat-autocomplete>
                             </mat-form-field>
                         </div>                        
-                        <div class="form-group">
+                        <div style="font-size: 20px; font-family: 'Roboto'" class="form-group">
                             <mat-form-field>
-                                <mat-label>Seleccione una Comuna</mat-label>
+                                <mat-label>Comuna</mat-label>
                                 <mat-select formControlName="Comuna" placeholder="">
                                     <mat-option value="0">--</mat-option>
                                     <mat-option *ngFor="let c of listaComuna" [value]="c.idRegion">
@@ -96,9 +96,9 @@
                                 </mat-select>
                             </mat-form-field>                            
                         </div>
-                        <div class="form-group">
+                        <div style="font-size: 20px; font-family: 'Roboto'" class="form-group">
                             <mat-form-field>
-                                <mat-label>Seleccione una Ciudad</mat-label>
+                                <mat-label>Ciudad</mat-label>
                                 <mat-select formControlName="Ciudad" placeholder="">
                                     <mat-option value="0">--</mat-option>
                                     <mat-option *ngFor="let c of listaCiudad" [value]="c.idCiudad">
@@ -107,33 +107,35 @@
                                 </mat-select>
                             </mat-form-field>                                
                         </div>
-                        <div class="form-group">
+                        <div style="font-size: 20px; font-family: 'Roboto'" class="form-group">
                             <mat-form-field>
                                 <mat-label>Nombre</mat-label> 
                                 <input matInput formControlName="Nombre">                              
                             </mat-form-field>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group abs-right">
                             <button type="submit" class="btn btn-primary">Limpiar</button>
                         </div>
                     </form>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8 col-md-6 footer-links">                
+            <div class="col-lg-1 col-md-6"></div>
+            <div class="col-lg-9 col-md-6 footer-links">                
                 <div class="row" *ngFor="let item of listaOrganizacionesPadre; let i = index">
                     <ng-container *ngFor="let org of item; let j = index">
-                        <div class="col-lg-2 col-md-6 footer-links">
-                            <img src="../../assets/img/ONG.JPG">
+                        <div style="font-size: 15px; font-family: 'Roboto';" class="col-lg-2 col-md-6 footer-links">
+                            <img src="assets/img/ONG.jpg">
                         </div>
-                        <div class="col-lg-4 col-md-6 footer-links">
-                            <div class="card">
+                        <div class="col-lg-4 col-md-6">
+                            <div style="font-size: 14px; font-family: 'Roboto';" class="card">
                                 <div class="card-body">
-                                    <h4><a (click)="openModalFicha(org)">{{org.nombre}}</a></h4>
+                                    <h5><b><a (click)="openModalFicha(org)">{{org.nombre}}</a></b></h5>
                                     <p>Target</p>
-                                    <p>{{org.descripcion}}</p>
+                                    <p style="margin-bottom: 0px;">{{truncate(org.descripcion,100)}}</p>
                                 </div>
                             </div>
+                            <br/>
                         </div>
                     </ng-container>
                 </div>
