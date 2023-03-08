@@ -1,0 +1,50 @@
+<div class="card country-border">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 footer-links">
+          <h2>Información Financiera y RRHH</h2>
+          <p>{{rrhhFinanzasResp.informacion}}</p>
+        </div>
+        <div class="col-lg-6 col-md-6 footer-links">
+          <div>
+            <table class="table table-striped">
+                <thead class="table-dark">
+                  <tr>
+                    <th>RR.HH</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Número de trabajadores</td>
+                    <td>{{rrhhFinanzasResp.numeroTrabajadores}}</td>
+                  </tr>
+                  <tr>
+                    <td>Número de trabajadores</td>
+                    <td>{{rrhhFinanzasResp.numeroVoluntarios}}</td>
+                  </tr>
+                </tbody>
+              </table>          
+          </div>
+          <div>
+            <table class="table table-striped">
+                <thead class="table-dark">
+                  <tr>
+                    <th>Finanzas</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Total Ingresos Operacionales</td>
+                    <td>{{rrhhFinanzasResp.totalIngresosOperacionales}}</td>
+                  </tr>
+                  <tr>
+                    <td>Total Gastos Operacionales</td>
+                    <td>{{rrhhFinanzasResp.totalGastosOperacionales}}</td>
+                  </tr>
+                </tbody>
+              </table>    
+          </div>
+        </div>
+    </div>
+</div>

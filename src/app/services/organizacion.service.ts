@@ -3,6 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError, map} from 'rxjs/operators';
 import { Organizacion } from '../models/organizacion.model';
+import { RrhhFinanzas } from '../models/rrhh-finanzas.model';
+
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +24,15 @@ export class OrganizacionService {
 
   GetOrganizacion(idOrganizacion: number): Observable<Organizacion[]> {
     return this.http
-      .get<Organizacion[]>(ApiRest.organizacion + '/' + idOrganizacion)
+      .get<Organizacion[]>(environment.apiURL + ApiRest.organizacion + '/' + idOrganizacion)
       .pipe(retry(1),catchError(this.errorHandl))
   }
+
+  GetRrhhFinanzas(idOrganizacion: number): Observable<RrhhFinanzas[]> {
+    return this.http
+      .get<RrhhFinanzas[]>(environment.apiURL + ApiRest.rrhhFinanzas + '/' + idOrganizacion)
+      .pipe(retry(1),catchError(this.errorHandl))
+  }  
   
   errorHandl(error:any) {
     let errorMessage = '';
@@ -41,9 +51,6 @@ export class OrganizacionService {
 }
 
 const ApiRest = {
-  organizacion: '/dev/api/org'
-};
-
-const ApiRest2 = {
-  organizacion: 'https://qobn80xsng.execute-api.us-east-1.amazonaws.com/dev/api/org'
+  organizacion: '/dev/api/org',
+  rrhhFinanzas: '/dev/api/rrhh'
 };

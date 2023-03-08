@@ -2,69 +2,21 @@
   <h2 mat-dialog-title>{{this.nombre}}</h2>
 
   <mat-dialog-content class="mat-typography">
-      <div class="d-flex justify-content-between align-items-center">
-          <ul class="nav nav-tabs">
-              <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Información</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Iniciativas y Campañas</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Entidades Asociadas</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">RRHH y Finanzas</a>
-              </li>                
-          </ul>
-      </div>        
-      <div class="card country-border">
-        <div *ngIf="organizacionResp" class="row">
-            <div class="col-lg-6 col-md-6 footer-links">
-              <img src="../../assets/img/ONG-2.JPG">
-              <br>
-              <h2>Quienes Somos</h2>
-              <p>{{organizacionResp.descripcion}}</p>
-              <h2>Mision / Vision</h2>
-              <p>
-                {{organizacionResp.mision}}
-              </p>
-              <h2>Area de Trabajo</h2>
-              <p>
-                {{organizacionResp.areaTrabajo.nombre}}
-              </p>
-              <h2>Público Objetivo</h2>
-              <p>
-                {{organizacionResp.publicoObjetivo.nombre}}
-              </p>
-              <h2>Director Ejecutivo</h2>
-              <p>
-                Nombre Director Ejecutivo
-              </p>                                     
-            </div>
-            <div class="col-lg-6 col-md-6 footer-links">
-              <h4>Año de fundación</h4>
-              <p>1985</p>
-              <h4>Rut Organización</h4>
-              <p>{{organizacionResp.rut}}</p>
-              <h4>Tipo de Organización</h4>
-              <p>Tipo A...</p>              
-              <h4>Información de Contacto</h4>
-              <p>{{organizacionResp.email}}</p>
-              <h4>Web</h4>
-              <p>www.organizacion-pendiente.cl</p>                     
-              <h4>Redes Sociales</h4>
-              <img src="../../assets/img/Redes.JPG">
-              <h4>Direcciones</h4>
-              <p>
-                Casa Matriz:
-              </p>
-              <p>General Bustamante 26, 4to Piso
-                Providencia - Santiago</p>
-              <p>Sucursal 1</p>
-              <img src="../../assets/img/ONG-sucursales.JPG">
-            </div>
-          </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <mat-tab-group>    
+        <mat-tab label="Información">
+          <app-informacion [organizacion]="organizacion"></app-informacion>
+        </mat-tab>
+        <mat-tab label="Iniciativas y Campañas">
+          <app-prgypry></app-prgypry>
+        </mat-tab>
+        <mat-tab label="Entidades Asociadas">
+          <app-rrhhfinanzas [organizacion]="organizacion"></app-rrhhfinanzas>
+        </mat-tab>
+        <mat-tab label="RRHH y Finanzas">
+          <app-rrhhfinanzas [organizacion]="organizacion"></app-rrhhfinanzas>
+        </mat-tab>        
+      </mat-tab-group>
     </div>
   </mat-dialog-content>
 

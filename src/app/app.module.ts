@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -30,6 +31,9 @@ import { ConocenosComponent } from './components/conocenos/conocenos.component';
 import { ContactanosComponent } from './components/contactanos/contactanos.component';
 import { OrganizacionesComponent } from './components/organizaciones/organizaciones.component';
 import { LoginComponent } from './components/login/login.component';
+import { PrgypryComponent } from './components/ficha/prgypry/prgypry.component';
+import { InformacionComponent } from './components/ficha/informacion/informacion.component';
+import { RrhhfinanzasComponent } from './components/ficha/rrhhfinanzas/rrhhfinanzas.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,10 @@ import { LoginComponent } from './components/login/login.component';
     ConocenosComponent,
     ContactanosComponent,
     OrganizacionesComponent,
-    LoginComponent
+    LoginComponent,
+    PrgypryComponent,
+    InformacionComponent,
+    RrhhfinanzasComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +68,8 @@ import { LoginComponent } from './components/login/login.component';
     MatButtonModule,
     MatIconModule,
     MatStepperModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
