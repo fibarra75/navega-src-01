@@ -1,0 +1,12 @@
+.modal {
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+}
+
+.color-fondo {
+    background-color: hsl(177, 42%, 55%);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
