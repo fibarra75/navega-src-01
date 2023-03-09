@@ -1,13 +1,14 @@
-<div class="card country-border">
-    <div class="row">
-        <div class="col-lg-6 col-md-6 footer-links">
-          <h2>Información Financiera y RRHH</h2>
+<div style="border: none;" class="card">
+  <div class="col-lg-12 col-md-12 row justify-content-md-center">
+        <div class="col-lg-4 col-md-6 footer-links" style="padding-top: 30px; padding-left: 30px;">
+          <h2><b>Información Financiera y RRHH</b></h2>
           <p>{{rrhhFinanzasResp.informacion}}</p>
         </div>
-        <div class="col-lg-6 col-md-6 footer-links">
+        <div class="col-lg-1 col-md-6"></div>
+        <div class="col-lg-4 col-md-6 footer-links" style="padding-top: 30px;">
           <div>
             <table class="table table-striped">
-                <thead class="table-dark">
+                <thead class="table-blue">
                   <tr>
                     <th>RR.HH</th>
                     <th>Total</th>
@@ -15,19 +16,19 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Número de trabajadores</td>
-                    <td>{{rrhhFinanzasResp.numeroTrabajadores}}</td>
+                    <td style="border-right: blue 1px solid;" >Número de trabajadores</td>
+                    <td>{{rrhhFinanzasResp.numeroTrabajadores | thousands}}</td>
                   </tr>
                   <tr>
-                    <td>Número de trabajadores</td>
-                    <td>{{rrhhFinanzasResp.numeroVoluntarios}}</td>
+                    <td style="border-right: blue 1px solid;">Número de trabajadores</td>
+                    <td>{{rrhhFinanzasResp.numeroVoluntarios | thousands}}</td>
                   </tr>
                 </tbody>
               </table>          
           </div>
           <div>
             <table class="table table-striped">
-                <thead class="table-dark">
+                <thead class="table-blue">
                   <tr>
                     <th>Finanzas</th>
                     <th>Total</th>
@@ -35,12 +36,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Total Ingresos Operacionales</td>
-                    <td>{{rrhhFinanzasResp.totalIngresosOperacionales}}</td>
+                    <td style="border-right: blue 1px solid;">Total Ingresos Operacionales</td>
+                    <td>{{rrhhFinanzasResp.totalIngresosOperacionales | thousands}}</td>
                   </tr>
                   <tr>
-                    <td>Total Gastos Operacionales</td>
-                    <td>{{rrhhFinanzasResp.totalGastosOperacionales}}</td>
+                    <td style="border-right: blue 1px solid;">Total Gastos Operacionales</td>
+                    <td>{{rrhhFinanzasResp.totalGastosOperacionales | thousands}}</td>
                   </tr>
                 </tbody>
               </table>    

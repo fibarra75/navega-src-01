@@ -1,0 +1,25 @@
+    <div class="row justify-content-md-center">
+        <div class="col-lg-10 col-md-6 row justify-content-md-center" style="padding-top: 15px; padding-left: 30px;">
+            <ng-container *ngFor="let ic of listaIniciativaCampana">
+                <div class="col-lg-1 col-md-6 alineacion-vertical-centrada">
+                    <div style="font-size: 14px; font-family: 'Roboto'; background-color: #ffffff; color: #6293cc; border-color: #305d91;" class="card">
+                        <div class="card-body">
+                            <h4 class="text-center"><b>{{ic.fechaInicio | date: 'dd'}} <br> {{ic.fechaInicio | date: 'MMM'}}</b></h4>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="col-lg-4 col-md-6">
+                    <div style="font-size: 14px; font-family: 'Roboto'; background-color: #d8dee4; border: none;" class="card">
+                        <div class="card-body">
+                            <h4><b>{{ic.nombre}}</b></h4>
+                            <p>{{truncate(ic.descripcion,150)}}</p>
+                        </div>
+                    </div>
+                    <br/>
+                </div>
+                <div class="col-lg-1 col-md-6"></div>
+            </ng-container>
+        </div>
+    </div>
+

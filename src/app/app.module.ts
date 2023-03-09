@@ -27,6 +27,7 @@ import { FichaComponent } from './components/ficha/ficha.component';
 import { FichaterritorialComponent } from './components/fichaterritorial/fichaterritorial.component';
 
 import { DisplayNombrePipe }  from './cortartexto.pipe';
+import { ThousandsPipe } from './formatoNumero.pipe';
 import { ConocenosComponent } from './components/conocenos/conocenos.component';
 import { ContactanosComponent } from './components/contactanos/contactanos.component';
 import { OrganizacionesComponent } from './components/organizaciones/organizaciones.component';
@@ -34,6 +35,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PrgypryComponent } from './components/ficha/prgypry/prgypry.component';
 import { InformacionComponent } from './components/ficha/informacion/informacion.component';
 import { RrhhfinanzasComponent } from './components/ficha/rrhhfinanzas/rrhhfinanzas.component';
+import { IniciativacampanaComponent } from './components/fichaterritorial/iniciativacampana/iniciativacampana.component';
 
 @NgModule({
   declarations: [
@@ -45,13 +47,15 @@ import { RrhhfinanzasComponent } from './components/ficha/rrhhfinanzas/rrhhfinan
     FichaComponent,
     FichaterritorialComponent,
     DisplayNombrePipe,
+    ThousandsPipe,
     ConocenosComponent,
     ContactanosComponent,
     OrganizacionesComponent,
     LoginComponent,
     PrgypryComponent,
     InformacionComponent,
-    RrhhfinanzasComponent
+    RrhhfinanzasComponent,
+    IniciativacampanaComponent
   ],
   imports: [
     BrowserModule,

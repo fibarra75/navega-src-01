@@ -4,6 +4,8 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError, map} from 'rxjs/operators';
 import { Organizacion } from '../models/organizacion.model';
 import { RrhhFinanzas } from '../models/rrhh-finanzas.model';
+import { ProgramaProyecto } from '../models/programa-proyecto.model';
+import { IniciativaCampana } from '../models/iniciativa-campana.model';
 
 import { environment } from '../../environments/environment';
 
@@ -33,6 +35,18 @@ export class OrganizacionService {
       .get<RrhhFinanzas[]>(environment.apiURL + ApiRest.rrhhFinanzas + '/' + idOrganizacion)
       .pipe(retry(1),catchError(this.errorHandl))
   }  
+
+  GetProgramaProyectoByIdOrg(idOrganizacion: number): Observable<ProgramaProyecto[]> {
+    return this.http
+    .get<ProgramaProyecto[]>(environment.apiURL + ApiRest.proyectoPrograma + '/' + idOrganizacion)
+    .pipe(retry(1),catchError(this.errorHandl))
+  }
+
+  GetIniciativaCampanaByIdOrg(idOrganizacion: number): Observable<IniciativaCampana[]> {
+    return this.http
+    .get<IniciativaCampana[]>(environment.apiURL + ApiRest.iniciativaCampana + '/' + idOrganizacion)
+    .pipe(retry(1),catchError(this.errorHandl))
+  }
   
   errorHandl(error:any) {
     let errorMessage = '';
@@ -52,5 +66,7 @@ export class OrganizacionService {
 
 const ApiRest = {
   organizacion: '/dev/api/org',
-  rrhhFinanzas: '/dev/api/rrhh'
+  rrhhFinanzas: '/dev/api/rrhh',
+  proyectoPrograma: '/dev/api/progproy',
+  iniciativaCampana: '/dev/api/inicmp'
 };

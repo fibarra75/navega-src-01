@@ -32,6 +32,15 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 
+dialog { 
+  border: none !important;
+}
+
+.alineacion-vertical-centrada {
+  display: flex;
+  align-items: center;
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
