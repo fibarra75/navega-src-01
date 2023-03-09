@@ -1,0 +1,102 @@
+<div class="card country-border">
+    <div class="row">
+        <mat-drawer-container>
+            <mat-drawer #drawer mode="side" position="end">
+                <div class="col-lg-6 col-md-6 footer-links">
+                    <div>
+                        <div class="material-icons">
+                            <mat-icon>stars</mat-icon>
+                            <div>
+                                <h4>Objetivo</h4>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="material-icons">
+                            <mat-icon>stars</mat-icon>
+                            <div>
+                                <h4>Fecha de inicio y termino</h4>
+                            </div>
+                        </div>
+                        <div>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="material-icons">
+                            <mat-icon>stars</mat-icon>
+                            <div>
+                                <h4>Publico Objetivo o Usuario</h4>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="material-icons">
+                            <mat-icon>stars</mat-icon>
+                            <div>
+                                <h4>Lugar Geografico de Ejecución</h4>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="material-icons">
+                            <mat-icon>stars</mat-icon>
+                            <div>
+                                <h4>Responsable</h4>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Nombre.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="material-icons">
+                            <mat-icon>stars</mat-icon>
+                            <div>
+                                <h4>Número de Usuarios Directos Alcanzados</h4>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Nombre.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="material-icons">
+                            <mat-icon>stars</mat-icon>
+                            <div>
+                                <h4>Contacto</h4>
+                            </div>
+                        </div>
+                        <div>
+                            <p>correo@contacto.com</p>
+                        </div>
+                    </div>
+                </div>
+            </mat-drawer>
+            <mat-drawer-content>
+                <div class="col-lg-6 col-md-6 footer-links">               
+                    <div *ngFor="let p of listaPrgPry; let i = index">
+                        <div>
+                            28 JUN
+                        </div>
+                        <div>
+                            <button type="button" mat-button (click)="drawer.toggle()">
+                                {{p.nombre}}
+                            </button>
+                            <p>{{p.objetivo}}</p>
+                        </div>
+                    </div>           
+                </div>
+            </mat-drawer-content>
+        </mat-drawer-container>
+    </div>
+</div>

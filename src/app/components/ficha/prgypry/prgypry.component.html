@@ -1,26 +1,19 @@
 <div class="card country-border">
     <div class="row">
-        <div class="col-lg-6 col-md-6 footer-links">
-            <div>
+        <div class="col-lg-6 col-md-6 footer-links">               
+            <div *ngFor="let p of listaPrgPry; let i = index">
                 <div>
-                    28 JUN
-                </div>
+                    <h4><b>{{p.fechaCreacion | date: 'dd'}} <br> {{p.fechaCreacion | date: 'MMM'}}</b></h4>
+                </div>                
                 <div>
-                    <h2>Proyecto 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <button type="button" mat-button (click)="mostrarPrgPry(p)">
+                        {{p.nombre}}
+                    </button>
+                    <p>{{p.objetivo}}</p>
                 </div>
-            </div>
-            <div>
-                <div>
-                    30 JUN
-                </div>
-                <div>
-                    <h2>Proyecto 2</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-            </div>            
+            </div>           
         </div>
-        <div class="col-lg-6 col-md-6 footer-links">
+        <div class="col-lg-6 col-md-6 footer-links" *ngIf="prgPryResp">
             <div>
                 <div class="material-icons">
                     <mat-icon>stars</mat-icon>
@@ -29,7 +22,7 @@
                     </div>
                 </div>
                 <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>{{prgPryResp.objetivo}}</p>
                 </div>
             </div>
             <div>

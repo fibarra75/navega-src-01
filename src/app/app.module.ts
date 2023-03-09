@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -28,6 +29,7 @@ import { FichaterritorialComponent } from './components/fichaterritorial/fichate
 
 import { DisplayNombrePipe }  from './cortartexto.pipe';
 import { ThousandsPipe } from './formatoNumero.pipe';
+
 import { ConocenosComponent } from './components/conocenos/conocenos.component';
 import { ContactanosComponent } from './components/contactanos/contactanos.component';
 import { OrganizacionesComponent } from './components/organizaciones/organizaciones.component';
@@ -73,7 +75,8 @@ import { IniciativacampanaComponent } from './components/fichaterritorial/inicia
     MatIconModule,
     MatStepperModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
