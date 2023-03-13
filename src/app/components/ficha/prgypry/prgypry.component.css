@@ -2,3 +2,8 @@
     display:inline-flex;
     vertical-align:top;
   }
+
+  prgypry-parent {
+    display: grid;
+    grid-template-columns: 400 px 200 px;
+  }  
