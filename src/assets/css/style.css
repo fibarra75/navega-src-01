@@ -41,6 +41,12 @@ dialog {
   align-items: center;
 }
 
+.abs-right {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/

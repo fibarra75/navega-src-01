@@ -6,6 +6,7 @@ import { Organizacion } from '../models/organizacion.model';
 import { RrhhFinanzas } from '../models/rrhh-finanzas.model';
 import { ProgramaProyecto } from '../models/programa-proyecto.model';
 import { IniciativaCampana } from '../models/iniciativa-campana.model';
+import { EntidadRelacionada } from '../models/entidad-relacionada.model';
 
 import { environment } from '../../environments/environment';
 
@@ -47,6 +48,19 @@ export class OrganizacionService {
     .get<IniciativaCampana[]>(environment.apiURL + ApiRest.iniciativaCampana + '/' + idOrganizacion)
     .pipe(retry(1),catchError(this.errorHandl))
   }
+
+  GetEntidadRelacionadaByIniciativaCampana(idIniciativaCampana: number): Observable<EntidadRelacionada[]> {
+    return this.http
+    .get<EntidadRelacionada[]>(environment.apiURL + ApiRest.entidadRelacionada + '/' + idIniciativaCampana)
+    .pipe(retry(1),catchError(this.errorHandl))
+  }
+
+  createOrganizacion(organizacion: any): Observable<any>{
+    console.log("entre",organizacion)
+    return this.http
+    .post<any>(environment.apiURL + ApiRest.crearOrganizacion, organizacion, this.httpOptions)
+    .pipe(retry(1),catchError(this.errorHandl))
+  }
   
   errorHandl(error:any) {
     let errorMessage = '';
@@ -68,5 +82,7 @@ const ApiRest = {
   organizacion: '/dev/api/org',
   rrhhFinanzas: '/dev/api/rrhh',
   proyectoPrograma: '/dev/api/progproy',
-  iniciativaCampana: '/dev/api/inicmp'
+  iniciativaCampana: '/dev/api/inicmp',
+  entidadRelacionada: '/dev/api/entrel',
+  crearOrganizacion: '/dev/api/registro'
 };

@@ -36,6 +36,7 @@ import { PrgypryComponent } from './components/ficha/prgypry/prgypry.component';
 import { InformacionComponent } from './components/ficha/informacion/informacion.component';
 import { RrhhfinanzasComponent } from './components/ficha/rrhhfinanzas/rrhhfinanzas.component';
 import { IniciativacampanaComponent } from './components/fichaterritorial/iniciativacampana/iniciativacampana.component';
+import { DetalleiniciativacampanaComponent } from './components/fichaterritorial/detalleiniciativacampana/detalleiniciativacampana.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { IniciativacampanaComponent } from './components/fichaterritorial/inicia
     PrgypryComponent,
     InformacionComponent,
     RrhhfinanzasComponent,
-    IniciativacampanaComponent
+    IniciativacampanaComponent,
+    DetalleiniciativacampanaComponent
   ],
   imports: [
     BrowserModule,
