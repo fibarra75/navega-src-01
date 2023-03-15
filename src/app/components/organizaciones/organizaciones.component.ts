@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { OrganizacionService } from 'src/app/services/organizacion.service';
+import Swal from 'sweetalert2';
+import { BusquedaService } from 'src/app/services/busqueda.service';
+import { TipoOrganizacion } from 'src/app/models/tipo-organizacion.model';
 
 @Component({
   selector: 'app-organizaciones',
@@ -34,12 +37,22 @@ export class OrganizacionesComponent implements OnInit {
   
   isLinear = false;
   nombre!: string;
+  listaTipoOrganizacion: TipoOrganizacion[] = [];
 
-  constructor(private _formBuilder: FormBuilder, public organizacionService: OrganizacionService) {;}
+  constructor(private _formBuilder: FormBuilder, public organizacionService: OrganizacionService,
+    public busquedaService: BusquedaService) {;}
 
   ngOnInit(): void {
     console.log("nombre",this.firstFormGroup.get('nombreCtrl')!.value)
+    this.cargarTiposOrganizacion()
   }
+
+  cargarTiposOrganizacion() {
+    this.busquedaService.GetTipoOrganizacion().subscribe((data: TipoOrganizacion[]) => {
+      this.listaTipoOrganizacion = data;
+      console.log('Lista TipoOrganizacion: ', data);
+    })  ;
+  } 
 
   getNombre() {
     console.log(this.firstFormGroup.get('nombreCtrl'))
@@ -116,6 +129,15 @@ export class OrganizacionesComponent implements OnInit {
 	    "representante": this.getRepresentante()
     } as any).subscribe(response => {
       console.log("resultado",response)
+      if (response.idOrganizacion != null) {
+        Swal.fire("Navega Social","La organización se registró con éxito", "success");
+        this.organizacionService.sendMailRegistroOrganizacion({
+          email: this.getEmail(),
+          name: this.getNombre()+" "+this.getPaterno()
+        })
+      } else {
+        Swal.fire("Navega Social","ocurrió un error inesperado, por favor intente de nuevo", "warning");
+      }
     })
   }
 

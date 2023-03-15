@@ -34,7 +34,7 @@ export class InformacionComponent implements OnInit {
   getOrganzacion(idOrganizacion:number) {
     this.organizacionService.GetOrganizacion(idOrganizacion).subscribe((data: Organizacion[]) => {
       this.organizacionResp = data[0];
-      console.log('Organizacion Resp: ', this.organizacionResp);
+      console.log('Organizacion_Resp: ', this.organizacionResp);
     })    
   }
 }

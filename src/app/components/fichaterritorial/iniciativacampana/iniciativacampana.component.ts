@@ -36,15 +36,13 @@ export class IniciativacampanaComponent implements OnInit {
   }
 
   truncate(str:any, length:any) {
-    if (str.length > length) {
+    if (str.length > 0 && str.length > length) {
       return str.slice(0, length) + '...';
     } else return str;
   }
 
   openModalIniciativaCampana(iniciativaCampana: IniciativaCampana) {
-    this.publicoObjetivo = ''
-    console.log("objeto iniciativaCampana",Object.values(iniciativaCampana.publicoObjetivo).length);
-    
+    this.publicoObjetivo = ''    
     iniciativaCampana.publicoObjetivo.forEach((publico,index) => {
       this.publicoObjetivo = this.publicoObjetivo + publico.nombre + ', '
       if ((index+1) === iniciativaCampana.publicoObjetivo.length) {
@@ -53,6 +51,7 @@ export class IniciativacampanaComponent implements OnInit {
     });
 
     console.log(this.publicoObjetivo)
+    console.log("iniciativaCampana",iniciativaCampana)
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
@@ -71,7 +70,7 @@ export class IniciativacampanaComponent implements OnInit {
       fechaTermino: iniciativaCampana.fechaTermino,
       contacto: iniciativaCampana.email,
       publicoObjetivo: this.publicoObjetivo,
-      direcciones: iniciativaCampana.direccion
+      direcciones: iniciativaCampana.direcciones
     };
 
     this.dialog.open(DetalleiniciativacampanaComponent, dialogConfig);

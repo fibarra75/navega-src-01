@@ -1,6 +1,8 @@
 import { AreaTrabajoEspecifica } from "./area-trabajo-especifica.model";
 import { AreaTrabajo } from "./area-trabajo.model";
 import { PublicoObjetivo } from "./publico-objetivo.model";
+import { TipoOrganizacion } from "./tipo-organizacion.model";
+import { Direccion } from "./direccion.model";
 
 export class Organizacion {
     idOrganizacion!: number;
@@ -26,5 +28,7 @@ export class Organizacion {
     areaTrabajo!: AreaTrabajo;
     areaTrabajoEspecifica!: AreaTrabajoEspecifica;
     publicoObjetivo!: PublicoObjetivo;
+    tipoOrganizacion!: TipoOrganizacion;
+    direcciones!: Direccion[];
 
 }

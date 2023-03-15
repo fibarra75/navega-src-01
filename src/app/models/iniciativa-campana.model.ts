@@ -10,5 +10,5 @@ export class IniciativaCampana {
     fechaTermino!: string;
     descripcion!: string;
     publicoObjetivo!: PublicoObjetivo[];
-    direccion!: Direccion[];
+    direcciones!: Direccion[];
 }

@@ -93,7 +93,7 @@ export class BusquedaComponent implements OnInit {
   } 
   
   truncate(str:any, length:any) {
-    if (str.length > length) {
+    if (str.length > 0 && str.length > length) {
       return str.slice(0, length) + '...';
     } else return str;
   }
@@ -192,22 +192,24 @@ export class BusquedaComponent implements OnInit {
 
     this.busquedaService.GetOrganizacionesFiltros(f).subscribe((data: Organizacion[]) => {
       this.listaOrganizaciones = data;
+      console.log("test",this.listaOrganizaciones[0]["aprobado"])
 
       let j : number = 1;
 
       for(let i = 0; i < this.listaOrganizaciones.length; i++) {
-        console.log('i:',i);
-        this.listaOrganizacionesHijo.push(this.listaOrganizaciones[i]);
+        if (this.listaOrganizaciones[i]["aprobado"] === "S") {
+          console.log('i:',i);
+          this.listaOrganizacionesHijo.push(this.listaOrganizaciones[i]);
 
-        console.log('Array de dos:',this.listaOrganizacionesHijo);
+          console.log('Array de dos:',this.listaOrganizacionesHijo);
         
-        console.log('j:',j);
-        if (j > 0 && j % 2 == 0) {
-          console.log('j%2:',i);
-          this.listaOrganizacionesPadre.push(this.listaOrganizacionesHijo);
-          this.listaOrganizacionesHijo = [];
+          console.log('j:',j);
+          if (j > 0 && j % 2 == 0) {
+            console.log('j%2:',i);
+            this.listaOrganizacionesPadre.push(this.listaOrganizacionesHijo);
+            this.listaOrganizacionesHijo = [];
+          }  
         }
-
         j++;
       }
       

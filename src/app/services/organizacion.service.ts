@@ -9,6 +9,7 @@ import { environment } from '../../environments/environment';
 import { IniciativaCampana } from '../models/iniciativa-campana.model';
 import { EntidadRelacionada } from '../models/entidad-relacionada.model';
 import { ProgramaProyecto } from '../models/programa-proyecto.model';
+import axios from "axios";
 
 
 @Injectable({
@@ -56,11 +57,25 @@ export class OrganizacionService {
   }
 
   createOrganizacion(organizacion: any): Observable<any>{
-    console.log("entre",organizacion)
     return this.http
     .post<any>(environment.apiURL + ApiRest.crearOrganizacion, organizacion, this.httpOptions)
     .pipe(retry(1),catchError(this.errorHandl))
   }
+
+  sendMailRegistroOrganizacion = async (data: any) => {
+    console.log("data correo",data)
+    axios({
+        method: 'post',
+        url: 'https://zz2d1rnha4.execute-api.us-east-1.amazonaws.com/dev/sendemail',
+        data: {
+            to: data.email,
+            name: data.name
+        }
+    }).then(() => {
+    }).catch(error => {
+        console.log(error);
+    })
+}
   
   errorHandl(error:any) {
     let errorMessage = '';

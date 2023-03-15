@@ -26,27 +26,27 @@
       <div class="col-lg-1 col-md-6"></div>
       <div class="col-lg-4 col-md-6 footer-links" style="padding-top: 15px;">
         <h4><b>Año de fundación</b></h4>
-        <p>1985</p>
+        <p>{{organizacionResp.fechaFundacion | date: 'yyyy'}}</p>
         <h4><b>Rut Organización</b></h4>
         <p>{{organizacionResp.rut}}</p>
         <h4><b>Tipo de Organización</b></h4>
-        <p>Tipo A...</p>              
+        <p>{{organizacionResp.tipoOrganizacion.nombre}}</p>              
         <h4><b>Información de Contacto</b></h4>
         <p>{{organizacionResp.email}}</p>
         <h4><b>Web</b></h4>
-        <p>www.organizacion-pendiente.cl</p>                     
+        <p>{{organizacionResp.web}}</p>                     
         <h4><b>Redes Sociales</b></h4>
           <div className="row">
-            <i class="bi bi-facebook"></i>
+            <a href='{{organizacionResp.facebook}}' target="_blank"><i class="bi bi-facebook"></i></a>
             &nbsp;&nbsp;&nbsp;
-            <i class="bi bi-twitter"></i>
+            <a href='{{organizacionResp.twitter}}' target="_blank"><i class="bi bi-twitter"></i></a>
             &nbsp;&nbsp;&nbsp;
-            <i class="bi bi-google"></i>
+            <a href='{{organizacionResp.web}}' target="_blank"><i class="bi bi-google"></i></a>
           </div>
         <br/>  
         <h4><b>Direcciones</b></h4>
         <p>
-          Casa Matriz:
+          {{organizacionResp.direcciones[0]["etiqueta"]}}
         </p>
         <p>General Bustamante 26, 4to Piso
           Providencia - Santiago</p>

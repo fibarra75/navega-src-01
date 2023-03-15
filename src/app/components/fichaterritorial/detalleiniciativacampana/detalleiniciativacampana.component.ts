@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit } from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EntidadRelacionada } from 'src/app/models/entidad-relacionada.model';
+import { Direccion } from 'src/app/models/direccion.model';
 import { OrganizacionService } from 'src/app/services/organizacion.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class DetalleiniciativacampanaComponent implements OnInit {
     fechaInicio: string,
     fechaTermino: string,
     contacto: string,
-    publicoObjetivo: string}, public organizacionService: OrganizacionService) { }
+    publicoObjetivo: string,
+    direcciones: Direccion[]}, public organizacionService: OrganizacionService) { }
   
     ngOnInit(): void {
       console.log("iniciativa campana",this.data)
@@ -39,4 +41,5 @@ export class DetalleiniciativacampanaComponent implements OnInit {
         console.log('Listado Entidades Relacionadas: ', this.listaEntidadRelacionada);
       })    
     }
+
 }

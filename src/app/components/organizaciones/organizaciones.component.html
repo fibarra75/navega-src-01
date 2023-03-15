@@ -89,14 +89,19 @@
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
                             <mat-label>Tipo de Organización</mat-label>
-                            <input matInput placeholder="Tipo de Organización" formControlName="tipoOrgCtrl" required>
-                        </mat-form-field>
+                            <mat-select formControlName="tipoOrgCtrl" placeholder="">
+                                <mat-option value="0">Seleccione el tipo de organización</mat-option>
+                                <mat-option *ngFor="let to of listaTipoOrganizacion" [value]="to.idTipoOrganizacion">
+                                    {{to.nombre}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>   
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
-                            <mat-label>Rut Orgnización</mat-label>
+                            <mat-label>Rut Organización</mat-label>
                             <input matInput placeholder="Rut Organización" formControlName="rutOrgCtrl" required>
                         </mat-form-field>
                     </div>
