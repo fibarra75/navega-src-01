@@ -6,6 +6,7 @@ import { ConocenosComponent } from './components/conocenos/conocenos.component';
 import { ContactanosComponent } from './components/contactanos/contactanos.component';
 import { OrganizacionesComponent } from './components/organizaciones/organizaciones.component';
 import { LoginComponent } from './components/login/login.component';
+import { EntidadesasociadasComponent } from './components/fichaterritorial/entidadesasociadas/entidadesasociadas.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,9 @@ const routes: Routes = [
   },
   {
     path:'contactanos', component:ContactanosComponent
+  },
+  {
+    path:'asociadas', component:EntidadesasociadasComponent
   },   
   {
     path:'**',component:InicioComponent
