@@ -131,9 +131,11 @@ export class OrganizacionesComponent implements OnInit {
       console.log("resultado",response)
       if (response.idOrganizacion != null) {
         Swal.fire("Navega Social","La organización se registró con éxito", "success");
-        this.organizacionService.sendMailRegistroOrganizacion({
+        this.organizacionService.sendMail({
           email: this.getEmail(),
-          name: this.getNombre()+" "+this.getPaterno()
+          name: this.getNombre()+" "+this.getPaterno(),
+          texto: ", su solicitud de registro ha sido recepcionada correctamente, se enviara una respuesta a su solicitud dentro de las próximas 72 horas.",
+          asunto: "Solicitud de Registro"
         })
       } else {
         Swal.fire("Navega Social","ocurrió un error inesperado, por favor intente de nuevo", "warning");

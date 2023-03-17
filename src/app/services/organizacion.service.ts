@@ -62,20 +62,39 @@ export class OrganizacionService {
     .pipe(retry(1),catchError(this.errorHandl))
   }
 
-  sendMailRegistroOrganizacion = async (data: any) => {
+  sendMail = async (data: any) => {
     console.log("data correo",data)
     axios({
         method: 'post',
         url: 'https://zz2d1rnha4.execute-api.us-east-1.amazonaws.com/dev/sendemail',
         data: {
             to: data.email,
-            name: data.name
+            name: data.name,
+            texto: data.texto,
+            subject: data.asunto
         }
     }).then(() => {
     }).catch(error => {
         console.log(error);
     })
-}
+  }
+
+  sendMailContactanos = async (data: any) => {
+    console.log("entre a envio de correos contactanos")
+    console.log("data correo",data)
+    axios({
+        method: 'post',
+        url: 'https://zz2d1rnha4.execute-api.us-east-1.amazonaws.com/dev/sendemailcontacto',
+        data: {
+            source: data.email,
+            name: data.name,
+            mensaje: data.message
+        }
+    }).then(() => {
+    }).catch(error => {
+        console.log(error);
+    })
+  }
   
   errorHandl(error:any) {
     let errorMessage = '';
