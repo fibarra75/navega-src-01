@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { GoogleMapsModule } from '@angular/google-maps'
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -18,6 +19,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -39,6 +41,7 @@ import { InformacionComponent } from './components/ficha/informacion/informacion
 import { RrhhfinanzasComponent } from './components/ficha/rrhhfinanzas/rrhhfinanzas.component';
 import { IniciativacampanaComponent } from './components/fichaterritorial/iniciativacampana/iniciativacampana.component';
 import { DetalleiniciativacampanaComponent } from './components/fichaterritorial/detalleiniciativacampana/detalleiniciativacampana.component';
+import { EntidadesasociadasComponent } from './components/fichaterritorial/entidadesasociadas/entidadesasociadas.component';
 import { PoliticaprivacidadComponent } from './components/politicaprivacidad/politicaprivacidad.component';
 
 @NgModule({
@@ -69,6 +72,7 @@ import { PoliticaprivacidadComponent } from './components/politicaprivacidad/pol
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    GoogleMapsModule,
     MatSliderModule,
     MatSelectModule,
     MatFormFieldModule,
@@ -80,7 +84,8 @@ import { PoliticaprivacidadComponent } from './components/politicaprivacidad/pol
     MatStepperModule,
     MatCheckboxModule,
     MatTabsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

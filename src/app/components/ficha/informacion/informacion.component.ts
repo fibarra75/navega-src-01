@@ -13,6 +13,8 @@ export class InformacionComponent implements OnInit {
   organizacionResp: Organizacion | undefined;
   lstOrg: Organizacion[] = [];
   nombre!: string;
+  cargando:boolean=true;
+
   @Input() organizacion!: Organizacion;
 
   constructor(
@@ -23,6 +25,7 @@ export class InformacionComponent implements OnInit {
   }   
 
   ngOnInit(): void {
+    this.cargando = true;
     console.log('Input Organizacion:',this.organizacion);
 
     this.nombre = this.organizacion.nombre;
@@ -34,6 +37,7 @@ export class InformacionComponent implements OnInit {
   getOrganzacion(idOrganizacion:number) {
     this.organizacionService.GetOrganizacion(idOrganizacion).subscribe((data: Organizacion[]) => {
       this.organizacionResp = data[0];
+      this.cargando = false
       console.log('Organizacion_Resp: ', this.organizacionResp);
     })    
   }

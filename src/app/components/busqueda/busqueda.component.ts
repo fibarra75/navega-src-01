@@ -46,6 +46,7 @@ export class BusquedaComponent implements OnInit {
   filteredOptions!: Observable<string[]>;
 
   valorOmision: string = "0";
+  cargando:boolean=false;
 
   constructor(private fb: FormBuilder, private dialog: MatDialog, public busquedaService: BusquedaService) { 
     this.valorOmision = "0";
@@ -53,6 +54,7 @@ export class BusquedaComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.cargando = false;
     this.FormData = this.fb.group({
       TipoOrganizacion: new FormControl('', [Validators.required]),
       PublicoObjetivo: new FormControl('', [Validators.required]),
@@ -221,11 +223,15 @@ export class BusquedaComponent implements OnInit {
       
       console.log('Busqueda Organizaciones: ', this.listaOrganizaciones);
       console.log('Busqueda Organizaciones Group: ', this.listaOrganizacionesPadre);
+
+      this.cargando = false;
     });
   }  
 
   onSubmit() {      
     console.log('filtros:',this.FormData.value);
+
+    this.cargando = true;
     
     let f = new Organizacion;
 

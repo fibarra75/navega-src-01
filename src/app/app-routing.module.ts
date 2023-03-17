@@ -7,6 +7,7 @@ import { ContactanosComponent } from './components/contactanos/contactanos.compo
 import { OrganizacionesComponent } from './components/organizaciones/organizaciones.component';
 import { PoliticaprivacidadComponent } from './components/politicaprivacidad/politicaprivacidad.component';
 import { LoginComponent } from './components/login/login.component';
+import { EntidadesasociadasComponent } from './components/fichaterritorial/entidadesasociadas/entidadesasociadas.component';
 
 const routes: Routes = [
   {

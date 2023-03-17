@@ -121,6 +121,9 @@
                 </div>
             </div>
             <div class="col-lg-1 col-md-6"></div>
+            <div *ngIf="cargando" class="col-lg-9 col-md-6 footer-links">
+                <mat-spinner style="margin:0 auto;">Buscando Organizaciones</mat-spinner>
+            </div>            
             <div class="col-lg-9 col-md-6 footer-links">                
                 <div class="row" *ngFor="let item of listaOrganizacionesPadre; let i = index">
                     <ng-container *ngFor="let org of item; let j = index">
