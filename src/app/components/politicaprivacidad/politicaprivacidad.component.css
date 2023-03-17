@@ -1,0 +1,9 @@
+ul.b {
+    list-style-type: square;
+    line-height: 30px;
+}
+
+ul.a {
+    list-style-type: circle;
+    line-height: 30px;
+}

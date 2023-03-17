@@ -5,6 +5,7 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { ConocenosComponent } from './components/conocenos/conocenos.component';
 import { ContactanosComponent } from './components/contactanos/contactanos.component';
 import { OrganizacionesComponent } from './components/organizaciones/organizaciones.component';
+import { PoliticaprivacidadComponent } from './components/politicaprivacidad/politicaprivacidad.component';
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
@@ -28,7 +29,10 @@ const routes: Routes = [
   },
   {
     path:'contactanos', component:ContactanosComponent
-  },   
+  },  
+  {
+    path:'politicaprivacidad', component:PoliticaprivacidadComponent
+  },  
   {
     path:'**',component:InicioComponent
   }
