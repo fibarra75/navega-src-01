@@ -20,13 +20,31 @@
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
                             <mat-label>Nombre</mat-label>
-                            <input matInput placeholder="Nombres" formControlName="nombreCtrl" required>
+                            <input matInput placeholder="Nombres" formControlName="nombreCtrl">
+                            <mat-error *ngIf="firstFormGroup.controls['nombreCtrl'].errors?.['required']">
+                                el nombre es <strong>requerido</strong>
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['nombreCtrl'].hasError('maxlength')">
+                                el nombre no debe ser mayor de 50 caracteres
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['nombreCtrl'].hasError('pattern')">
+                                el nombre solo debe poseer letras
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
                             <mat-label>Apellido Paterno</mat-label>
                             <input matInput placeholder="Apellido Paterno" formControlName="aPaternoCtrl" required>
+                            <mat-error *ngIf="firstFormGroup.controls['aPaternoCtrl'].errors?.['required']">
+                                el nombre es <strong>requerido</strong>
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['aPaternoCtrl'].hasError('maxlength')">
+                                nombre no debe ser mayor de 50 caracteres
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['aPaternoCtrl'].hasError('pattern')">
+                                el nombre solo debe poseer letras
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
@@ -35,6 +53,15 @@
                         <mat-form-field class="full-width">
                             <mat-label>Apellido Materno</mat-label>
                             <input matInput placeholder="Apellido Materno" formControlName="aMaternoCtrl" required>
+                            <mat-error *ngIf="firstFormGroup.controls['aMaternoCtrl'].errors?.['required']">
+                                el nombre es <strong>requerido</strong>
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['aMaternoCtrl'].hasError('maxlength')">
+                                nombre no debe ser mayor de 50 caracteres
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['aMaternoCtrl'].hasError('pattern')">
+                                el nombre solo debe poseer letras
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-md-6">
@@ -63,6 +90,12 @@
                         <mat-form-field class="full-width">
                             <mat-label>E-Mail institucional</mat-label>
                             <input matInput placeholder="E-Mail institucional" formControlName="emailCtrl" required>
+                            <mat-error *ngIf="firstFormGroup.controls['emailCtrl'].errors?.['required']">
+                                el email es <strong>requerido</strong>
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['emailCtrl'].hasError('email')">
+                                el email no es válido
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-md-6">
@@ -72,6 +105,7 @@
                         </mat-form-field>
                     </div>
                 </div>
+                <br/>
                 <div>
                   <button mat-raised-button="" color="primary" matStepperNext>Siguiente</button>
                 </div>
@@ -115,26 +149,69 @@
                 <div class="row">
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
-                            <mat-label>Dirección casa matriz</mat-label>
-                            <input matInput placeholder="Dirección casa matriz" formControlName="dirOrgCtrl" required>
+                            <mat-label>Representante Legal</mat-label>
+                            <input matInput placeholder="Representante Legal" formControlName="representanteOrgCtrl" required>
                         </mat-form-field>
                     </div>
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
-                            <mat-label>Representante Legal</mat-label>
-                            <input matInput placeholder="Representante Legal" formControlName="representanteOrgCtrl" required>
+                            <mat-label>Región</mat-label>
+                                <mat-select formControlName="regionOrgCtrl" placeholder="" (selectionChange)="cargarComunasRegion($event)">
+                                    <mat-option value="0">--</mat-option>
+                                    <mat-option *ngFor="let r of listaRegion" [value]="r.idRegion">
+                                    {{r.nombre}}
+                                    </mat-option>
+                                </mat-select>
                         </mat-form-field>
                     </div>
                 </div>    
                 <div class="row">
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
+                            <mat-label>Comuna</mat-label>
+                            <mat-select formControlName="comunaOrgCtrl" placeholder="">
+                                <mat-option value="0">--</mat-option>
+                                <mat-option *ngFor="let c of listaComuna" [value]="c.idRegion">
+                                {{c.nombre}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>                    
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Ciudad</mat-label>
+                            <mat-select formControlName="ciudadOrgCtrl" placeholder="">
+                                <mat-option value="0">--</mat-option>
+                                <mat-option *ngFor="let c of listaCiudad" [value]="c.idCiudad">
+                                {{c.nombre}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>  
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Calle</mat-label>
+                            <input matInput placeholder="Calle" formControlName="calleOrgCtrl" required>
+                        </mat-form-field>
+                    </div>                 
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
+                            <mat-label>Número</mat-label>
+                            <input matInput placeholder="Número" formControlName="numeroOrgCtrl" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">                
+                    <div class="col-md-6">
+                        <mat-form-field class="full-width">
                             <mat-label>Sitio Web</mat-label>
                             <input matInput placeholder="Sitio Web" formControlName="sitioWebOrgCtrl" required>
                         </mat-form-field>
                     </div>
-                    <div class="col-md-6">&nbsp;</div>
                 </div>
+                <br/>
                 <div>
                   <button mat-raised-button="" color="primary" matStepperPrevious>Anterior</button>
                   <span>&nbsp;</span>
@@ -152,12 +229,19 @@
                 <br/>
                 <table>
                     <tbody>
-                        <tr>
+                        <tr *ngIf="!mostrarCertificado">
                             <th style="width: 5%"></th>
                             <th style="width: 5%; padding-left: 75px;"><img width="50" height="50" src="assets/img/lupa3.png" alt=""></th>
                             <td style="width: 40%; border-width: 1px;">&nbsp;&nbsp;Certificado Digital de vigencia de persona jurídica sin fines de lucro *</td>
                             <th style="width: 5%"></th>
-                            <td style="width: 20%"><button mat-raised-button="" color="primary">subir</button></td>
+                            <td style="width: 20%"><button mat-raised-button="" (click)="fileInput.click()" color="primary">subir</button></td>
+                        </tr>
+                        <tr *ngIf="mostrarCertificado">
+                            <th style="width: 5%"></th>
+                            <th style="width: 5%; padding-left: 75px;"><img width="50" height="50" src="assets/img/lupa3.png" alt=""></th>
+                            <td style="width: 40%; border-width: 1px;">&nbsp;&nbsp;{{file.name}}</td>
+                            <th style="width: 5%"></th>
+                            <td style="width: 20%"><button mat-raised-button="" (click)="fileInput.click()" color="primary">subir</button></td>
                         </tr>
                         <br/>
                         <tr>
@@ -165,7 +249,7 @@
                             <th style="width: 5%; padding-left: 75px;"><img width="50" height="50" src="assets/img/lupa3.png" alt=""></th>
                             <td style="width: 40%; border-width: 1px">&nbsp;&nbsp;Carta de intención de ingreso a la plataforma firmada por la dirección **</td>
                             <th style="width: 5%"></th>
-                            <td style="width: 20%"><button mat-raised-button="" color="primary">subir</button></td>
+                            <td style="width: 20%"><button mat-raised-button="" (click)="selectFile()" color="primary">subir</button></td>
                         </tr>
                     </tbody>
                 </table>   
@@ -194,6 +278,7 @@
             
       </div>
     </section>
+    <input #fileInput (change)="onChange($event)" type='file' hidden={true}  accept="image/x-png, image/jpeg, .doc, .docx, .pdf,.xls,.xlsx"/>
 
   </main><!-- End #main --> 
   <app-footer></app-footer>

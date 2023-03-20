@@ -4,6 +4,9 @@ import { OrganizacionService } from 'src/app/services/organizacion.service';
 import Swal from 'sweetalert2';
 import { BusquedaService } from 'src/app/services/busqueda.service';
 import { TipoOrganizacion } from 'src/app/models/tipo-organizacion.model';
+import { Ciudad } from 'src/app/models/ciudad.model';
+import { Comuna } from 'src/app/models/comuna.model';
+import { Region } from 'src/app/models/region.model';
 
 @Component({
   selector: 'app-organizaciones',
@@ -13,22 +16,26 @@ import { TipoOrganizacion } from 'src/app/models/tipo-organizacion.model';
 export class OrganizacionesComponent implements OnInit {
   
   firstFormGroup = this._formBuilder.group({
-    nombreCtrl: ['', Validators.required],
-    aPaternoCtrl: ['', Validators.required],
-    aMaternoCtrl: ['', Validators.required],
-    rutCtrl: ['', Validators.required],
-    cargoCtrl: ['', Validators.required],
+    nombreCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('a-zA-ZñÑá-úÁ-Ú')]],
+    aPaternoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('a-zA-ZñÑá-úÁ-Ú')]],
+    aMaternoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('a-zA-ZñÑá-úÁ-Ú')]],
+    rutCtrl: ['', [Validators.required, Validators.maxLength(10)]],
+    cargoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('a-zA-ZñÑá-úÁ-Ú')]],
     celularCtrl: ['', Validators.required],
-    emailCtrl: ['', Validators.required],
-    passwdCtrl: ['', Validators.required],
+    emailCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.email]],
+    passwdCtrl: ['', Validators.required,],
   });
   secondFormGroup = this._formBuilder.group({
     nombreOrgCtrl: ['', Validators.required],
     tipoOrgCtrl: ['', Validators.required],
     rutOrgCtrl: ['', Validators.required],
     telOrgCtrl: ['', Validators.required],
-    dirOrgCtrl: ['', Validators.required],
     representanteOrgCtrl: ['', Validators.required],
+    regionOrgCtrl: [Validators.required],
+    comunaOrgCtrl: [Validators.required],
+    ciudadOrgCtrl: [Validators.required],
+    calleOrgCtrl:  ['', Validators.required],
+    numeroOrgCtrl: ['', Validators.required],
     sitioWebOrgCtrl: ['', Validators.required],
   });
   tercerFormGroup = this._formBuilder.group({
@@ -38,13 +45,52 @@ export class OrganizacionesComponent implements OnInit {
   isLinear = false;
   nombre!: string;
   listaTipoOrganizacion: TipoOrganizacion[] = [];
+  listaRegion: Region[] = [];
+  listaComuna: Comuna[] = [];
+  listaCiudad: Ciudad[] = [];
+  submitted = false;
+  file!: File;
+  mostrarCertificado: boolean = false;
+
 
   constructor(private _formBuilder: FormBuilder, public organizacionService: OrganizacionService,
     public busquedaService: BusquedaService) {;}
 
   ngOnInit(): void {
     console.log("nombre",this.firstFormGroup.get('nombreCtrl')!.value)
-    this.cargarTiposOrganizacion()
+    this.cargarCombos()
+  }
+
+  get f() { return this.firstFormGroup.controls }
+
+  cargarCombos() {
+    this.cargarRegiones();
+    this.cargarTiposOrganizacion();
+    this.cargarCiudades()
+  }
+
+  cargarRegiones() {
+    this.busquedaService.GetRegiones().subscribe((data: Region[]) => {
+      this.listaRegion = data;
+      console.log('Lista Regiones: ', this.listaRegion);
+    });  
+  }
+
+  cargarComunasRegion(obj:any) {
+    let idRegion : number;
+    idRegion = Number(obj.value);
+
+    this.busquedaService.GetComunasRegion(idRegion).subscribe((data: Comuna[]) => {
+      this.listaComuna = data;
+      console.log('Lista Comunas x Region: ', this.listaComuna);
+    })  
+  }
+
+  cargarCiudades() {
+    this.busquedaService.GetCiudades().subscribe((data: Ciudad[]) => {
+      this.listaCiudad = data;
+      console.log('Lista Ciudad: ', this.listaCiudad);
+    });
   }
 
   cargarTiposOrganizacion() {
@@ -53,6 +99,26 @@ export class OrganizacionesComponent implements OnInit {
       console.log('Lista TipoOrganizacion: ', data);
     })  ;
   } 
+
+  validarNombre() {
+    console.log("entro")
+    if (this.firstFormGroup.get('nombreCtrl')?.errors?.['required']) {
+      Swal.fire("Navega Social","el nombre es requerido", "warning");
+    }
+  }
+
+  selectFile() {
+  //   console.log("entre")
+  //   this.file = document.querySelector('input[type="file"]') as HTMLElement;
+  //   this.file.click();
+  }
+
+  onChange(event: any) {
+    console.log("entre")
+    this.file = event.target.files[0];
+    console.log(this.file)
+    this.mostrarCertificado = true;
+  }
 
   getNombre() {
     console.log(this.firstFormGroup.get('nombreCtrl'))
@@ -103,12 +169,28 @@ export class OrganizacionesComponent implements OnInit {
     return this.secondFormGroup.get('telOrgCtrl')!.value
   }
 
-  getDireccion() {
-    return this.secondFormGroup.get('dirOrgCtrl')!.value
+  getComuna() {
+    return this.secondFormGroup.get('comunaOrgCtrl')!.value
+  }
+
+  getCiudad() {
+    return this.secondFormGroup.get('ciudadOrgCtrl')!.value
+  }
+
+  getCalle() {
+    return this.secondFormGroup.get('calleOrgCtrl')!.value
+  }
+
+  getNumero() {
+    return this.secondFormGroup.get('numeroOrgCtrl')!.value
   }
 
   getRepresentante() {
     return this.secondFormGroup.get('representanteOrgCtrl')!.value
+  }
+
+  getSitioWeb() {
+    return this.secondFormGroup.get('sitioWebOrgCtrl')!.value
   }
 
   createOrganizacion() {
@@ -125,8 +207,12 @@ export class OrganizacionesComponent implements OnInit {
 	    "tipoorg": this.getTipoOrganizacion(),
 	    "rutorg": this.getRutOrganizacion(),
 	    "telefonoorg": this.getTelefonoOrganizacion(),
-	    "direccion": this.getDireccion(),
-	    "representante": this.getRepresentante()
+	    "calle": this.getCalle(),
+      "numero": this.getNumero(),
+      "idComuna": this.getComuna(),
+      "idCiudad": this.getCiudad(),
+	    "representante": this.getRepresentante(),
+      "sitio": this.getSitioWeb()
     } as any).subscribe(response => {
       console.log("resultado",response)
       if (response.idOrganizacion != null) {
@@ -137,10 +223,20 @@ export class OrganizacionesComponent implements OnInit {
           texto: ", su solicitud de registro ha sido recepcionada correctamente, se enviara una respuesta a su solicitud dentro de las próximas 72 horas.",
           asunto: "Solicitud de Registro"
         })
+        this.organizacionService.unloadCertificado(this.file, response.idOrganizacion, this.file.name)
       } else {
         Swal.fire("Navega Social","ocurrió un error inesperado, por favor intente de nuevo", "warning");
       }
     })
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    
+    // stop here if form is invalid
+    if (this.firstFormGroup.invalid) {
+      return;
+  }
   }
 
 }

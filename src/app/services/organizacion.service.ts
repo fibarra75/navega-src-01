@@ -95,6 +95,12 @@ export class OrganizacionService {
         console.log(error);
     })
   }
+
+  unloadCertificado(certificado: File, idOrganizacion: number, nombreArchivo: string): Observable<any>{
+    return this.http
+    .post<any>(environment.apiURL + ApiRest.unloadCertificadoDigital + idOrganizacion + ApiRest.certificado + nombreArchivo, certificado, this.httpOptions)
+    .pipe(retry(1),catchError(this.errorHandl))
+  }
   
   errorHandl(error:any) {
     let errorMessage = '';
@@ -118,5 +124,8 @@ const ApiRest = {
   proyectoPrograma: '/dev/api/progproy',
   iniciativaCampana: '/dev/api/inicmp',
   entidadRelacionada: '/dev/api/entrel',
-  crearOrganizacion: '/dev/api/registro'
+  crearOrganizacion: '/dev/api/registro',
+  unloadCertificadoDigital: '/dev/api/uploadfile/org/',
+  certificado: 'certificado/',
+  unloadCartaIntencion: '/dev/api/uploadfile/org/76/carta/o.pdf'
 };
