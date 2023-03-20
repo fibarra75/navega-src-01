@@ -28,7 +28,7 @@
                         <div style="font-size: 18px; font-family: 'Roboto'" class="form-group">
                             <mat-form-field>
                                 <mat-label>Tipo de Organización</mat-label>
-                                <mat-select formControlName="TipoOrganizacion" placeholder="">
+                                <mat-select formControlName="TipoOrganizacion" placeholder="" (selectionChange)="onChangeFiltro()">
                                     <mat-option value="0">--</mat-option>
                                     <mat-option *ngFor="let to of listaTipoOrganizacion" [value]="to.idTipoOrganizacion">
                                         {{to.nombre}}
@@ -39,7 +39,7 @@
                         <div style="font-size: 18px; font-family: 'Roboto'" class="form-group">
                             <mat-form-field>
                                 <mat-label>Público Objetivo</mat-label>
-                                <mat-select formControlName="PublicoObjetivo" placeholder="">
+                                <mat-select formControlName="PublicoObjetivo" placeholder="" (selectionChange)="onChangeFiltro()">
                                     <mat-option value="0">--</mat-option>
                                     <mat-option *ngFor="let po of listaPublicoObjetivo" [value]="po.idPublicoObjetivo">
                                         {{po.nombre | displayNombre:30}}
@@ -50,7 +50,7 @@
                         <div style="font-size: 18px; font-family: 'Roboto'" class="form-group">
                             <mat-form-field>
                                 <mat-label>Área de Trabajo</mat-label>
-                                <mat-select formControlName="AreaTrabajo" placeholder="">
+                                <mat-select formControlName="AreaTrabajo" placeholder="" (selectionChange)="onChangeFiltro()">
                                     <mat-option value="0">--</mat-option>
                                     <mat-option *ngFor="let at of listaAreaTrabajo" [value]="at.idAreaTrabajo">
                                         {{at.nombre | displayNombre:30}}
@@ -61,7 +61,7 @@
                         <div style="font-size: 18px; font-family: 'Roboto'; padding-left: 20px;" class="form-group">
                             <mat-form-field>
                                 <mat-label>Área Especifica de Trabajo</mat-label>
-                                <mat-select formControlName="AreaTrabajoEsp" placeholder="">
+                                <mat-select formControlName="AreaTrabajoEsp" placeholder="" (selectionChange)="onChangeFiltro()">
                                     <mat-option value="0">--</mat-option>
                                     <mat-option *ngFor="let ate of listaAreaTrabajoEspecifica" [value]="ate.idAreaTrabajoEspecifica">
                                         {{ate.nombre | displayNombre:30}}
@@ -72,17 +72,12 @@
                         <div>
                             <mat-form-field>
                                 <mat-label>Región</mat-label>
-                                <input type="text"
-                                    placeholder="Pick one"
-                                    aria-label="Number"
-                                    matInput
-                                    [formControl]="myRegionControl"
-                                    [matAutocomplete]="auto">
-                                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                                    <mat-option *ngFor="let r of filteredOptions | async" [value]="r">
-                                        {{r}}
+                                <mat-select formControlName="Region" placeholder="" (selectionChange)="cargarComunasRegion($event)">
+                                    <mat-option value="0">--</mat-option>
+                                    <mat-option *ngFor="let r of listaRegion" [value]="r.idRegion">
+                                    {{r.nombre}}
                                     </mat-option>
-                                </mat-autocomplete>
+                                </mat-select>
                             </mat-form-field>
                         </div>                        
                         <div style="font-size: 18px; font-family: 'Roboto'" class="form-group">

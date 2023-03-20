@@ -1,3 +1,5 @@
+import { Direccion } from "./direccion.model";
+
 export class EntidadRelacionada {
     idEntidadRelacionada!: number;
     idIniciativaCampana!: number;
@@ -6,4 +8,5 @@ export class EntidadRelacionada {
     email!: string;
     telefono!: string;
     idOrganizacion!: number;
+    direcciones!: Direccion[];
 }

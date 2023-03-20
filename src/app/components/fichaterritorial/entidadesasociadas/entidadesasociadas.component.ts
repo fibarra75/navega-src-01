@@ -1,6 +1,10 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { Direccion } from 'src/app/models/direccion.model';
+import { EntidadRelacionada } from 'src/app/models/entidad-relacionada.model';
+import { LabelMarca, MarcaMapa, OptionsMarpa, PositionMarca } from 'src/app/models/marca-mapa.model';
 import { Organizacion } from 'src/app/models/organizacion.model';
+import { OrganizacionService } from 'src/app/services/organizacion.service';
 
 interface MarkerProperties {
   position: {
@@ -15,6 +19,9 @@ interface MarkerProperties {
   styleUrls: ['./entidadesasociadas.component.css']
 })
 export class EntidadesasociadasComponent implements OnInit {
+  listaEntRel!: EntidadRelacionada[]
+  prgEntRel!: EntidadRelacionada;
+
   @Input() organizacion!: Organizacion;
   title = 'angular-google-maps-app';
 
@@ -42,16 +49,29 @@ export class EntidadesasociadasComponent implements OnInit {
     { position : {lat: -33.44049396025105, lng: -70.65419018855103}, label: { color:'blue', text : 'Texto Eiffel Tower'}, title : 'Titulo Eiffel Tower', info : 'Info xxxx', options : {animation: google.maps.Animation.DROP}}, // Eiffel Tower
     { position : {lat: -33.437915524314256, lng: -70.64706624140747}, label: { color:'blue', text : 'Texto Eiffel Tower'}, title : 'Titulo Eiffel Tower', info : 'Info xxxx', options : {animation: google.maps.Animation.DROP}}, // Eiffel Tower
   ];
+
+  lstMarcas! : MarcaMapa[];
   
-  infoContent = ''
+  infoContent = '';
+
+  constructor(
+    public organizacionService: OrganizacionService
+    ) {
+    ;
+  }    
 
   ngOnInit() {
+    /*
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       }
     });
+    */
+
+    //this.getEntidadesRelacionadas(this.organizacion.idOrganizacion);
+    this.getEntidadesRelacionadas(1);
 
     this.center = {
       lat: -33.43698411475028,
@@ -107,4 +127,51 @@ export class EntidadesasociadasComponent implements OnInit {
     this.infoContent = content;
     this.info.open(marker)
   }
+
+  getEntidadesRelacionadas(idOrganizacion:number) {
+    this.organizacionService.GetEntidadRelacionadaByIniciativaCampana(idOrganizacion).subscribe((data: EntidadRelacionada[]) => {
+      this.listaEntRel = data;
+
+      let m:MarcaMapa;
+      let lstDir:Direccion[];
+      let d:Direccion;
+
+      this.lstMarcas = [];
+
+
+      for(let i = 0; i < this.listaEntRel.length; i++) {
+        lstDir = this.listaEntRel[i].direcciones;
+
+        console.log('Largo direcciones:',lstDir.length,'Entidad:',i);
+
+        for(let j = 0; j < lstDir.length; j++) {
+          m = new MarcaMapa();
+          d = lstDir[j];
+
+          console.log('Loop Direcciones');
+
+          if (typeof d !== 'undefined') {          
+            console.log('Direccion:', d);
+
+            m.position = new PositionMarca();
+            m.position.lat = d.latitud;
+            m.position.lng = d.longitud;
+            m.label = new LabelMarca();
+            m.label.color = 'blue';
+            m.label.text = this.listaEntRel[i].nombre;
+            m.title = this.listaEntRel[i].nombre;
+            m.info = this.listaEntRel[i].idEntidadRelacionada.toString();
+            m.options = new OptionsMarpa();
+            m.options.animation = google.maps.Animation.DROP;
+
+            this.lstMarcas.push(m);
+          }
+        }        
+        console.log('Direcciones Entidades:',this.listaEntRel[i].direcciones);
+        console.log('Lista Marcas:',this.lstMarcas);
+      }      
+      
+      console.log('Entidades Relacionadas: ', this.listaEntRel);
+    })    
+  }  
 }

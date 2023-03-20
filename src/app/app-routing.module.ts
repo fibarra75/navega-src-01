@@ -3,9 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { ConocenosComponent } from './components/conocenos/conocenos.component';
-import { ContactanosComponent } from './components/contactanos/contactanos.component';
 import { OrganizacionesComponent } from './components/organizaciones/organizaciones.component';
-import { PoliticaprivacidadComponent } from './components/politicaprivacidad/politicaprivacidad.component';
 import { LoginComponent } from './components/login/login.component';
 import { EntidadesasociadasComponent } from './components/fichaterritorial/entidadesasociadas/entidadesasociadas.component';
 
@@ -29,11 +27,8 @@ const routes: Routes = [
     path:'conocenos', component:ConocenosComponent
   },
   {
-    path:'contactanos', component:ContactanosComponent
-  },  
-  {
-    path:'politicaprivacidad', component:PoliticaprivacidadComponent
-  },  
+    path:'asociadas', component:EntidadesasociadasComponent
+  },   
   {
     path:'**',component:InicioComponent
   }
