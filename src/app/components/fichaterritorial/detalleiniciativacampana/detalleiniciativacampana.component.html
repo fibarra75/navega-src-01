@@ -40,20 +40,22 @@
                   <td style="width: 560px;"><h5><b>Localización</b></h5></td>
                 </tr>
                 <tr>
-                  <table class="table">
-                    <tbody>
-                      <tr style="width: 250px">
-                        <td style="width: 30px;"></td>
-                        <td style="width: 400px;"><h6><b>Dirección</b></h6></td>
-                        <td style="width: 160px;"><h6><b>Etiqueta</b></h6></td>
-                      </tr>
-                      <tr>
-                        <td style="width: 30px;"></td>
-                        <td style="width: 400px;"><h5><b></b></h5></td>
-                        <td style="width: 160px;"><h5><b></b></h5></td>
-                      </tr>
-                    </tbody>
-                  </table>  
+                  <ng-container *ngFor="let dir of data1.direcciones">
+                    <table class="table">
+                      <tbody>
+                        <tr style="width: 250px">
+                          <td style="width: 30px;"></td>
+                          <td style="width: 120px;"><h6><b>Etiqueta</b></h6></td>
+                          <td style="width: 440px;"><h6><b>Dirección</b></h6></td>
+                        </tr>
+                        <tr>
+                          <td style="width: 30px;"></td>
+                          <td style="width: 120px;"><p>{{dir.etiqueta}}</p></td>
+                          <td style="width: 440px;"><p>{{dir.direccionConcatenada}}</p></td>
+                        </tr>
+                      </tbody>
+                    </table>  
+                  </ng-container>
                 </tr>
                 <tr style="width: 250px">
                   <td style="width: 30px; border-bottom-width: 0px;"><i class="bi bi-star"></i></td>

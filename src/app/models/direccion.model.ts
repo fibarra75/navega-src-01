@@ -10,4 +10,5 @@ export class Direccion {
     depto!: string;
     latitud!:number;
     longitud!:number;
+    direccionConcatenada!: string;
 }

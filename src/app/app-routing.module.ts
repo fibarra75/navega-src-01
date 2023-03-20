@@ -6,6 +6,7 @@ import { ConocenosComponent } from './components/conocenos/conocenos.component';
 import { OrganizacionesComponent } from './components/organizaciones/organizaciones.component';
 import { LoginComponent } from './components/login/login.component';
 import { PoliticaprivacidadComponent } from './components/politicaprivacidad/politicaprivacidad.component';
+import { EntidadesasociadasComponent } from './components/fichaterritorial/entidadesasociadas/entidadesasociadas.component';
 
 const routes: Routes = [
   {
