@@ -270,7 +270,7 @@ export class BusquedaComponent implements OnInit {
   
   openModalFicha(organizacion: Organizacion) {
 
-    console.log(organizacion);
+    console.log('Organizacion',organizacion);
 
     const dialogConfig = new MatDialogConfig();
 
@@ -287,7 +287,7 @@ export class BusquedaComponent implements OnInit {
       nombre: organizacion.nombre
     };
 
-    if (organizacion.idTipoOrganizacion == 1) {
+    if (organizacion.territorial == 'N') {
       this.dialog.open(FichaComponent, dialogConfig);
     } else {
       this.dialog.open(FichaterritorialComponent, dialogConfig);
