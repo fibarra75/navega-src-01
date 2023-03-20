@@ -5,6 +5,7 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { ConocenosComponent } from './components/conocenos/conocenos.component';
 import { OrganizacionesComponent } from './components/organizaciones/organizaciones.component';
 import { LoginComponent } from './components/login/login.component';
+import { PoliticaprivacidadComponent } from './components/politicaprivacidad/politicaprivacidad.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,10 @@ const routes: Routes = [
   },
   {
     path:'conocenos', component:ConocenosComponent
-  },
+  }, 
+  {
+    path:'politicaprivacidad', component:PoliticaprivacidadComponent
+  },  
   {
     path:'asociadas', component:EntidadesasociadasComponent
   },   
