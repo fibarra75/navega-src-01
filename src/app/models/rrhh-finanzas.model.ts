@@ -6,4 +6,5 @@ export class RrhhFinanzas {
     numeroVoluntarios!: number;
     totalIngresosOperacionales!: number;
     totalGastosOperacionales!: number;
+    archivos!: any[]
 }
