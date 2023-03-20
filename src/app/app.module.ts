@@ -33,7 +33,6 @@ import { DisplayNombrePipe }  from './cortartexto.pipe';
 import { ThousandsPipe } from './formatoNumero.pipe';
 
 import { ConocenosComponent } from './components/conocenos/conocenos.component';
-import { ContactanosComponent } from './components/contactanos/contactanos.component';
 import { OrganizacionesComponent } from './components/organizaciones/organizaciones.component';
 import { LoginComponent } from './components/login/login.component';
 import { PrgypryComponent } from './components/ficha/prgypry/prgypry.component';
@@ -55,7 +54,6 @@ import { PoliticaprivacidadComponent } from './components/politicaprivacidad/pol
     DisplayNombrePipe,
     ThousandsPipe,
     ConocenosComponent,
-    ContactanosComponent,
     OrganizacionesComponent,
     LoginComponent,
     PrgypryComponent,
@@ -63,7 +61,8 @@ import { PoliticaprivacidadComponent } from './components/politicaprivacidad/pol
     RrhhfinanzasComponent,
     IniciativacampanaComponent,
     DetalleiniciativacampanaComponent,
-    PoliticaprivacidadComponent
+    EntidadesasociadasComponent,
+    PoliticaprivacidadComponent    
   ],
   imports: [
     BrowserModule,

@@ -8,5 +8,7 @@ export class Direccion {
     numero!: string;
     block!: string;
     depto!: string;
+    latitud!:number;
+    longitud!:number;
     direccionConcatenada!: string;
 }

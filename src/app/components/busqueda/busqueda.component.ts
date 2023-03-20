@@ -34,6 +34,7 @@ export class BusquedaComponent implements OnInit {
   listaPublicoObjetivo: PublicoObjetivo[] = [];
   listaAreaTrabajo: AreaTrabajo[] = [];
   listaAreaTrabajoEspecifica: AreaTrabajoEspecifica[] = [];
+  listaOrganizacionesTodas: Organizacion[] = [];
   listaOrganizaciones: Organizacion[] = [];
   listaOrganizacionesPadre: any[] = [];
   listaOrganizacionesHijo: Organizacion[] = [];  
@@ -74,6 +75,15 @@ export class BusquedaComponent implements OnInit {
         console.log(this.listaOrganizaciones);
     });
     */
+
+    this.busquedaService.GetOrganizaciones().subscribe((data: Organizacion[]) => {
+      console.log("Todas las organizaciones:",data)
+
+      this.listaOrganizacionesTodas = data.filter((obj) => {
+        return obj.aprobado === 'S';
+      });
+    });
+
     this.cagarFiltros();
 
     this.FormData.patchValue({TipoOrganizacion : this.valorOmision});
@@ -193,40 +203,52 @@ export class BusquedaComponent implements OnInit {
     this.listaOrganizacionesHijo = []; 
 
     this.busquedaService.GetOrganizacionesFiltros(f).subscribe((data: Organizacion[]) => {
+      console.log("data",data)
       this.listaOrganizaciones = data;
-      console.log("test",this.listaOrganizaciones[0]["aprobado"])
-
-      let j : number = 1;
-
-      for(let i = 0; i < this.listaOrganizaciones.length; i++) {
-        if (this.listaOrganizaciones[i]["aprobado"] === "S") {
-          console.log('i:',i);
-          this.listaOrganizacionesHijo.push(this.listaOrganizaciones[i]);
-
-          console.log('Array de dos:',this.listaOrganizacionesHijo);
-        
-          console.log('j:',j);
-          if (j > 0 && j % 2 == 0) {
-            console.log('j%2:',i);
-            this.listaOrganizacionesPadre.push(this.listaOrganizacionesHijo);
-            this.listaOrganizacionesHijo = [];
-          }  
-        }
-        j++;
-      }
       
-      if (this.listaOrganizacionesHijo.length > 0) {
-        this.listaOrganizacionesPadre.push(this.listaOrganizacionesHijo);
-        this.listaOrganizacionesHijo = [];        
-      }
+      //console.log("test",this.listaOrganizaciones[0]["aprobado"])
+      //console.log('Busqueda Organizaciones: ', this.listaOrganizaciones);
+      this.listaOrganizaciones = data.filter((obj) => {
+        return obj.aprobado === 'S';
+      });
 
+      this.agruparOrganizaciones();
+
+      console.log("Lista Organizaciones",this.listaOrganizaciones);
       
-      console.log('Busqueda Organizaciones: ', this.listaOrganizaciones);
-      console.log('Busqueda Organizaciones Group: ', this.listaOrganizacionesPadre);
+      //console.log('Busqueda Organizaciones: ', this.listaOrganizaciones);
+      //console.log('Busqueda Organizaciones Group: ', this.listaOrganizacionesPadre);
 
       this.cargando = false;
     });
   }  
+
+  agruparOrganizaciones() {
+    let j : number = 1;
+
+    this.listaOrganizacionesPadre = [];
+    console.log("Cant de Organizaciones para agrupar",this.listaOrganizaciones.length);
+
+    for(let i = 0; i < this.listaOrganizaciones.length; i++) {
+      //console.log('i:',i);
+      this.listaOrganizacionesHijo.push(this.listaOrganizaciones[i]);
+
+      //console.log('Array de dos:',this.listaOrganizacionesHijo);
+    
+      //console.log('j:',j);
+      if (j > 0 && j % 2 == 0) {
+        //console.log('j%2:',i);
+        this.listaOrganizacionesPadre.push(this.listaOrganizacionesHijo);
+        this.listaOrganizacionesHijo = [];
+      }
+      j++;
+    }
+    
+    if (this.listaOrganizacionesHijo.length > 0) {
+      this.listaOrganizacionesPadre.push(this.listaOrganizacionesHijo);
+      this.listaOrganizacionesHijo = [];        
+    }    
+  }
 
   onSubmit() {      
     console.log('filtros:',this.FormData.value);
@@ -269,7 +291,86 @@ export class BusquedaComponent implements OnInit {
       this.dialog.open(FichaComponent, dialogConfig);
     } else {
       this.dialog.open(FichaterritorialComponent, dialogConfig);
-    }
+    } 
   }  
+
+  onTipoOrgChange (ob:any) {
+    console.log('ob',ob);
+    let valor:number;
+
+    this.listaOrganizaciones = [];
+
+    if (ob.value > 0) {
+      valor = Number(ob.value)
+      this.listaOrganizaciones = this.listaOrganizacionesTodas.filter((obj) => {
+        return obj.idTipoOrganizacion === valor;
+      });
+
+      this.agruparOrganizaciones();
+    }
+
+    console.log("Lista Organizaciones",this.listaOrganizaciones);
+  }
+
+  onChangeFiltro () {
+    console.log('filtros:',this.FormData.value);
+
+    let f = new Organizacion;
+
+    /*
+    if (this.FormData.value.TipoOrganizacion > 0)
+      f.idTipoOrganizacion = this.FormData.value.TipoOrganizacion;
+    */
+    f.idTipoOrganizacion = this.FormData.value.TipoOrganizacion;
+    f.idPublicoObjetivo = this.FormData.value.PublicoObjetivo;
+    f.idAreaTrabajo = this.FormData.value.AreaTrabajo;
+    f.idAreaTrabajoSub = this.FormData.value.AreaTrabajoEsp;
+    //f.nombre = this.FormData.value.Nombre;
+    
+    /*
+    this.listaOrganizaciones = this.listaOrganizacionesTodas.filter((obj) => {
+      return obj.idTipoOrganizacion === f.idTipoOrganizacion
+             && (f.idPublicoObjetivo === 0 || obj.idPublicoObjetivo === f.idPublicoObjetivo);
+    });
+    */
+
+    console.log('filtros 2:',f);
+
+    this.listaOrganizaciones = this.listaOrganizacionesTodas.filter((obj) => {
+      return this.validarFiltro(obj,f);
+    });
+
+    this.agruparOrganizaciones();
+  }
+
+  validarFiltro(obj: Organizacion, f: Organizacion) {
+    let ack :boolean = true;
+
+    if (f.idTipoOrganizacion > 0) {
+      if (obj.idTipoOrganizacion !== f.idTipoOrganizacion) {
+        ack = false;    
+      }
+    }
+
+    if (f.idPublicoObjetivo > 0) {
+      if (obj.idPublicoObjetivo !== f.idPublicoObjetivo) {
+        ack = false;    
+      }
+    }
+
+    if (f.idAreaTrabajo > 0) {
+      if (obj.idAreaTrabajo !== f.idAreaTrabajo) {
+        ack = false;    
+      }
+    }
+
+    if (f.idAreaTrabajoSub > 0) {
+      if (obj.idAreaTrabajoSub !== f.idAreaTrabajoSub) {
+        ack = false;    
+      }
+    }    
+
+    return ack;
+  }
 
 }
