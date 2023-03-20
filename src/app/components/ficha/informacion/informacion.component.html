@@ -37,23 +37,33 @@
         <h4><b>Información de Contacto</b></h4>
         <p>{{organizacionResp.email}}</p>
         <h4><b>Web</b></h4>
-        <p>{{organizacionResp.web}}</p>                     
+        <p><b><a href='{{organizacionResp.web}}' target="_blank">{{organizacionResp.web}}</a></b></p>                     
         <h4><b>Redes Sociales</b></h4>
           <div className="row">
             <a href='{{organizacionResp.facebook}}' target="_blank"><i class="bi bi-facebook"></i></a>
             &nbsp;&nbsp;&nbsp;
             <a href='{{organizacionResp.twitter}}' target="_blank"><i class="bi bi-twitter"></i></a>
             &nbsp;&nbsp;&nbsp;
-            <a href='{{organizacionResp.web}}' target="_blank"><i class="bi bi-google"></i></a>
+            <a href='{{organizacionResp.instagram}}' target="_blank"><i class="heading bi bi-instagram"></i></a>
           </div>
         <br/>  
         <h4><b>Direcciones</b></h4>
-        <p>
-          {{organizacionResp.direcciones[0]["etiqueta"]}}
-        </p>
-        <p>General Bustamante 26, 4to Piso
-          Providencia - Santiago</p>
-        <p>Sucursal 1</p>
+        <ng-container *ngFor="let dir of organizacionResp.direcciones">
+          <table class="table table-striped">
+            <tbody>
+              <tr style="width: 250px;">
+                <td style="width: 30px;"></td>
+                <td style="width: 120px;"><h4><b>Etiqueta</b></h4></td>
+                <td style="width: 440px;"><h4><b>Dirección</b></h4></td>
+              </tr>
+              <tr>
+                <td style="width: 30px;"></td>
+                <td style="width: 120px;"><p>{{dir.etiqueta}}</p></td>
+                <td style="width: 440px;"><p>{{dir.direccionConcatenada}}</p></td>
+              </tr>
+            </tbody>
+          </table>  
+        </ng-container>
         <iframe style="border:0; width: 110%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>

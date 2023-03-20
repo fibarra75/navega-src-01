@@ -10,3 +10,13 @@
     padding-top: 15px;
     padding-bottom: 15px;
 }
+
+.table {
+    table-layout: fixed;
+    width: 250px;
+    border-bottom-width: 0px;
+}
+
+.table>:not(caption)>*>* {
+    border-bottom-width: 0px;
+}

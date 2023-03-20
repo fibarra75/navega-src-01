@@ -41,7 +41,6 @@ import { InformacionComponent } from './components/ficha/informacion/informacion
 import { RrhhfinanzasComponent } from './components/ficha/rrhhfinanzas/rrhhfinanzas.component';
 import { IniciativacampanaComponent } from './components/fichaterritorial/iniciativacampana/iniciativacampana.component';
 import { DetalleiniciativacampanaComponent } from './components/fichaterritorial/detalleiniciativacampana/detalleiniciativacampana.component';
-import { EntidadesasociadasComponent } from './components/fichaterritorial/entidadesasociadas/entidadesasociadas.component';
 import { PoliticaprivacidadComponent } from './components/politicaprivacidad/politicaprivacidad.component';
 
 @NgModule({

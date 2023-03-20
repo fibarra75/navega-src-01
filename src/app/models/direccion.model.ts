@@ -8,4 +8,5 @@ export class Direccion {
     numero!: string;
     block!: string;
     depto!: string;
+    direccionConcatenada!: string;
 }

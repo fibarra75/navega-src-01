@@ -39,6 +39,7 @@ export class InformacionComponent implements OnInit {
       this.organizacionResp = data[0];
       this.cargando = false
       console.log('Organizacion_Resp: ', this.organizacionResp);
+      console.log("direcciones", this.organizacionResp.direcciones)
     })    
   }
 }
