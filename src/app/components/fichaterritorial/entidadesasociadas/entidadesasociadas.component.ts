@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { Direccion } from 'src/app/models/direccion.model';
-import { EntidadRelacionada } from 'src/app/models/entidad-relacionada.model';
+import { EntidadRelacionada, Responsable, TipoEntidad } from 'src/app/models/entidad-relacionada.model';
 import { LabelMarca, MarcaMapa, OptionsMarpa, PositionMarca } from 'src/app/models/marca-mapa.model';
 import { Organizacion } from 'src/app/models/organizacion.model';
 import { OrganizacionService } from 'src/app/services/organizacion.service';
@@ -20,7 +20,8 @@ interface MarkerProperties {
 })
 export class EntidadesasociadasComponent implements OnInit {
   listaEntRel!: EntidadRelacionada[]
-  prgEntRel!: EntidadRelacionada;
+  entRel!: EntidadRelacionada;
+  responable!: Responsable; 
 
   @Input() organizacion!: Organizacion;
   title = 'angular-google-maps-app';
@@ -70,8 +71,8 @@ export class EntidadesasociadasComponent implements OnInit {
     });
     */
 
-    //this.getEntidadesRelacionadas(this.organizacion.idOrganizacion);
-    this.getEntidadesRelacionadas(1);
+    this.getEntidadesRelacionadas(this.organizacion.idOrganizacion);
+    //this.getEntidadesRelacionadas(1);
 
     this.center = {
       lat: -33.43698411475028,
@@ -124,8 +125,34 @@ export class EntidadesasociadasComponent implements OnInit {
 
   openInfo(marker: MapMarker, content: string) {
     console.log('content', content);
-    this.infoContent = content;
-    this.info.open(marker)
+
+    let entidad : number;
+    //entRel
+    let er : EntidadRelacionada;
+
+    entidad = Number(content);
+
+    console.log('Lista Entedidad Relacionadas', this.listaEntRel);
+
+    for(let i = 0; i < this.listaEntRel.length; i++) {
+      er = this.listaEntRel[i];
+
+      if (er.idEntidadRelacionada === entidad) {
+        console.log('Entidad:', er);
+        this.entRel = er;
+        
+        //if ()
+        this.responable = er.responsable[0];
+        break;
+      }
+
+    }
+
+    console.log('Ent Rel:', this.entRel);
+    console.log('Responsable:', this.responable);
+
+    //this.infoContent = content;
+    //this.info.open(marker)
   }
 
   getEntidadesRelacionadas(idOrganizacion:number) {
@@ -142,13 +169,13 @@ export class EntidadesasociadasComponent implements OnInit {
       for(let i = 0; i < this.listaEntRel.length; i++) {
         lstDir = this.listaEntRel[i].direcciones;
 
-        console.log('Largo direcciones:',lstDir.length,'Entidad:',i);
+        //console.log('Largo direcciones:',lstDir.length,'Entidad:',i);
 
         for(let j = 0; j < lstDir.length; j++) {
           m = new MarcaMapa();
           d = lstDir[j];
 
-          console.log('Loop Direcciones');
+          //console.log('Loop Direcciones');
 
           if (typeof d !== 'undefined') {          
             console.log('Direccion:', d);
@@ -173,5 +200,5 @@ export class EntidadesasociadasComponent implements OnInit {
       
       console.log('Entidades Relacionadas: ', this.listaEntRel);
     })    
-  }  
+  }
 }

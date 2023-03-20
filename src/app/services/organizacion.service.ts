@@ -5,7 +5,7 @@ import { retry, catchError, map} from 'rxjs/operators';
 import { Organizacion } from '../models/organizacion.model';
 import { RrhhFinanzas } from '../models/rrhh-finanzas.model';
 
-import { environment } from '../../environments/environment'; 
+import { environment } from '../../environments/environment';
 import { IniciativaCampana } from '../models/iniciativa-campana.model';
 import { EntidadRelacionada } from '../models/entidad-relacionada.model';
 import { ProgramaProyecto } from '../models/programa-proyecto.model';
@@ -24,7 +24,7 @@ export class OrganizacionService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
-  };    
+  };
 
   GetOrganizacion(idOrganizacion: number): Observable<Organizacion[]> {
     return this.http
@@ -38,17 +38,25 @@ export class OrganizacionService {
       .pipe(retry(1),catchError(this.errorHandl))
   }
 
+  GetRrhhDocumentos(idOrganizacion: number, filename: string) {
+    // integrar tipo de retorno
+    return this.http
+      // .get(environment.apiURL + ApiRest.rrhhDownloadDocument + '/' + idOrganizacion + '/fecu/' + filename, {responseType: 'text'})
+      .get('https://qobn80xsng.execute-api.us-east-1.amazonaws.com/dev/api/downloadfile/rrhh/1/fecu/fecu2021.pdf', {responseType: 'text'})
+      .pipe(retry(1),catchError(this.errorHandl))
+  }
+
   GetProgramaProyectoByIdOrg(idOrganizacion: number): Observable<ProgramaProyecto[]> {
     return this.http
     .get<ProgramaProyecto[]>(environment.apiURL + ApiRest.proyectoPrograma + '/' + idOrganizacion)
     .pipe(retry(1),catchError(this.errorHandl))
   }
-  
+
   GetIniciativaCampanaByIdOrg(idOrganizacion: number): Observable<IniciativaCampana[]> {
     return this.http
     .get<IniciativaCampana[]>(environment.apiURL + ApiRest.iniciativaCampana + '/' + idOrganizacion)
     .pipe(retry(1),catchError(this.errorHandl))
-  }  
+  }
 
   GetEntidadRelacionadaByIniciativaCampana(idIniciativaCampana: number): Observable<EntidadRelacionada[]> {
     return this.http
@@ -121,6 +129,7 @@ export class OrganizacionService {
 const ApiRest = {
   organizacion: '/dev/api/org',
   rrhhFinanzas: '/dev/api/rrhh',
+  rrhhDownloadDocument: '/dev/api/downloadfile/rrhh',
   proyectoPrograma: '/dev/api/progproy',
   iniciativaCampana: '/dev/api/inicmp',
   entidadRelacionada: '/dev/api/entrel',

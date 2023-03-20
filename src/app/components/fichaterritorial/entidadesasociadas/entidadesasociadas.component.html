@@ -34,18 +34,18 @@
         <button (click)="zoomIn()">Zoom in</button>
         <button (click)="zoomOut()">Zoom out</button>
     </div>
-    <div class="col-lg-12 col-md-12 row justify-content-md-center">
+    <div class="col-lg-12 col-md-12 row justify-content-md-center" *ngIf="responable">
         <div class="col-lg-4 col-md-4">
             <div class="row">
                 <mat-icon>stars</mat-icon>
                 <div>
-                    <p>Descripcion proyecto</p>
+                    <p>{{entRel.nombre}}</p>
                 </div>
             </div>
             <div class="row">
                 <mat-label>Tipo Entidad</mat-label>
                 <div>
-                    <p>Tipo entidad xxxxx</p>
+                    <p>{{entRel.tipoEntidad.nombre}}</p>
                 </div>
             </div>              
         </div>
@@ -53,7 +53,7 @@
             <div class="row">
                 <mat-icon>stars</mat-icon>
                 <div>
-                    <p>Pedro Pablo Perez </p>
+                    <p>{{ responable.nombre }} {{ responable.apaterno }} {{ responable.amaterno }}</p>
                 </div>
             </div>
             <div class="row">
