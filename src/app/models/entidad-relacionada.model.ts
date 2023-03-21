@@ -1,3 +1,4 @@
+import { AreaTrabajo } from "./area-trabajo.model";
 import { Direccion } from "./direccion.model";
 
 export class EntidadRelacionada {
@@ -8,8 +9,9 @@ export class EntidadRelacionada {
     email!: string;
     telefono!: string;
     tipoEntidad!:TipoEntidad;
-    idOrganizacion!: number;
     direcciones!: Direccion[];
+    idOrganizacion!: number;
+    areasTrabajo!: AreaTrabajo[];
     responsable!: Responsable[];
 }
 

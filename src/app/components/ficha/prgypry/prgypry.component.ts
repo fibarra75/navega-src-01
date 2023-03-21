@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Direccion } from 'src/app/models/direccion.model';
+import { Responsable } from 'src/app/models/entidad-relacionada.model';
 import { Organizacion } from 'src/app/models/organizacion.model';
 import { ProgramaProyecto } from 'src/app/models/programa-proyecto.model';
+import { PublicoObjetivo } from 'src/app/models/publico-objetivo.model';
 import { OrganizacionService } from 'src/app/services/organizacion.service';
 
 @Component({
@@ -11,6 +14,11 @@ import { OrganizacionService } from 'src/app/services/organizacion.service';
 export class PrgypryComponent implements OnInit {
   listaPrgPry!: ProgramaProyecto[]
   prgPryResp!: ProgramaProyecto;
+  listaResponsable!:Responsable[];
+  listaDirecciones!:Direccion[];
+  listaPublicoObj!:PublicoObjetivo[];
+
+
   @Input() organizacion!: Organizacion;
 
   constructor(
@@ -49,6 +57,9 @@ export class PrgypryComponent implements OnInit {
         if (p.idProgramaProyecto == prgPry.idProgramaProyecto) {
           console.log('Programa encontrado',p);
           this.prgPryResp = p;
+          this.listaDirecciones = p.direcciones;
+          this.listaResponsable = p.responsable;
+          this.listaPublicoObj = p.publicosObjetivo;
         }
       }
     }) 

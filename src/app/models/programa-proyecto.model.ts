@@ -1,3 +1,7 @@
+import { Direccion } from "./direccion.model";
+import { Responsable } from "./entidad-relacionada.model";
+import { PublicoObjetivo } from "./publico-objetivo.model";
+
 export class ProgramaProyecto {
     idProgramaProyecto!: number;
     idOrganizacion!: number;
@@ -11,4 +15,7 @@ export class ProgramaProyecto {
     objetivo!: string;
     publicoObjetivo!: string;
     lugarGeografico!: string;
+    responsable!:Responsable[];
+    publicosObjetivo!: PublicoObjetivo[];
+    direcciones!:Direccion[];
 }
