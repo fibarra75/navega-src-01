@@ -14,34 +14,34 @@ import { Region } from 'src/app/models/region.model';
   styleUrls: ['./organizaciones.component.css']
 })
 export class OrganizacionesComponent implements OnInit {
-  
+
   firstFormGroup = this._formBuilder.group({
-    nombreCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('a-zA-ZñÑá-úÁ-Ú')]],
-    aPaternoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('a-zA-ZñÑá-úÁ-Ú')]],
-    aMaternoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('a-zA-ZñÑá-úÁ-Ú')]],
+    nombreCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
+    aPaternoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
+    aMaternoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     rutCtrl: ['', [Validators.required, Validators.maxLength(10)]],
-    cargoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('a-zA-ZñÑá-úÁ-Ú')]],
-    celularCtrl: ['', Validators.required],
+    cargoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
+    celularCtrl: ['', [Validators.required, Validators.minLength(12), Validators.maxLength(12), Validators.pattern('^[0-9+()-]+$')]],
     emailCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.email]],
-    passwdCtrl: ['', Validators.required,],
+    passwdCtrl: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]],
   });
   secondFormGroup = this._formBuilder.group({
-    nombreOrgCtrl: ['', Validators.required],
-    tipoOrgCtrl: ['', Validators.required],
-    rutOrgCtrl: ['', Validators.required],
-    telOrgCtrl: ['', Validators.required],
-    representanteOrgCtrl: ['', Validators.required],
-    regionOrgCtrl: [Validators.required],
-    comunaOrgCtrl: [Validators.required],
-    ciudadOrgCtrl: [Validators.required],
-    calleOrgCtrl:  ['', Validators.required],
-    numeroOrgCtrl: ['', Validators.required],
-    sitioWebOrgCtrl: ['', Validators.required],
+    nombreOrgCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
+    tipoOrgCtrl: ['', [Validators.required]],
+    rutOrgCtrl: ['', [Validators.required, ]],
+    telOrgCtrl: ['', [Validators.required, Validators.maxLength(12), Validators.pattern('/^[0-9]+$/')]],
+    representanteOrgCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
+    regionOrgCtrl: [[Validators.required]],
+    comunaOrgCtrl: [[Validators.required]],
+    ciudadOrgCtrl: [[Validators.required]],
+    calleOrgCtrl:  ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
+    numeroOrgCtrl: ['', [Validators.required, Validators.pattern("/^-?(0|[1-9]\d*)?$/")]],
+    sitioWebOrgCtrl: ['', [Validators.required, Validators.pattern("/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/i")]],
   });
   tercerFormGroup = this._formBuilder.group({
-    
+
   });
-  
+
   isLinear = false;
   nombre!: string;
   listaTipoOrganizacion: TipoOrganizacion[] = [];
@@ -73,7 +73,7 @@ export class OrganizacionesComponent implements OnInit {
     this.busquedaService.GetRegiones().subscribe((data: Region[]) => {
       this.listaRegion = data;
       console.log('Lista Regiones: ', this.listaRegion);
-    });  
+    });
   }
 
   cargarComunasRegion(obj:any) {
@@ -83,7 +83,7 @@ export class OrganizacionesComponent implements OnInit {
     this.busquedaService.GetComunasRegion(idRegion).subscribe((data: Comuna[]) => {
       this.listaComuna = data;
       console.log('Lista Comunas x Region: ', this.listaComuna);
-    })  
+    })
   }
 
   cargarCiudades() {
@@ -98,13 +98,43 @@ export class OrganizacionesComponent implements OnInit {
       this.listaTipoOrganizacion = data;
       console.log('Lista TipoOrganizacion: ', data);
     })  ;
-  } 
+  }
 
   validarNombre() {
     console.log("entro")
     if (this.firstFormGroup.get('nombreCtrl')?.errors?.['required']) {
       Swal.fire("Navega Social","el nombre es requerido", "warning");
     }
+  }
+
+  validarRut(control: any) {
+    const rut = control.value;
+    // Eliminar puntos y guión
+    const rutLimpio = rut.replace(/\./g, '').replace('-', '');
+
+    // Validar que el RUT tenga un formato válido
+    const regex = /^[0-9]+[0-9kK]{1}$/;
+    if (!regex.test(rutLimpio)) {
+      return { rutInvalido: true };
+    }
+
+    // Validar el dígito verificador
+    let suma = 0;
+    const rutSinDv = parseInt(rutLimpio.slice(0, -1), 10);
+    const dv = rutLimpio.slice(-1).toLowerCase();
+    for (let i = 0; i < rutSinDv.toString().length; i++) {
+      suma += parseInt(rutSinDv.toString().charAt(i), 10) * (9 - (i % 6));
+    }
+    const dvCalculado = (11 - (suma % 11)).toString();
+    const dvEsK = dvCalculado === '10' ? 'k' : dvCalculado;
+    if (dv !== dvEsK) {
+      console.log('%cerror','background: red');
+
+      return { rutInvalido: true };
+    }
+
+    // Si llega hasta aquí, el RUT es válido
+    return null;
   }
 
   selectFile() {
@@ -232,7 +262,7 @@ export class OrganizacionesComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    
+
     // stop here if form is invalid
     if (this.firstFormGroup.invalid) {
       return;

@@ -68,6 +68,15 @@
                         <mat-form-field class="full-width">
                             <mat-label>Rut</mat-label>
                             <input matInput placeholder="Rut" formControlName="rutCtrl" required>
+                            <mat-error *ngIf="firstFormGroup.controls['rutCtrl'].errors?.['required']">
+                              el rut es <strong>requerido</strong>
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['rutCtrl'].hasError('maxlength')">
+                              el rut no debe ser mayor de 10 carácteres
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['rutCtrl'].hasError('rutInvalido')">
+                              El rut no es válido
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
@@ -76,15 +85,36 @@
                         <mat-form-field class="full-width">
                             <mat-label>Cargo en la organización</mat-label>
                             <input matInput placeholder="Cargo en la organización" formControlName="cargoCtrl" required>
+                            <mat-error *ngIf="firstFormGroup.controls['cargoCtrl'].errors?.['required']">
+                              el cargo de la organización es <strong>requerido</strong>
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['cargoCtrl'].hasError('pattern')">
+                              el nombre solo debe poseer letras
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['cargoCtrl'].hasError('maxlength')">
+                              nombre no debe ser mayor de 50 carácteres
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
                             <mat-label>Celular</mat-label>
                             <input matInput placeholder="Celular" formControlName="celularCtrl" required>
+                            <mat-error *ngIf="firstFormGroup.controls['celularCtrl'].errors?.['required']">
+                              el celular es <strong>requerido</strong>
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['celularCtrl'].hasError('pattern')">
+                              el celular no es válido
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['celularCtrl'].hasError('minlength')">
+                              celular debe ser de 12 carácteres
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['celularCtrl'].hasError('maxlength')">
+                              celular debe ser de 12 carácteres
+                            </mat-error>
                         </mat-form-field>
                     </div>
-                </div>    
+                </div>
                 <div class="row">
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
@@ -102,6 +132,15 @@
                         <mat-form-field class="full-width">
                             <mat-label>Password</mat-label>
                             <input matInput placeholder="Password" formControlName="passwdCtrl" required>
+                            <mat-error *ngIf="firstFormGroup.controls['passwdCtrl'].errors?.['required']">
+                              el password es <strong>requerido</strong>
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['passwdCtrl'].hasError('minlength')">
+                              el password debe tener al menos 8 caracteres
+                            </mat-error>
+                            <mat-error *ngIf="firstFormGroup.controls['passwdCtrl'].hasError('pattern')">
+                              el password debe tener al menos una letra mayúscula, una letra minúscula, un número y un caracter especial <b>(@ $ ! % * ? &)</b>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
@@ -129,7 +168,7 @@
                                     {{to.nombre}}
                                 </mat-option>
                             </mat-select>
-                        </mat-form-field>   
+                        </mat-form-field>
                     </div>
                 </div>
                 <div class="row">
@@ -164,7 +203,7 @@
                                 </mat-select>
                         </mat-form-field>
                     </div>
-                </div>    
+                </div>
                 <div class="row">
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
@@ -176,7 +215,7 @@
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
-                    </div>                    
+                    </div>
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
                             <mat-label>Ciudad</mat-label>
@@ -186,7 +225,7 @@
                                 {{c.nombre}}
                                 </mat-option>
                             </mat-select>
-                        </mat-form-field>  
+                        </mat-form-field>
                     </div>
                 </div>
                 <div class="row">
@@ -195,7 +234,7 @@
                             <mat-label>Calle</mat-label>
                             <input matInput placeholder="Calle" formControlName="calleOrgCtrl" required>
                         </mat-form-field>
-                    </div>                 
+                    </div>
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
                             <mat-label>Número</mat-label>
@@ -203,7 +242,7 @@
                         </mat-form-field>
                     </div>
                 </div>
-                <div class="row">                
+                <div class="row">
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
                             <mat-label>Sitio Web</mat-label>
@@ -252,11 +291,11 @@
                             <td style="width: 20%"><button mat-raised-button="" (click)="selectFile()" color="primary">subir</button></td>
                         </tr>
                     </tbody>
-                </table>   
-                <br/>    
+                </table>
+                <br/>
                 <div class="row">
                     <div class="col-md-10">
-                        <p><mat-checkbox>Yo XXXXXXXXX con Rut XXXXXXXXX Certifico que los datos contenidos en esta solicitud son correctos y válidos. Al mismo tiempo declaro conocer y estar de 
+                        <p><mat-checkbox>Yo XXXXXXXXX con Rut XXXXXXXXX Certifico que los datos contenidos en esta solicitud son correctos y válidos. Al mismo tiempo declaro conocer y estar de
                             <br>acuerdo con las políticas de protección de datos de navegasocial.cl</mat-checkbox></p>
                         <p>* Campos obligatorios</p>
                         <p>** Carta de intención de ingreso a la plataforma firmada digitalmente por el Director, Directora Ejecutiva o miembro del directorio</p>
@@ -275,12 +314,12 @@
               </div>
             </mat-step>
           </mat-stepper>
-            
+
       </div>
     </section>
     <input #fileInput (change)="onChange($event)" type='file' hidden={true}  accept="image/x-png, image/jpeg, .doc, .docx, .pdf,.xls,.xlsx"/>
 
-  </main><!-- End #main --> 
+  </main><!-- End #main -->
   <app-footer></app-footer>
   <!--
   <div id="preloader"></div>
