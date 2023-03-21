@@ -109,13 +109,7 @@ export class OrganizacionesComponent implements OnInit {
     }
   }
 
-<<<<<<< HEAD
   validarRut(control: AbstractControl) {
-=======
-  
-
-  validarRut(control: any) {
->>>>>>> c5b5716b11520a99018e71b8f9193c49341e9d43
     const rut = control.value;
     // Eliminar puntos y guión
     const rutLimpio = rut.replace(/\./g, '').replace('-', '');
