@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { AreaTrabajo } from 'src/app/models/area-trabajo.model';
 import { Direccion } from 'src/app/models/direccion.model';
 import { EntidadRelacionada, Responsable, TipoEntidad } from 'src/app/models/entidad-relacionada.model';
 import { LabelMarca, MarcaMapa, OptionsMarpa, PositionMarca } from 'src/app/models/marca-mapa.model';
@@ -22,6 +23,8 @@ export class EntidadesasociadasComponent implements OnInit {
   listaEntRel!: EntidadRelacionada[]
   entRel!: EntidadRelacionada;
   responable!: Responsable; 
+  listaAreas!: AreaTrabajo[];
+  listaDir!:Direccion[];
 
   @Input() organizacion!: Organizacion;
   title = 'angular-google-maps-app';
@@ -142,7 +145,24 @@ export class EntidadesasociadasComponent implements OnInit {
         this.entRel = er;
         
         //if ()
-        this.responable = er.responsable[0];
+        if (er.responsable.length > 0)
+          this.responable = er.responsable[0];
+        else {
+          this.responable = new Responsable();
+          this.responable.nombre = 'S/I';
+        }
+
+        if (!Boolean(this.entRel.email)) {
+          this.entRel.email = 'S/I';
+        }
+
+        if (!Boolean(this.entRel.telefono)) {
+          this.entRel.telefono = 'S/I';
+        }        
+
+        this.listaAreas = er.areasTrabajo;
+        this.listaDir = er.direcciones;
+
         break;
       }
 
