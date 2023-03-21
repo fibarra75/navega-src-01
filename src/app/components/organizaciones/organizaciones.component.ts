@@ -50,7 +50,9 @@ export class OrganizacionesComponent implements OnInit {
   listaCiudad: Ciudad[] = [];
   submitted = false;
   file!: File;
+  file2!: File;
   mostrarCertificado: boolean = false;
+  mostrarCarta: boolean = false;
 
 
   constructor(private _formBuilder: FormBuilder, public organizacionService: OrganizacionService,
@@ -107,17 +109,16 @@ export class OrganizacionesComponent implements OnInit {
     }
   }
 
-  selectFile() {
-  //   console.log("entre")
-  //   this.file = document.querySelector('input[type="file"]') as HTMLElement;
-  //   this.file.click();
-  }
-
-  onChange(event: any) {
-    console.log("entre")
+  onChangeCertificado(event: any) {
     this.file = event.target.files[0];
     console.log(this.file)
     this.mostrarCertificado = true;
+  }
+
+  onChangeCarta(event: any) {
+    this.file2 = event.target.files[0];
+    console.log(this.file2)
+    this.mostrarCarta = true;
   }
 
   getNombre() {
@@ -217,13 +218,17 @@ export class OrganizacionesComponent implements OnInit {
       console.log("resultado",response)
       if (response.idOrganizacion != null) {
         Swal.fire("Navega Social","La organización se registró con éxito", "success");
+        //se envía el correo a la organización
         this.organizacionService.sendMail({
           email: this.getEmail(),
           name: this.getNombre()+" "+this.getPaterno(),
           texto: ", su solicitud de registro ha sido recepcionada correctamente, se enviara una respuesta a su solicitud dentro de las próximas 72 horas.",
           asunto: "Solicitud de Registro"
         })
+        //Se sube el certificado digital
         this.organizacionService.unloadCertificado(this.file, response.idOrganizacion, this.file.name)
+        //Se sube la carta de intención
+        this.organizacionService.unloadCartaIntencion(this.file2, response.idOrganizacion, this.file2.name)
       } else {
         Swal.fire("Navega Social","ocurrió un error inesperado, por favor intente de nuevo", "warning");
       }
