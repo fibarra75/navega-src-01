@@ -19,24 +19,24 @@ export class OrganizacionesComponent implements OnInit {
     nombreCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     aPaternoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     aMaternoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
-    rutCtrl: ['', [Validators.required, Validators.maxLength(10), this.validarRut]],
+    rutCtrl: ['', [Validators.required, Validators.maxLength(10)/* , this.validarRut */]],
     cargoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     celularCtrl: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern(/^[0-9]*$/)]],
     emailCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.email]],
-    passwdCtrl: ['', [Validators.required, Validators.minLength(8), Validators.pattern("'/^[0-9]+$/'")]],
+    passwdCtrl: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]],
   });
   secondFormGroup = this._formBuilder.group({
     nombreOrgCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     tipoOrgCtrl: ['', [Validators.required]],
-    rutOrgCtrl: ['', [Validators.required, Validators.maxLength(10), this.validarRut]],
+    rutOrgCtrl: ['', [Validators.required, Validators.maxLength(10)/* , this.validarRut */]],
     telOrgCtrl: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern(/^[0-9]*$/)]],
     representanteOrgCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     regionOrgCtrl: [[Validators.required]],
     comunaOrgCtrl: [[Validators.required]],
     ciudadOrgCtrl: [[Validators.required]],
     calleOrgCtrl:  ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
-    numeroOrgCtrl: ['', [Validators.required, Validators.pattern('/^[0-9]+$/')]],
-    sitioWebOrgCtrl: ['', [Validators.required, Validators.pattern("/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/i")]],
+    numeroOrgCtrl: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
+    sitioWebOrgCtrl: ['', [Validators.required, Validators.pattern(/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/i)]],
   });
   tercerFormGroup = this._formBuilder.group({
 
@@ -257,9 +257,13 @@ export class OrganizacionesComponent implements OnInit {
             asunto: "Solicitud de Registro"
           })
           //Se sube el certificado digital
-          this.organizacionService.unloadCertificado(this.file, response.idOrganizacion, this.file.name)
+          this.organizacionService.onloadCertificado(this.file, response.idOrganizacion, this.file.name).subscribe(response => {
+            console.log("resultado",response) 
+          })
           //Se sube la carta de intención
-          this.organizacionService.unloadCartaIntencion(this.file2, response.idOrganizacion, this.file2.name)
+          this.organizacionService.onloadCartaIntencion(this.file2, response.idOrganizacion, this.file2.name).subscribe(response => {
+            console.log("resultado",response) 
+          })
         } else {
           Swal.fire("Navega Social","ocurrió un error inesperado, por favor intente de nuevo", "warning");
         }
@@ -268,15 +272,6 @@ export class OrganizacionesComponent implements OnInit {
       Swal.fire("Navega Social","por favor, revise los errores de validación del formulario e intente de nuevo", "warning");
     }
     
-  }
-
-  onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.firstFormGroup.invalid) {
-      return;
-  }
   }
 
 }

@@ -41,6 +41,12 @@ dialog {
   align-items: center;
 }
 
+.abs-left {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
 .abs-right {
   display: flex;
   align-items: right;

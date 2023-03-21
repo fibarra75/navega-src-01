@@ -102,15 +102,15 @@ export class OrganizacionService {
     })
   }
 
-  unloadCertificado(certificado: File, idOrganizacion: number, nombreArchivo: string): Observable<any>{
+  onloadCertificado(certificado: File, idOrganizacion: number, nombreArchivo: string): Observable<any>{
     console.log(environment.apiURL + ApiRest.unloadCertificadoDigital + idOrganizacion + '/' + ApiRest.certificado + nombreArchivo)
     return this.http
     .post<any>(environment.apiURL + ApiRest.unloadCertificadoDigital + idOrganizacion + '/' + ApiRest.certificado + nombreArchivo, certificado, this.httpOptions)
     .pipe(retry(1),catchError(this.errorHandl))
   }
 
-  unloadCartaIntencion(cartaIntencion: File, idOrganizacion: number, nombreArchivo: string): Observable<any>{
-    console.log(environment.apiURL + ApiRest.unloadCertificadoDigital + idOrganizacion + '/' + ApiRest.carta + nombreArchivo)
+  onloadCartaIntencion(cartaIntencion: File, idOrganizacion: number, nombreArchivo: string): Observable<any>{
+    console.log(environment.apiURL + ApiRest.unloadCartaIntencion + idOrganizacion + '/' + ApiRest.carta + nombreArchivo)
     return this.http
     .post<any>(environment.apiURL + ApiRest.unloadCartaIntencion + idOrganizacion + '/' + ApiRest.carta + nombreArchivo, cartaIntencion, this.httpOptions)
     .pipe(retry(1),catchError(this.errorHandl))
@@ -143,5 +143,5 @@ const ApiRest = {
   unloadCertificadoDigital: '/dev/api/uploadfile/org/',
   certificado: 'certificado/',
   unloadCartaIntencion: '/dev/api/uploadfile/org/',
-  carta: 'carta'
+  carta: 'carta/'
 };

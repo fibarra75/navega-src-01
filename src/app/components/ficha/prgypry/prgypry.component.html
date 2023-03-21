@@ -1,6 +1,7 @@
 <div class="card country-border">
-    <div class="row">
-        <div class="col-lg-6 col-md-6 footer-links">               
+    <div class="col-lg-12 col-md-12 row justify-content-md-center">
+        <div class="row ">
+        <div class="col-lg-5 col-md-6 footer-links" style="padding-top: 15px; padding-left: 30px;">               
             <div *ngFor="let p of listaPrgPry; let i = index">
                 <div>
                     <h4><b>{{p.fechaCreacion | date: 'dd'}} <br> {{p.fechaCreacion | date: 'MMM'}}</b></h4>
@@ -13,7 +14,8 @@
                 </div>
             </div>           
         </div>
-        <div class="col-lg-6 col-md-6 footer-links" *ngIf="prgPryResp">
+        <div class="col-lg-1 col-md-6"></div>
+        <div class="col-lg-5 col-md-6 footer-links" style="padding-top: 15px; padding-left: 30px;" *ngIf="prgPryResp">
             <div>
                 <div class="material-icons">
                     <mat-icon>stars</mat-icon>
@@ -91,6 +93,7 @@
                     <p>correo@contacto.com</p>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </div>
