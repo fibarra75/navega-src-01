@@ -110,7 +110,7 @@ export class OrganizacionService {
   }
 
   unloadCartaIntencion(cartaIntencion: File, idOrganizacion: number, nombreArchivo: string): Observable<any>{
-    console.log(environment.apiURL + ApiRest.unloadCertificadoDigital + idOrganizacion + '/' + ApiRest.certificado + nombreArchivo)
+    console.log(environment.apiURL + ApiRest.unloadCertificadoDigital + idOrganizacion + '/' + ApiRest.carta + nombreArchivo)
     return this.http
     .post<any>(environment.apiURL + ApiRest.unloadCartaIntencion + idOrganizacion + '/' + ApiRest.carta + nombreArchivo, cartaIntencion, this.httpOptions)
     .pipe(retry(1),catchError(this.errorHandl))

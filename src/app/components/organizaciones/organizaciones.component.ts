@@ -109,8 +109,6 @@ export class OrganizacionesComponent implements OnInit {
     }
   }
 
-  
-
   validarRut(control: any) {
     const rut = control.value;
     // Eliminar puntos y guión
@@ -227,44 +225,49 @@ export class OrganizacionesComponent implements OnInit {
   }
 
   createOrganizacion() {
-    this.organizacionService.createOrganizacion({
-      "nombre": this.getNombre(),
-	    "paterno": this.getPaterno(),
-	    "materno": this.getMaterno(),
-	    "rut": this.getRUT(),
-	    "cargo": this.getCargo(),
-	    "telefono": this.getTelefono(),
-	    "email": this.getEmail(),
-	    "password": this.getPassword(),
-	    "nombreorg": this.getNombreOrganizacion(),
-	    "tipoorg": this.getTipoOrganizacion(),
-	    "rutorg": this.getRutOrganizacion(),
-	    "telefonoorg": this.getTelefonoOrganizacion(),
-	    "calle": this.getCalle(),
-      "numero": this.getNumero(),
-      "idComuna": this.getComuna(),
-      "idCiudad": this.getCiudad(),
-	    "representante": this.getRepresentante(),
-      "sitio": this.getSitioWeb()
-    } as any).subscribe(response => {
-      console.log("resultado",response)
-      if (response.idOrganizacion != null) {
-        Swal.fire("Navega Social","La organización se registró con éxito", "success");
-        //se envía el correo a la organización
-        this.organizacionService.sendMail({
-          email: this.getEmail(),
-          name: this.getNombre()+" "+this.getPaterno(),
-          texto: ", su solicitud de registro ha sido recepcionada correctamente, se enviara una respuesta a su solicitud dentro de las próximas 72 horas.",
-          asunto: "Solicitud de Registro"
-        })
-        //Se sube el certificado digital
-        this.organizacionService.unloadCertificado(this.file, response.idOrganizacion, this.file.name)
-        //Se sube la carta de intención
-        this.organizacionService.unloadCartaIntencion(this.file2, response.idOrganizacion, this.file2.name)
-      } else {
-        Swal.fire("Navega Social","ocurrió un error inesperado, por favor intente de nuevo", "warning");
-      }
-    })
+    if (this.firstFormGroup.valid && this.secondFormGroup.valid) {
+      this.organizacionService.createOrganizacion({
+        "nombre": this.getNombre(),
+        "paterno": this.getPaterno(),
+        "materno": this.getMaterno(),
+        "rut": this.getRUT(),
+        "cargo": this.getCargo(),
+        "telefono": this.getTelefono(),
+        "email": this.getEmail(),
+        "password": this.getPassword(),
+        "nombreorg": this.getNombreOrganizacion(),
+        "tipoorg": this.getTipoOrganizacion(),
+        "rutorg": this.getRutOrganizacion(),
+        "telefonoorg": this.getTelefonoOrganizacion(),
+        "calle": this.getCalle(),
+        "numero": this.getNumero(),
+        "idComuna": this.getComuna(),
+        "idCiudad": this.getCiudad(),
+        "representante": this.getRepresentante(),
+        "sitio": this.getSitioWeb()
+      } as any).subscribe(response => {
+        console.log("resultado",response)
+        if (response.idOrganizacion != null) {
+          Swal.fire("Navega Social","La organización se registró con éxito", "success");
+          //se envía el correo a la organización
+          this.organizacionService.sendMail({
+            email: this.getEmail(),
+            name: this.getNombre()+" "+this.getPaterno(),
+            texto: ", su solicitud de registro ha sido recepcionada correctamente, se enviara una respuesta a su solicitud dentro de las próximas 72 horas.",
+            asunto: "Solicitud de Registro"
+          })
+          //Se sube el certificado digital
+          this.organizacionService.unloadCertificado(this.file, response.idOrganizacion, this.file.name)
+          //Se sube la carta de intención
+          this.organizacionService.unloadCartaIntencion(this.file2, response.idOrganizacion, this.file2.name)
+        } else {
+          Swal.fire("Navega Social","ocurrió un error inesperado, por favor intente de nuevo", "warning");
+        }
+      })
+    } else {
+      Swal.fire("Navega Social","por favor, revise los errores de validación del formulario e intente de nuevo", "warning");
+    }
+    
   }
 
   onSubmit() {

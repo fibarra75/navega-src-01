@@ -4,7 +4,7 @@
   </div>   
   <div class="col-lg-12 col-md-12 row justify-content-md-center" *ngIf="organizacionResp">
     <div class="row justify-content-md-center">
-      <div class="col-lg-4 col-md-6 footer-links" style="padding-top: 15px; padding-left: 30px;">
+      <div class="col-lg-5 col-md-6 footer-links" style="padding-top: 15px; padding-left: 30px;">
         <img src="assets/img/about.jpg" width="80%">
         <br/><br/>
         <h2>Quienes Somos</h2>
@@ -27,7 +27,7 @@
         </p>                                     
       </div>
       <div class="col-lg-1 col-md-6"></div>
-      <div class="col-lg-4 col-md-6 footer-links" style="padding-top: 15px;">
+      <div class="col-lg-5 col-md-6 footer-links" style="padding-top: 15px;">
         <h4><b>Año de fundación</b></h4>
         <p>{{organizacionResp.fechaFundacion | date: 'yyyy'}}</p>
         <h4><b>Rut Organización</b></h4>
@@ -64,28 +64,27 @@
             </tbody>
           </table>  
         </ng-container>
-      </div>
-      <div class="col-lg-4 col-md-6 footer-links" style="padding-top: 15px;">
-        <google-map        
-        #myGoogleMap
-        height="400px"
-        width="100%"
-        [zoom]="zoom"
-        [center]="center"
-        [options]="options"        
-        >
-        <map-marker
-            #markerElem="mapMarker"
-            *ngFor="let marker of lstMarcas"
-            [position]="marker.position"
-            [label]="marker.label"
-            [title]="marker.title"
-            [options]="marker.options"
-        >
-        </map-marker>
-        </google-map>        
+        <div class="col-lg-12 col-md-12" style="padding-top: 15px;">
+          <google-map        
+          #myGoogleMap
+          height="400px"
+          width="100%"
+          [zoom]="zoom"
+          [center]="center"
+          [options]="options"        
+          >
+          <map-marker
+              #markerElem="mapMarker"
+              *ngFor="let marker of lstMarcas"
+              [position]="marker.position"
+              [label]="marker.label"
+              [title]="marker.title"
+              [options]="marker.options"
+          >
+          </map-marker>
+          </google-map>        
+        </div>
       </div>
     </div>
-      
     </div>
 </div>
