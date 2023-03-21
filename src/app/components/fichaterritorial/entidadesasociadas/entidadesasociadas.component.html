@@ -1,7 +1,7 @@
 <div style="border: none;" class="card">
     <div class="col-lg-12 col-md-12 row justify-content-md-center">
         <google-map
-        
+
         #myGoogleMap
 
         height="400px"
@@ -35,62 +35,53 @@
         <button (click)="zoomOut()">Zoom out</button>
         -->
     </div>
-    <div class="col-lg-12 col-md-12 row justify-content-md-center" *ngIf="entRel">
+    <div class="mt-4 col-lg-12 col-md-12 row justify-content-md-center" *ngIf="entRel">
         <div class="col-lg-4 col-md-4">
-            <div class="row">
-                <mat-icon>stars</mat-icon>
-                <div>
-                    <p>{{entRel.nombre}}</p>
-                </div>
+			<div class="row mb-3">
+				<p class="fs-4"><b><mat-icon>stars</mat-icon> Nombre</b></p>
+				<p>{{entRel.nombre}}</p>
+			</div>
+
+			<div class="row">
+				<p class="fs-4"><b><mat-icon>stars</mat-icon> Tipo de Entidad</b></p>
+				<p>{{entRel.tipoEntidad.nombre}}</p>
+			</div>
+        </div>
+
+        <div class="col-lg-4 col-md-4">
+            <div class="row mb-3">
+				<p class="fs-4"><b><mat-icon>stars</mat-icon> Responsable</b></p>
+				<p>{{ responable.nombre }} {{ responable.apaterno }} {{ responable.amaterno }}</p>
             </div>
             <div class="row">
-                <mat-label>Tipo Entidad</mat-label>
-                <div>
-                    <p>{{entRel.tipoEntidad.nombre}}</p>
-                </div>
-            </div>              
-        </div>
-        <div class="col-lg-4 col-md-4">
-            <div class="row">
-                <mat-icon>stars</mat-icon>
-                <div>
-                    <p>{{ responable.nombre }} {{ responable.apaterno }} {{ responable.amaterno }}</p>
-                </div>
+				<p class="fs-4"><b><mat-icon>stars</mat-icon> Areas de Trabajo</b></p>
+				<ul>
+					<ng-container *ngFor="let a of listaAreas">
+						<li>{{a.nombre}}</li>
+					</ng-container>
+				</ul>
             </div>
-            <div class="row">
-                <mat-label>Areas de Trabajo</mat-label>
-                <div>
-                    <ul>
-                        <ng-container *ngFor="let a of listaAreas">
-                            <li>{{a.nombre}}</li>
-                        </ng-container>
-                    </ul>
-                </div>
-            </div>              
         </div>
+
         <div class="col-lg-4 col-md-4">
-            <div class="row">
-                <mat-icon>stars</mat-icon>
-                <div>
-                    <ul>
-                        <ng-container *ngFor="let d of listaDir">
-                            <li>{{d.direccionConcatenada}}</li>
-                        </ng-container>
-                    </ul>
-                </div>
+            <div class="row mb-3">
+				<p class="fs-4"><b><mat-icon>stars</mat-icon> Dirección</b></p>
+				<ul>
+					<ng-container *ngFor="let d of listaDir">
+						<li>{{d.direccionConcatenada}}</li>
+					</ng-container>
+				</ul>
             </div>
+
+            <div class="row mb-3">
+				<p class="fs-4"><b><mat-icon>stars</mat-icon> Contacto</b></p>
+				<p>{{entRel.email}}</p>
+            </div>
+
             <div class="row">
-                <mat-label>Contacto</mat-label>
-                <div>
-                    <p>{{entRel.email}}</p>
-                </div>
-            </div>     
-            <div class="row">
-                <mat-label>Telefono</mat-label>
-                <div>
-                    <p>{{entRel.telefono}}</p>
-                </div>
-            </div>                       
+				<p class="fs-4"><b><mat-icon>stars</mat-icon> Teléfono</b></p>
+				<p>{{entRel.telefono}}</p>
+            </div>
         </div>
-    </div>    
+    </div>
 </div>

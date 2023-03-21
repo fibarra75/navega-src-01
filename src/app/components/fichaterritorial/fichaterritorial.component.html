@@ -2,8 +2,8 @@
   <h2 mat-dialog-title>{{this.nombre}}</h2>
 
   <mat-dialog-content class="mat-typography">
-    <div class="d-flex justify-content-between align-items-center">
-      <mat-tab-group>    
+    <!-- <div class="container"> -->
+      <mat-tab-group>
         <mat-tab label="Información">
           <app-informacion [organizacion]="organizacion"></app-informacion>
         </mat-tab>
@@ -15,9 +15,9 @@
         </mat-tab>
         <mat-tab label="RRHH y Finanzas">
           <app-rrhhfinanzas [organizacion]="organizacion"></app-rrhhfinanzas>
-        </mat-tab>        
+        </mat-tab>
       </mat-tab-group>
-    </div>
+    <!-- </div> -->
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">

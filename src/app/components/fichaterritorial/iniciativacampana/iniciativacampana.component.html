@@ -1,25 +1,16 @@
 <div class="row justify-content-md-center">
-    <div class="col-lg-10 col-md-6 row justify-content-md-center" style="padding-top: 15px; padding-left: 30px;">
-        <ng-container *ngFor="let ic of listaIniciativaCampana">
-            <div class="col-lg-1 col-md-6 alineacion-vertical-centrada">
-                <div style="font-size: 14px; font-family: 'Roboto'; background-color: #ffffff; color: #6293cc; border-color: #305d91;" class="card">
-                    <div class="card-body">
-                        <h4 class="text-center"><b>{{ic.fechaInicio | date: 'dd'}} <br> {{ic.fechaInicio | date: 'MMM'}}</b></h4>
-                    </div>
-                </div>
-            </div>
-            <br/>
-            <div class="col-lg-4 col-md-6">
-                <div style="font-size: 14px; font-family: 'Roboto'; background-color: #d8dee4; border: none;" class="card">
-                    <div class="card-body">
-                        <h4><b><a (click)="openModalIniciativaCampana(ic)">{{ic.nombre}}</a></b></h4>
-                        <p>{{truncate(ic.descripcion,150)}}</p>
-                    </div>
-                </div>
-                <br/>
-            </div>
-            <div class="col-lg-1 col-md-6"></div>
-        </ng-container>
-    </div>
-</div>
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+		<ng-container *ngFor="let ic of listaIniciativaCampana">
+			<div class="row col border rounded overflow-hidden flex-md-row mb-4 mx-4 shadow-sm h-md-250 w-md-auto position-relative">
+				<div class="col-2 border-end d-flex align-items-center justify-content-center">
+					<h4 class="text-center text-primary"><b>{{ic.fechaInicio | date: 'dd'}} <br> {{ic.fechaInicio | date: 'MMM'}}</b></h4>
+				</div>
 
+				<div class="col p-4 d-flex flex-column position-static">
+					<h4><b><a (click)="openModalIniciativaCampana(ic)">{{ic.nombre}}</a></b></h4>
+					<p>{{truncate(ic.descripcion,150)}}</p>
+				</div>
+			</div>
+		</ng-container>
+	</div>
+</div>
