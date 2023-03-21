@@ -39,10 +39,8 @@ export class OrganizacionService {
   }
 
   GetRrhhDocumentos(idOrganizacion: number, filename: string) {
-    // integrar tipo de retorno
     return this.http
-      // .get(environment.apiURL + ApiRest.rrhhDownloadDocument + '/' + idOrganizacion + '/fecu/' + filename, {responseType: 'text'})
-      .get('https://qobn80xsng.execute-api.us-east-1.amazonaws.com/dev/api/downloadfile/rrhh/1/fecu/fecu2021.pdf', {responseType: 'text'})
+      .get(environment.apiURL + ApiRest.rrhhDownloadDocument + '/' + idOrganizacion + '/fecu/' + filename, {responseType: 'text'})
       .pipe(retry(1),catchError(this.errorHandl))
   }
 
@@ -117,7 +115,7 @@ export class OrganizacionService {
     .post<any>(environment.apiURL + ApiRest.unloadCartaIntencion + idOrganizacion + '/' + ApiRest.carta + nombreArchivo, cartaIntencion, this.httpOptions)
     .pipe(retry(1),catchError(this.errorHandl))
   }
-  
+
   errorHandl(error:any) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
