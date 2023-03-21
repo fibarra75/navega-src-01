@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { OrganizacionService } from 'src/app/services/organizacion.service';
 import Swal from 'sweetalert2';
 import { BusquedaService } from 'src/app/services/busqueda.service';
@@ -19,23 +19,23 @@ export class OrganizacionesComponent implements OnInit {
     nombreCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     aPaternoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     aMaternoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
-    rutCtrl: ['', [Validators.required, Validators.maxLength(10)]],
+    rutCtrl: ['', [Validators.required, Validators.maxLength(10), this.validarRut]],
     cargoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
-    celularCtrl: ['', [Validators.required, Validators.minLength(12), Validators.maxLength(12), Validators.pattern('^[0-9+()-]+$')]],
+    celularCtrl: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern(/^[0-9]*$/)]],
     emailCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.email]],
-    passwdCtrl: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]],
+    passwdCtrl: ['', [Validators.required, Validators.minLength(8), Validators.pattern("'/^[0-9]+$/'")]],
   });
   secondFormGroup = this._formBuilder.group({
     nombreOrgCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     tipoOrgCtrl: ['', [Validators.required]],
-    rutOrgCtrl: ['', [Validators.required, ]],
-    telOrgCtrl: ['', [Validators.required, Validators.maxLength(12), Validators.pattern('/^[0-9]+$/')]],
+    rutOrgCtrl: ['', [Validators.required, Validators.maxLength(10), this.validarRut]],
+    telOrgCtrl: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern(/^[0-9]*$/)]],
     representanteOrgCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     regionOrgCtrl: [[Validators.required]],
     comunaOrgCtrl: [[Validators.required]],
     ciudadOrgCtrl: [[Validators.required]],
     calleOrgCtrl:  ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
-    numeroOrgCtrl: ['', [Validators.required, Validators.pattern("/^-?(0|[1-9]\d*)?$/")]],
+    numeroOrgCtrl: ['', [Validators.required, Validators.pattern('/^[0-9]+$/')]],
     sitioWebOrgCtrl: ['', [Validators.required, Validators.pattern("/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/i")]],
   });
   tercerFormGroup = this._formBuilder.group({
@@ -107,7 +107,7 @@ export class OrganizacionesComponent implements OnInit {
     }
   }
 
-  validarRut(control: any) {
+  validarRut(control: AbstractControl) {
     const rut = control.value;
     // Eliminar puntos y guión
     const rutLimpio = rut.replace(/\./g, '').replace('-', '');
