@@ -83,9 +83,9 @@
                         <div style="font-size: 18px; font-family: 'Roboto'" class="form-group">
                             <mat-form-field>
                                 <mat-label>Comuna</mat-label>
-                                <mat-select formControlName="Comuna" placeholder="">
+                                <mat-select formControlName="Comuna" placeholder="" (selectionChange)="onChangeFiltro()">
                                     <mat-option value="0">--</mat-option>
-                                    <mat-option *ngFor="let c of listaComuna" [value]="c.idRegion">
+                                    <mat-option *ngFor="let c of listaComuna" [value]="c.idComuna">
                                     {{c.nombre}}
                                     </mat-option>
                                 </mat-select>
@@ -94,7 +94,7 @@
                         <div style="font-size: 18px; font-family: 'Roboto'" class="form-group">
                             <mat-form-field>
                                 <mat-label>Ciudad</mat-label>
-                                <mat-select formControlName="Ciudad" placeholder="">
+                                <mat-select formControlName="Ciudad" placeholder="" (selectionChange)="onChangeFiltro()">
                                     <mat-option value="0">--</mat-option>
                                     <mat-option *ngFor="let c of listaCiudad" [value]="c.idCiudad">
                                     {{c.nombre}}

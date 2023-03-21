@@ -17,6 +17,7 @@ import { FichaterritorialComponent } from '../fichaterritorial/fichaterritorial.
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { Direccion } from 'src/app/models/direccion.model';
 
 
 @Component({
@@ -194,7 +195,9 @@ export class BusquedaComponent implements OnInit {
     this.busquedaService.GetComunasRegion(idRegion).subscribe((data: Comuna[]) => {
       this.listaComuna = data;
       //console.log('Lista Comunas x Region: ', this.listaComuna);
-    })  
+    });
+    
+    this.onChangeFiltro();
   }
 
   buscarOrganizaciones(f:Organizacion) {
@@ -228,6 +231,7 @@ export class BusquedaComponent implements OnInit {
 
     this.listaOrganizacionesPadre = [];
     console.log("Cant de Organizaciones para agrupar",this.listaOrganizaciones.length);
+    console.log("ONG Filtradas",this.listaOrganizaciones);
 
     for(let i = 0; i < this.listaOrganizaciones.length; i++) {
       //console.log('i:',i);
@@ -325,6 +329,32 @@ export class BusquedaComponent implements OnInit {
     f.idPublicoObjetivo = this.FormData.value.PublicoObjetivo;
     f.idAreaTrabajo = this.FormData.value.AreaTrabajo;
     f.idAreaTrabajoSub = this.FormData.value.AreaTrabajoEsp;
+    
+    let di:Direccion;
+    let re:Region;
+    let co:Comuna;
+    let ci:Ciudad;
+
+    di = new Direccion();
+    re = new Region();
+    co = new Comuna();
+    ci = new Ciudad();
+
+    f.direcciones = [];  
+    
+    re.idRegion = Number(this.FormData.value.Region);
+    di.region = [];
+    di.region.push(re);
+
+    co.idComuna = Number(this.FormData.value.Comuna);
+    di.comuna = [];    
+    di.comuna.push(co);
+
+    ci.idCiudad = Number(this.FormData.value.Ciudad);
+    di.ciudad = [];
+    di.ciudad.push(ci);
+
+    f.direcciones.push(di);
     //f.nombre = this.FormData.value.Nombre;
     
     /*
@@ -334,7 +364,7 @@ export class BusquedaComponent implements OnInit {
     });
     */
 
-    console.log('filtros 2:',f);
+    console.log('filtros busqueda:',f);
 
     this.listaOrganizaciones = this.listaOrganizacionesTodas.filter((obj) => {
       return this.validarFiltro(obj,f);
@@ -348,26 +378,116 @@ export class BusquedaComponent implements OnInit {
 
     if (f.idTipoOrganizacion > 0) {
       if (obj.idTipoOrganizacion !== f.idTipoOrganizacion) {
-        ack = false;    
+        ack = false;
+        return ack;
       }
     }
 
     if (f.idPublicoObjetivo > 0) {
       if (obj.idPublicoObjetivo !== f.idPublicoObjetivo) {
-        ack = false;    
+        ack = false;
+        return ack;
       }
     }
 
     if (f.idAreaTrabajo > 0) {
       if (obj.idAreaTrabajo !== f.idAreaTrabajo) {
-        ack = false;    
+        ack = false;
+        return ack;
       }
     }
 
     if (f.idAreaTrabajoSub > 0) {
       if (obj.idAreaTrabajoSub !== f.idAreaTrabajoSub) {
-        ack = false;    
+        ack = false;
+        return ack;    
       }
+    }
+
+    
+    let dir : Direccion[];    
+    let dirf:Direccion;
+    let ref: Region;
+    let cof: Comuna;
+    let cif: Ciudad;
+
+    dir = obj.direcciones;
+
+    console.log('direccion filtro:',dir);
+
+    dirf = f.direcciones[0];
+    ref = dirf.region[0];
+    cof = dirf.comuna[0];
+    cif = dirf.ciudad[0];
+
+    let r: Region;
+
+    if (ref.idRegion > 0) {
+      ack = false;
+      for(let i = 0; i < dir.length; i++) {      
+        r = dir[i].region[0];
+
+        if (ref.idRegion > 0) {
+          if (r.idRegion === ref.idRegion) {
+            ack = true;
+            break;
+          }
+        }
+      }
+    }
+
+    if (!ack) {
+      console.log('Filtro region NOK');
+      return ack;
+    }
+
+    ack = true;
+
+    let c: Comuna;
+
+    if (cof.idComuna > 0) {
+      ack = false;
+      for(let i = 0; i < dir.length; i++) {
+        c= dir[i].comuna[0];
+
+        if (cof.idComuna > 0) {
+          if (c.idComuna === cof.idComuna) {
+            ack = true;
+            break;
+          }
+        }
+      }
+    }
+
+    if (!ack) {
+      console.log('Filtro comuna NOK');
+      return ack;
+    }
+
+    ack = true;
+
+    let ci: Ciudad;    
+
+    if (cif.idCiudad > 0) {
+      ack = false;
+      for(let i = 0; i < dir.length; i++) {
+      
+        if (dir[i].comuna.length > 0) {
+          ci= dir[i].ciudad[0];
+
+          if (cif.idCiudad > 0) {
+            if (ci.idCiudad === cif.idCiudad) {
+              ack = true;
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    if (!ack) {
+      console.log('Filtro ciudad NOK');
+      return ack;
     }    
 
     return ack;
