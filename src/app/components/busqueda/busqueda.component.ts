@@ -355,7 +355,8 @@ export class BusquedaComponent implements OnInit {
     di.ciudad.push(ci);
 
     f.direcciones.push(di);
-    //f.nombre = this.FormData.value.Nombre;
+    
+    f.nombre = this.FormData.value.Nombre;
     
     /*
     this.listaOrganizaciones = this.listaOrganizacionesTodas.filter((obj) => {
@@ -488,9 +489,34 @@ export class BusquedaComponent implements OnInit {
     if (!ack) {
       console.log('Filtro ciudad NOK');
       return ack;
-    }    
+    }
+    
+    if (Boolean(f.nombre)) {
+      ack = false;
+      console.log('Buscando nombre');
+      if (obj.nombre.includes(f.nombre)) {
+        ack = true;
+      }
+    }
 
+    console.log('Llegue al final:', ack);
     return ack;
+  }
+
+  limpiarFiltros() {
+
+    console.log('Limpiando filtros');
+
+    this.FormData.get("TipoOrganizacion")?.patchValue('0');
+    this.FormData.get("PublicoObjetivo")?.patchValue('0');
+    this.FormData.get("AreaTrabajo")?.patchValue('0');
+    this.FormData.get("AreaTrabajoEsp")?.patchValue('0');
+    this.FormData.get("Region")?.patchValue('0');
+    this.FormData.get("Comuna")?.patchValue('0');
+    this.FormData.get("Ciudad")?.patchValue('0');
+    this.FormData.get("Nombre")?.patchValue('');
+
+    this.listaOrganizacionesPadre = [];
   }
 
 }
