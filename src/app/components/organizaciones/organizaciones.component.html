@@ -74,8 +74,8 @@
                             <mat-error *ngIf="firstFormGroup.controls['rutCtrl'].hasError('maxlength')">
                               el rut no debe ser mayor de 10 carácteres
                             </mat-error>
-                            <mat-error *ngIf="firstFormGroup.controls['rutCtrl'].hasError('rutInvalido')">
-                              El rut no es válido
+                            <mat-error *ngIf="firstFormGroup.controls['rutCtrl'].errors?.['rutInvalido']">
+                              El rut ingresado no es válido
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -107,10 +107,10 @@
                               el celular no es válido
                             </mat-error>
                             <mat-error *ngIf="firstFormGroup.controls['celularCtrl'].hasError('minlength')">
-                              celular debe ser de 12 carácteres
+                              celular debe ser de 9 carácteres
                             </mat-error>
                             <mat-error *ngIf="firstFormGroup.controls['celularCtrl'].hasError('maxlength')">
-                              celular debe ser de 12 carácteres
+                              celular debe ser de 9 carácteres
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -157,17 +157,28 @@
                         <mat-form-field class="full-width">
                             <mat-label>Nombre Organización</mat-label>
                             <input matInput placeholder="Nombre Organización" formControlName="nombreOrgCtrl" required>
+                            <mat-error *ngIf="secondFormGroup.controls['nombreOrgCtrl'].errors?.['required']">
+                              el Nombre de la Organización es <strong>requerido</strong>
+                            </mat-error>
+                            <mat-error *ngIf="secondFormGroup.controls['nombreOrgCtrl'].hasError('maxlength')">
+                              el Nombre de la Organización no debe ser mayor de 50 carácteres
+                            </mat-error>
+                            <mat-error *ngIf="secondFormGroup.controls['nombreOrgCtrl'].hasError('pattern')">
+                              el Nombre de la Organización solo debe poseer letras
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
                             <mat-label>Tipo de Organización</mat-label>
                             <mat-select formControlName="tipoOrgCtrl" placeholder="">
-                                <mat-option value="0">Seleccione el tipo de organización</mat-option>
                                 <mat-option *ngFor="let to of listaTipoOrganizacion" [value]="to.idTipoOrganizacion">
                                     {{to.nombre}}
                                 </mat-option>
                             </mat-select>
+                            <mat-error *ngIf="secondFormGroup.controls['tipoOrgCtrl'].errors?.['required']">
+                              el Tipo de la Organización es <strong>requerido</strong>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
@@ -176,12 +187,30 @@
                         <mat-form-field class="full-width">
                             <mat-label>Rut Organización</mat-label>
                             <input matInput placeholder="Rut Organización" formControlName="rutOrgCtrl" required>
+                            <mat-error *ngIf="secondFormGroup.controls['rutOrgCtrl'].errors?.['required']">
+                              el rut es <strong>requerido</strong>
+                            </mat-error>
+                            <mat-error *ngIf="secondFormGroup.controls['rutOrgCtrl'].errors?.['rutInvalido']">
+                              El rut ingresado no es válido
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
                             <mat-label>Teléfono</mat-label>
                             <input matInput placeholder="Teléfono" formControlName="telOrgCtrl" required>
+                            <mat-error *ngIf="secondFormGroup.controls['telOrgCtrl'].errors?.['required']">
+                              el teléfono es <strong>requerido</strong>
+                            </mat-error>
+                            <mat-error *ngIf="secondFormGroup.controls['telOrgCtrl'].hasError('pattern')">
+                              el celular no es válido
+                            </mat-error>
+                            <mat-error *ngIf="secondFormGroup.controls['telOrgCtrl'].hasError('minlength')">
+                              celular debe ser de 9 carácteres
+                            </mat-error>
+                            <mat-error *ngIf="secondFormGroup.controls['telOrgCtrl'].hasError('maxlength')">
+                              celular debe ser de 9 carácteres
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
@@ -190,6 +219,9 @@
                         <mat-form-field class="full-width">
                             <mat-label>Representante Legal</mat-label>
                             <input matInput placeholder="Representante Legal" formControlName="representanteOrgCtrl" required>
+                            <mat-error *ngIf="secondFormGroup.controls['representanteOrgCtrl'].errors?.['required']">
+                              el Representante Legal es <strong>requerido</strong>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-md-6">
@@ -201,6 +233,9 @@
                                     {{r.nombre}}
                                     </mat-option>
                                 </mat-select>
+                                <mat-error *ngIf="secondFormGroup.controls['regionOrgCtrl'].errors?.['required']">
+                                  la Región es <strong>requerido</strong>
+                                </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
@@ -214,6 +249,9 @@
                                 {{c.nombre}}
                                 </mat-option>
                             </mat-select>
+                            <mat-error *ngIf="secondFormGroup.controls['comunaOrgCtrl'].errors?.['required']">
+                              la Comuna es <strong>requerido</strong>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-md-6">
@@ -225,6 +263,9 @@
                                 {{c.nombre}}
                                 </mat-option>
                             </mat-select>
+                            <mat-error *ngIf="secondFormGroup.controls['ciudadOrgCtrl'].errors?.['required']">
+                              la Ciudad es <strong>requerido</strong>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
@@ -233,12 +274,18 @@
                         <mat-form-field class="full-width">
                             <mat-label>Calle</mat-label>
                             <input matInput placeholder="Calle" formControlName="calleOrgCtrl" required>
+                            <mat-error *ngIf="secondFormGroup.controls['calleOrgCtrl'].errors?.['required']">
+                              la Calle es <strong>requerido</strong>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
                             <mat-label>Número</mat-label>
                             <input matInput placeholder="Número" formControlName="numeroOrgCtrl" required>
+                            <mat-error *ngIf="secondFormGroup.controls['numeroOrgCtrl'].errors?.['required']">
+                              el Número es <strong>requerido</strong>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
@@ -247,6 +294,9 @@
                         <mat-form-field class="full-width">
                             <mat-label>Sitio Web</mat-label>
                             <input matInput placeholder="Sitio Web" formControlName="sitioWebOrgCtrl" required>
+                            <mat-error *ngIf="secondFormGroup.controls['sitioWebOrgCtrl'].errors?.['required']">
+                              El Sitio Web es <strong>requerido</strong>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
