@@ -67,14 +67,14 @@
                     <div class="col-md-6">
                         <mat-form-field class="full-width">
                             <mat-label>Rut</mat-label>
-                            <input matInput placeholder="Rut" formControlName="rutCtrl" required>
+                            <input matInput placeholder="Rut" formControlName="rutCtrl" required maxlength="10">
                             <mat-error *ngIf="firstFormGroup.controls['rutCtrl'].errors?.['required']">
                               el rut es <strong>requerido</strong>
                             </mat-error>
                             <mat-error *ngIf="firstFormGroup.controls['rutCtrl'].hasError('maxlength')">
-                              el rut no debe ser mayor de 10 carácteres
+                              el rut debe de 10 carácteres (sin puntos, con guion)
                             </mat-error>
-                            <mat-error *ngIf="firstFormGroup.controls['rutCtrl'].errors?.['rutInvalido']">
+                            <mat-error *ngIf="firstFormGroup.controls['rutCtrl'].hasError('rutInvalido')">
                               El rut ingresado no es válido
                             </mat-error>
                         </mat-form-field>

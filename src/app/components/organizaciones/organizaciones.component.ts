@@ -19,7 +19,7 @@ export class OrganizacionesComponent implements OnInit {
     nombreCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     aPaternoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     aMaternoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
-    rutCtrl: ['', [Validators.required, Validators.maxLength(10)/* , this.validarRut */]],
+    rutCtrl: ['', [Validators.required, Validators.maxLength(10), this.validarRut]],
     cargoCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     celularCtrl: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern(/^[0-9]*$/)]],
     emailCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.email]],
@@ -28,7 +28,7 @@ export class OrganizacionesComponent implements OnInit {
   secondFormGroup = this._formBuilder.group({
     nombreOrgCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     tipoOrgCtrl: ['', [Validators.required]],
-    rutOrgCtrl: ['', [Validators.required, Validators.maxLength(10)/* , this.validarRut */]],
+    rutOrgCtrl: ['', [Validators.required, Validators.maxLength(10), this.validarRut]],
     telOrgCtrl: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern(/^[0-9]*$/)]],
     representanteOrgCtrl: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s]+$')]],
     regionOrgCtrl: [[Validators.required]],
@@ -110,32 +110,17 @@ export class OrganizacionesComponent implements OnInit {
   }
 
   validarRut(control: AbstractControl) {
-    const rut = control.value;
-    // Eliminar puntos y guión
-    const rutLimpio = rut.replace(/\./g, '').replace('-', '');
-
-    // Validar que el RUT tenga un formato válido
-    const regex = /^[0-9]+[0-9kK]{1}$/;
-    if (!regex.test(rutLimpio)) {
+    const rut = control.value.replace(/\./g, '').replace('-', '');
+    let verificador = rut.charAt(rut.length - 1);
+    let suma = rut.slice(0, -1).split('').reverse().reduce((suma: any, digito: any, i: any) => {
+      suma += parseInt(digito) * ((i % 6) + 2);
+      return suma;
+    }, 0);
+    const resultado = (11 - (suma % 11)).toString();
+    const digitoVerificador = (resultado === '11') ? '0' : (resultado === '10') ? 'K' : resultado;
+    if (digitoVerificador !== verificador.toUpperCase()) {
       return { rutInvalido: true };
     }
-
-    // Validar el dígito verificador
-    let suma = 0;
-    const rutSinDv = parseInt(rutLimpio.slice(0, -1), 10);
-    const dv = rutLimpio.slice(-1).toLowerCase();
-    for (let i = 0; i < rutSinDv.toString().length; i++) {
-      suma += parseInt(rutSinDv.toString().charAt(i), 10) * (9 - (i % 6));
-    }
-    const dvCalculado = (11 - (suma % 11)).toString();
-    const dvEsK = dvCalculado === '10' ? 'k' : dvCalculado;
-    if (dv !== dvEsK) {
-      console.log('%cerror','background: red');
-
-      return { rutInvalido: true };
-    }
-
-    // Si llega hasta aquí, el RUT es válido
     return null;
   }
 
@@ -258,11 +243,11 @@ export class OrganizacionesComponent implements OnInit {
           })
           //Se sube el certificado digital
           this.organizacionService.onloadCertificado(this.file, response.idOrganizacion, this.file.name).subscribe(response => {
-            console.log("resultado",response) 
+            console.log("resultado",response)
           })
           //Se sube la carta de intención
           this.organizacionService.onloadCartaIntencion(this.file2, response.idOrganizacion, this.file2.name).subscribe(response => {
-            console.log("resultado",response) 
+            console.log("resultado",response)
           })
         } else {
           Swal.fire("Navega Social","ocurrió un error inesperado, por favor intente de nuevo", "warning");
@@ -271,7 +256,7 @@ export class OrganizacionesComponent implements OnInit {
     } else {
       Swal.fire("Navega Social","por favor, revise los errores de validación del formulario e intente de nuevo", "warning");
     }
-    
+
   }
 
 }
